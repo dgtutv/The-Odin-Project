@@ -1,20 +1,21 @@
 *{
-    background-color: rgb(0,3,19);
-    color: white;
+    background-color: #2f4d46;
+    color: #eb9f51;
     font-family: serif;
 }
 .header{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(25,28,43);
+    background-color: #be7063;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
 .logo{
-    background-color: rgb(25,28,43);
+    background-color: #be7063;
     margin-right: 20px;
+    color: white;
 }
 
 .links{
@@ -27,4 +28,9 @@
 .recipeImage{
     width: auto;
     height: 200px;
+}
+
+#boatImage{
+    width: auto;
+    height: 100px;
 }
