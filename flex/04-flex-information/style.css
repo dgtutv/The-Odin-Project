@@ -1,3 +1,10 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Courier New', Courier, monospace;
 }
@@ -10,6 +17,8 @@ img {
 .title {
   font-size: 36px;
   font-weight: 900;
+  display: flex;
+  justify-content: center;
 }
 
 /* do not edit this footer */
@@ -23,4 +32,20 @@ img {
   align-items: center;
   justify-content: center;
   background: #eee;
+}
+
+.plants{
+  display: flex;
+  gap: 52px;
+  justify-content: center;
+  margin: 32px;
+}
+
+.plant{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 200px;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
 }
