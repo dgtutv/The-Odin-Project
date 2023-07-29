@@ -1,9 +1,36 @@
+@font-face {
+    font-family: 'soraregular';
+    src: url('./CustomFont/sora-variablefont_wght-webfont.woff2') format('woff2'),
+         url('./CustomFont/sora-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'poppinsblack';
+    src: url('./CustomFont/poppins-black-webfont.woff2') format('woff2'),
+         url('./CustomFont/poppins-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'poppinslight';
+    src: url('./CustomFont/poppins-light-webfont.woff2') format('woff2'),
+         url('./CustomFont/poppins-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     min-height: 100vh;
-    font-family: "sora";
+    font-family: "poppinslight" ,"soraregular", sans-serif;    
 
 }
 .header {
