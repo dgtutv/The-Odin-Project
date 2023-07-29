@@ -30,7 +30,8 @@ body {
     justify-content: space-between;
     flex-direction: column;
     min-height: 100vh;
-    font-family: "poppinslight" ,"soraregular", sans-serif;    
+    font-family: "poppinslight" ,"soraregular", sans-serif;   
+    margin: 0; 
 
 }
 .header {
@@ -38,6 +39,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #21262D;
+    padding: 0 16px;
 }
 
 .content {
@@ -51,11 +53,12 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #21262D;
+    padding: 16px;
 }
 
 .left-links{
     display: flex;
-    gap: 15px;
+    gap: 16px;
 }
  
 a {
