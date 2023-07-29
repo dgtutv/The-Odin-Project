@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "sora";
+
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #21262D;
+}
+
+.content {
+    display: flex;
+    flex: 1 0 auto;
+    background-color: #0D1117;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #21262D;
+}
+
+.left-links{
+    display: flex;
+    gap: 15px;
+}
+ 
+a {
+    text-decoration: none;
+    color: #7371FF;
+}
+
+h1 {
+    color: #FFFFFF;
+}
