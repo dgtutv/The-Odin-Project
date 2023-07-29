@@ -31,7 +31,12 @@ body {
 .sidebar {
   background: royalblue;
   box-sizing: border-box;
-  flex: 1 0 350px;
+  flex: 1 0 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 16px;
 }
 
 .card {
@@ -55,5 +60,20 @@ body {
   flex-wrap: wrap;
   padding: 32px;
   justify-content: space-evenly;
-  gap: 30px;
+  gap: 16px;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0;
+}
+
+li {
+  font-size: 24px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }
