@@ -26,7 +26,7 @@
 }
 
 body {
-font-family: "poppinslight" ,"soraregular", sans-serif; 
+  font-family: "poppinslight" ,"soraregular", sans-serif; 
   margin: 0;
   min-height: 100vh;
   display: flex;
@@ -67,6 +67,14 @@ font-family: "poppinslight" ,"soraregular", sans-serif;
   padding: 32px;
   margin: 16px;
   background-color: #21262D;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.card a{
+    text-decoration: underline;
 }
 
 .content {
@@ -80,6 +88,7 @@ font-family: "poppinslight" ,"soraregular", sans-serif;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  width: 70%;
 }
 
 ul {
