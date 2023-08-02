@@ -64,11 +64,9 @@ font-family: "poppinslight" ,"soraregular", sans-serif;
 
 .card {
   border-radius: 4px;
-  padding: 16px;
+  padding: 32px;
   margin: 16px;
-  height: 300px;
   background-color: #21262D;
-  flex: 1;
 }
 
 .content {
