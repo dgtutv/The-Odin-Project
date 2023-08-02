@@ -4,7 +4,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .header {
@@ -14,9 +13,8 @@ body {
   font-size: 32px;
   font-weight: 900;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  padding: 16px;
+  padding: 0 16px;
 }
 
 .footer {
@@ -29,13 +27,10 @@ body {
 }
 
 .sidebar {
+  width: 300px;
   background: royalblue;
   box-sizing: border-box;
-  flex: 1 0 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-shrink: 0;
   padding: 16px;
 }
 
@@ -43,24 +38,20 @@ body {
   border: 1px solid #eee;
   box-shadow: 2px 4px 16px rgba(0,0,0,.06);
   border-radius: 4px;
-  width: 350px;
-  height: 200px;
-  font-weight: bold;
-  font-size: 15px;
+  padding: 16px;
+  margin: 16px;
+  width: 300px;
 }
 
 .content {
   display: flex;
-  flex-grow: 1;
+  flex: 1;
 }
 
 .cards {
-  display: flex;
-  flex: 1 1 auto;
-  flex-wrap: wrap;
   padding: 32px;
-  justify-content: space-evenly;
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 ul {
@@ -70,10 +61,11 @@ ul {
 }
 
 li {
-  font-size: 24px;
+  margin-bottom: 16px;
 }
 
 a {
   color: white;
   text-decoration: none;
+  font-size: 24px;
 }
