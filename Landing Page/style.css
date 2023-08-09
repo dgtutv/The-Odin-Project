@@ -48,11 +48,12 @@ body {
     display: flex;
     align-items: center;
     padding: 96px 0px;
+    flex-shrink: 1;
   }
 
   .luna-pumpkins {
-    width: 720px;
-    height: auto;
+    max-width: 720px;
+    max-height: auto;
   }
 
   .header .bottom .left {
@@ -68,6 +69,44 @@ body {
     border-radius: 8px;
     font-weight: bold;
     color: white;
+  }
+
+  .info-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 36px;
+    gap: 36px;
+  }
+
+  .boxes{
+    display: flex;
+  }
+
+  .title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #1F2937;
+  }
+
+  .quote-box {
+    background-color: #E5E7EB;
+    padding: 96px 512px;
+    font-size: 36px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .quote {
+    color: #1F2937;
+    font-style: italic;
+    font-weight: 300;
+    align-self: flex-start;
+  }
+
+  .signature {
+    align-self: flex-end;
   }
 
   .footer {
