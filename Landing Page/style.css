@@ -44,6 +44,21 @@ body {
     height: auto;
   }
 
+  .header .bottom {
+    display: flex;
+    align-items: center;
+    padding: 78px 0px;
+  }
+
+  .luna-pumpkins {
+    width: 720px;
+    height: auto;
+  }
+
+  .header .bottom .left {
+    padding-right: 48px;
+  }
+
   .footer {
     background-color: #1F2937;
   }
