@@ -77,6 +77,7 @@
     justify-content: center;
     align-items: center;
     padding-top: 36px;
+    padding-bottom: 96px;
     gap: 36px;
   }
 
@@ -88,6 +89,17 @@
     font-size: 36px;
     font-weight: 800;
     color: #1F2937;
+  }
+
+  .box img {
+    width: 208px;
+    height: 208px;
+    border: 3px solid #3882F6;
+    border-radius: 8px;
+  }
+
+  .box {
+    text-align: center;
   }
 
   .quote-box {
