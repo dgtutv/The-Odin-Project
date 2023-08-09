@@ -47,7 +47,11 @@ body {
   .header .bottom {
     display: flex;
     align-items: center;
+<<<<<<< HEAD
     padding: 96px 0px;
+=======
+    padding: 78px 0px;
+>>>>>>> 138b3db0ceea30995c83ccb7846b965b201c8bb3
   }
 
   .luna-pumpkins {
@@ -56,6 +60,7 @@ body {
   }
 
   .header .bottom .left {
+<<<<<<< HEAD
     padding-right: 32px;
   }
 
@@ -68,6 +73,9 @@ body {
     border-radius: 8px;
     font-weight: bold;
     color: white;
+=======
+    padding-right: 48px;
+>>>>>>> 138b3db0ceea30995c83ccb7846b965b201c8bb3
   }
 
   .footer {
