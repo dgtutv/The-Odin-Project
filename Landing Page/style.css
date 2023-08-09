@@ -59,6 +59,17 @@ body {
     padding-right: 32px;
   }
 
+  .button {
+    background-color: #3882F6;
+    display: block;
+    text-align: center;
+    width: 110px;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+  }
+
   .footer {
     background-color: #1F2937;
   }
