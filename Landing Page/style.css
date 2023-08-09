@@ -70,6 +70,25 @@ body {
     color: white;
   }
 
+  .info-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 36px;
+    gap: 36px;
+  }
+
+  .boxes{
+    display: flex;
+  }
+
+  .title {
+    font-size: 36px;
+    font-weight: bolder;
+    color: #1F2937;
+  }
+
   .footer {
     background-color: #1F2937;
   }
