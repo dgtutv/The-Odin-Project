@@ -7,8 +7,8 @@ const removeItemFromArray = function(array, item){
 }
 
 const removeFromArray = function(array, ...args) {
-    for(element in args){
-        array = removeItemFromArray(array, element);
+    for(let i=0; i<args.length; i++){
+        array = removeItemFromArray(array, args[i]);
     }
     return array;
 };
