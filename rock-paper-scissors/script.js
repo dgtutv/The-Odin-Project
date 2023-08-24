@@ -22,66 +22,52 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
         let computerSelection = getComputerChoice();
         playerDisplay.textContent = playerSelection;
         computerDisplay.textContent = computerSelection;
-        if(playerSelection.toLowerCase() == computerSelection.toLowerCase()){
+        if(playerSelection == computerSelection){
             result.textContent="Draw";
         }
         else{
-            if(playerSelection.toLowerCase() == "rock"){
-                if(computerSelection == "Paper") result.textContent="Computer Wins";
-                else result.textContent="Player Wins";
+            if(playerSelection == "Rock"){
+                if(computerSelection == "Paper"){
+                    result.textContent="Computer Wins";
+                    computerCount++;
+                }
+                else{
+                    result.textContent="Player Wins";
+                    playerCount++;
+                }
             }
-            else if(playerSelection.toLowerCase() == "paper"){
-                if(computerSelection == "Scissors") result.textContent="Computer Wins";
-                else result.textContent="Player Wins";
+            else if(playerSelection == "Paper"){
+                if(computerSelection == "Scissors"){
+                    result.textContent="Computer Wins";
+                    computerCount++;
+                }
+                else{
+                    result.textContent="Player Wins";
+                    playerCount++;
+                }
             }
             else{
-                if(computerSelection == "Rock") result.textContent="Computer Wins";
-                else result.textContent="Player Wins";
+                if(computerSelection == "Rock"){
+                    result.textContent="Computer Wins";
+                    computerCount++;
+                }
+                else{
+                    result.textContent="Player Wins";
+                    playerCount++;
+                }
             }
+        }
+        if(playerCount == 5 && computerCount<playerCount){
+            console.log("player is overall winner");
+        }
+        else if(computerCount == 5 && playerCount<computerCount){
+            console.log("computer is overall winner");
         }
     }
 
-    let game = function(){
-        let playerSelection, computerSelection, winner, playerCounter, computerCounter, roundCounter;
-        playerCounter = 0;
-        computerCounter = 0;
-        roundCounter = 0;
-        submitButton.addEventListener("click", function () { //Add a click event listener to the button
-            if(roundCounter < 5){
-                computerSelection = getComputerChoice();
-                playerSelection = document.getElementById("input").value;
-                if(playerSelection.toLowerCase() != "rock" && playerSelection.toLowerCase() != "paper"
-                && playerSelection.toLowerCase() != "scissors"){
-                    console.log("Input not valid");
-                    return;
-                }
-                else{
-                    winner = playRound(playerSelection, computerSelection);
-                    roundCounter++;
-                    if(winner == "Player"){
-                        playerCounter++;
-                        console.log("Player wins round "+String(roundCounter));
-                    }
-                    else if(winner == "Computer"){
-                        computerCounter++;
-                        console.log("Computer wins round "+String(roundCounter));
-                    }
-                    else{
-                        console.log("Round "+roundCounter+" is a draw");
-                    }
-                    if(roundCounter<5){return;}
-                    else{
-                        if(playerCounter == computerCounter){console.log("The game is a draw!");}
-                        else if(playerCounter > computerCounter){console.log("Player wins the game!");}
-                        else{console.log("Computer wins the game!");}
-                        return;
-                    }
-                }
-            }                
-        });     
-    }  
-
     //Main code
+    let playerCount = 0;
+    let computerCount = 0;
     const buttons = this.querySelectorAll("button");
     const playerDisplay = this.querySelector("#playerDisplay");
     const computerDisplay = this.querySelector("#computerDisplay");
