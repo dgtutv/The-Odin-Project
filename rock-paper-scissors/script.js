@@ -65,12 +65,19 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
         }
     }
 
+    let game = function(){
+        startGameButton.style.display = "none"; //Hide the start game button
+        gameButtons.forEach(button => button.style.display = "block"); //Show the rock, paper & scissor buttons
+    }
+
     //Main code
+    const startGameButton = this.querySelector(".startGameButton");
+    const gameButtons = this.querySelectorAll(".selectionButton");
+    startGameButton.addEventListener("click", game);
     let playerCount = 0;
     let computerCount = 0;
-    const buttons = this.querySelectorAll("button");
     const playerDisplay = this.querySelector("#playerDisplay");
     const computerDisplay = this.querySelector("#computerDisplay");
     const result = document.getElementById("results");
-    buttons.forEach(button => button.addEventListener("click", playRound));
+    gameButtons.forEach(button => button.addEventListener("click", playRound));
 })

@@ -4,8 +4,16 @@
         <meta charset="UTF-8">
         <title>Rock, Paper, Scissors</title>
         <script src="script.js" defer></script>
+        <link rel="stylesheet" href="style.css">
     </head>
-    <body style="display: flex; flex-direction: column; gap: 5px;">
+    <body>
+        <!--Big button: start game, table of game results
+            Other buttons show up
+            Display round winner and selections
+            After a participant gets 5 points:
+                Remove buttons, show start game button, update table
+        -->
+        <button class="startGameButton">Start Game</button>
         <button class="selectionButton" id="Rock">Rock</button>
         <button class="selectionButton" id="Paper">Paper</button>
         <button class="selectionButton" id="Scissors">Scissors</button>
