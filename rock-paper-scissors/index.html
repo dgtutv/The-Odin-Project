@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Rock, Paper, Scissors</title>
-    <script src="script.js"></script>
-</head>
-<body style="display: flex; flex-direction: column; gap: 5px;">
-    <label for="userChoice">Enter either rock, paper, or scissors:</label>
-    <div style="display: flex; flex: row; gap: 10px;">
-        <input type="text" id="input" style="width: 200px;">
-        <button id="submitButton" style="width: 100px;">Submit</button>
-        
-    </div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock, Paper, Scissors</title>
+        <script src="script.js" defer></script>
+    </head>
+    <body style="display: flex; flex-direction: column; gap: 5px;">
+        <button class="selectionButton" id="Rock">Rock</button>
+        <button class="selectionButton" id="Paper">Paper</button>
+        <button class="selectionButton" id="Scissors">Scissors</button>
+        <span>
+            <p>Player Selection: </p>
+            <p id="playerDisplay"></p>
+        </span>
+        <span>
+            <p>Computer Selection: </p>
+            <p id="computerDisplay"></p>
+        </span>
+        <span>
+            <p>Results: </p>
+            <p id="results"></p>
+        </span>
+    </body>
 </html>
