@@ -69,6 +69,9 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
         startGameButton.style.display = "none"; //Hide the start game button
         body.style.justifyContent = "space-evenly";
 
+        //Un-hide and fill in our table
+        
+
         //un-hide the player selection, computer selection, and results
         playerDisplay.style.display = "block";
         computerDisplay.style.display = "block";
