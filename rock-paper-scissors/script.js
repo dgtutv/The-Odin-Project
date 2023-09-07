@@ -20,39 +20,39 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
     let playRound = function(e){
         let playerSelection = this.id;
         let computerSelection = getComputerChoice();
-        playerDisplay.textContent = playerSelection;
-        computerDisplay.textContent = computerSelection;
+        playerDisplay.textContent = `Player Selection: ${playerSelection}`;
+        computerDisplay.textContent = `Computer Selection: ${computerSelection}`;
         if(playerSelection == computerSelection){
-            result.textContent="Draw";
+            result.textContent="Results: Draw";
         }
         else{
             if(playerSelection == "Rock"){
                 if(computerSelection == "Paper"){
-                    result.textContent="Computer Wins";
+                    result.textContent="Results: Computer Wins";
                     computerCount++;
                 }
                 else{
-                    result.textContent="Player Wins";
+                    result.textContent="Results: Player Wins";
                     playerCount++;
                 }
             }
             else if(playerSelection == "Paper"){
                 if(computerSelection == "Scissors"){
-                    result.textContent="Computer Wins";
+                    result.textContent="Results: Computer Wins";
                     computerCount++;
                 }
                 else{
-                    result.textContent="Player Wins";
+                    result.textContent="Results: Player Wins";
                     playerCount++;
                 }
             }
             else{
                 if(computerSelection == "Rock"){
-                    result.textContent="Computer Wins";
+                    result.textContent="Results: Computer Wins";
                     computerCount++;
                 }
                 else{
-                    result.textContent="Player Wins";
+                    result.textContent="Results: Player Wins";
                     playerCount++;
                 }
             }
