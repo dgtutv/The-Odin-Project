@@ -14,20 +14,15 @@
                 Remove buttons, show start game button, update table
         -->
         <button class="startGameButton">Start Game</button>
-        <button class="selectionButton" id="Rock">Rock</button>
-        <button class="selectionButton" id="Paper">Paper</button>
-        <button class="selectionButton" id="Scissors">Scissors</button>
-        <span>
-            <p>Player Selection: </p>
-            <p id="playerDisplay"></p>
-        </span>
-        <span>
-            <p>Computer Selection: </p>
-            <p id="computerDisplay"></p>
-        </span>
-        <span>
-            <p>Results: </p>
-            <p id="results"></p>
-        </span>
+        <div class="gameplayButtons">
+            <button class="selectionButton" id="Rock">Rock</button>
+            <button class="selectionButton" id="Paper">Paper</button>
+            <button class="selectionButton" id="Scissors">Scissors</button>
+        </div>
+        <div class="gameplayResults">
+            <p id="playerDisplay">Player Selection: </p>
+            <p id="computerDisplay">Computer Selection: </p>
+            <p id="results">Results: </p>
+        </div>
     </body>
 </html>

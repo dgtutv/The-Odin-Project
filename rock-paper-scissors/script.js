@@ -67,10 +67,18 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
 
     let game = function(){
         startGameButton.style.display = "none"; //Hide the start game button
+        body.style.justifyContent = "space-evenly";
+
+        //un-hide the player selection, computer selection, and results
+        playerDisplay.style.display = "block";
+        computerDisplay.style.display = "block";
+        result.style.display = "block";
+
         gameButtons.forEach(button => button.style.display = "block"); //Show the rock, paper & scissor buttons
     }
 
     //Main code
+    const body = this.querySelector("body");
     const startGameButton = this.querySelector(".startGameButton");
     const gameButtons = this.querySelectorAll(".selectionButton");
     startGameButton.addEventListener("click", game);
