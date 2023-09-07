@@ -70,8 +70,17 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
         body.style.justifyContent = "space-evenly";
 
         //Un-hide and fill in our table
+        const tableHead = document.createElement('thead');
+        const headerRow = document.createElement('tr');
+        const playerHeader = document.createElement('th');
+        const computerHeader = document.createElement('th');
+        playerHeader.textContent = "Player Wins";
+        computerHeader.textContent = "Computer Wins"
         
-
+        tableHead.appendChild(headerRow);
+        resultsTable.appendChild(tableHead);    //ERROR: - tableHead is null
+        headerRow.appendChild(playerHeader);
+        headerRow.appendChild(computerHeader);
         //un-hide the player selection, computer selection, and results
         playerDisplay.style.display = "block";
         computerDisplay.style.display = "block";
@@ -90,5 +99,6 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
     const playerDisplay = this.querySelector("#playerDisplay");
     const computerDisplay = this.querySelector("#computerDisplay");
     const result = document.getElementById("results");
+    const resultsTable = document.getElementById("#resultsTable");
     gameButtons.forEach(button => button.addEventListener("click", playRound));
 })
