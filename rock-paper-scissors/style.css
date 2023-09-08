@@ -54,6 +54,8 @@ td, th {
 #results{
     display: none;
 }
+
+/* Adjust images such that the aspect ratio is fixed with image processing tools*/
 #Rock{
     width: 200px;
     height: 100px;
