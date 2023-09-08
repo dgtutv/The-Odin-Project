@@ -109,6 +109,12 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
         result.style.display = "block";
 
         gameButtons.forEach(button => button.style.display = "block"); //Show the rock, paper & scissor buttons
+
+        //Adjust the margins of gameplay elements
+        gameButtons.forEach(button => button.style.margin = "0 64px 0 0");  //red complete, yellow complete, green complete
+        gameplayResults.style.margin = "0 128px 0 64px";
+        resultsTable.style.margin = "0 0 0 64px";
+
     }
 
     //Main code
@@ -124,5 +130,6 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
     const computerDisplay = this.querySelector("#computerDisplay");
     const result = document.getElementById("results");
     const resultsTable = this.querySelector("#resultsTable");
+    const gameplayResults = this.querySelector(".gameplayResults");
     gameButtons.forEach(button => button.addEventListener("click", playRound));
 })

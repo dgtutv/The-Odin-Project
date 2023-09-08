@@ -19,7 +19,7 @@ td, th {
     margin: 120px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 .gameplayButtons{
     display: flex;
