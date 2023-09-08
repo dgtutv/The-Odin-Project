@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
     }
 
     let playRound = function(e){
+        const playerWinsBox = document.getElementById('playerWinsBox');
+        const computerWinsBox = document.getElementById('computerWinsBox');
         let playerSelection = this.id;
         let computerSelection = getComputerChoice();
         playerDisplay.textContent = `Player Selection: ${playerSelection}`;
@@ -58,11 +60,18 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
             }
         }
         if(playerCount == 5 && computerCount<playerCount){
-            console.log("player is overall winner");
+            playerWins++;
+            playerCount = 0;
+            computerCount = 0;
         }
         else if(computerCount == 5 && playerCount<computerCount){
-            console.log("computer is overall winner");
+            computerWins++;
+            playerCount = 0;
+            computerCount = 0;
         }
+
+        playerWinsBox.textContent = playerWins;
+        computerWinsBox.textContent = computerWins;
     }
 
     let game = function(){
@@ -71,16 +80,29 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
 
         //Un-hide and fill in our table
         const tableHead = document.createElement('thead');
+        const tableBody = document.createElement('tbody');
         const headerRow = document.createElement('tr');
         const playerHeader = document.createElement('th');
         const computerHeader = document.createElement('th');
+        const winsRow = document.createElement('tr');
+        const playerWinsBox = document.createElement('td');
+        const computerWinsBox = document.createElement('td');
         playerHeader.textContent = "Player Wins";
         computerHeader.textContent = "Computer Wins"
-        
-        tableHead.appendChild(headerRow);
+        playerWinsBox.textContent = playerWins;
+        computerWinsBox.textContent = computerWins;
+        playerWinsBox.id = "playerWinsBox";
+        computerWinsBox.id = "computerWinsBox";
+
         resultsTable.appendChild(tableHead); 
+        resultsTable.appendChild(tableBody);
+        tableHead.appendChild(headerRow);
         headerRow.appendChild(playerHeader);
         headerRow.appendChild(computerHeader);
+        tableBody.appendChild(winsRow);
+        winsRow.appendChild(playerWinsBox);
+        winsRow.appendChild(computerWinsBox);
+
         //un-hide the player selection, computer selection, and results
         playerDisplay.style.display = "block";
         computerDisplay.style.display = "block";
@@ -96,6 +118,8 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
     startGameButton.addEventListener("click", game);
     let playerCount = 0;
     let computerCount = 0;
+    let playerWins = 0;
+    let computerWins = 0;
     const playerDisplay = this.querySelector("#playerDisplay");
     const computerDisplay = this.querySelector("#computerDisplay");
     const result = document.getElementById("results");
