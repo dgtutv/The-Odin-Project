@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
     }
 
     let game = function(){
-        startGameButton.style.display = "none"; //Hide the start game button
+        startGameButton.remove(); //Delete the start game button
         body.style.justifyContent = "space-evenly";
 
         //Un-hide and fill in our table

@@ -1,7 +1,4 @@
-body{
-    display: flex;
-    justify-content: center;
-}
+
 table {
     border-collapse: collapse;  /*prevents double borders*/
     border: 2px solid black;
@@ -9,6 +6,20 @@ table {
 td, th {
     border: 1px solid gray;
     padding: 8px;
+}
+.header{
+    text-align: center;
+}
+.startGameButton{
+    width: 400px;
+    height: 100px;
+    margin: 120px;
+}
+.content{
+    margin: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 .gameplayButtons{
     display: flex;
