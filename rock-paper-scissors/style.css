@@ -54,3 +54,21 @@ td, th {
 #results{
     display: none;
 }
+#Rock{
+    width: 200px;
+    height: 100px;
+    background-image: url("pexels-george-desipris-990721.jpg");
+    background-size: cover;
+}
+#Paper{
+    width: 200px;
+    height: 100px;
+    background-image: url("pexels-asya-vlasova-2575363.jpg");
+    background-size: cover;
+}
+#Scissors{
+    width: 200px;
+    height: 100px;
+    background-image: url("pexels-nikolaos-dimou-1319460.jpg");
+    background-size: cover;
+}
