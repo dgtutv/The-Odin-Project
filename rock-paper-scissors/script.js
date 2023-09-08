@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
         computerHeader.textContent = "Computer Wins"
         
         tableHead.appendChild(headerRow);
-        resultsTable.appendChild(tableHead);    //ERROR: - tableHead is null
+        resultsTable.appendChild(tableHead); 
         headerRow.appendChild(playerHeader);
         headerRow.appendChild(computerHeader);
         //un-hide the player selection, computer selection, and results
@@ -99,6 +99,6 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
     const playerDisplay = this.querySelector("#playerDisplay");
     const computerDisplay = this.querySelector("#computerDisplay");
     const result = document.getElementById("results");
-    const resultsTable = document.getElementById("#resultsTable");
+    const resultsTable = this.querySelector("#resultsTable");
     gameButtons.forEach(button => button.addEventListener("click", playRound));
 })
