@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
         gameButtons.forEach(button => button.style.display = "block"); //Show the rock, paper & scissor buttons
 
         //Adjust the margins of gameplay elements
-        gameButtons.forEach(button => button.style.margin = "0 64px 0 0");  //purple and yellow and red
+        gameButtons.forEach(button => button.style.margin = "0 64px 0 0"); 
         gameplayResults.style.margin = "0 128px 0 64px";
         resultsTable.style.margin = "0 0 0 64px";
 
