@@ -59,19 +59,8 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
                 }
             }
         }
-        if(playerCount == 5 && computerCount<playerCount){
-            playerWins++;
-            playerCount = 0;
-            computerCount = 0;
-        }
-        else if(computerCount == 5 && playerCount<computerCount){
-            computerWins++;
-            playerCount = 0;
-            computerCount = 0;
-        }
-
-        playerWinsBox.textContent = playerWins;
-        computerWinsBox.textContent = computerWins;
+        playerWinsBox.textContent = playerCount;
+        computerWinsBox.textContent = computerCount;
     }
 
     let game = function(){
@@ -89,8 +78,8 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
         const computerWinsBox = document.createElement('td');
         playerHeader.textContent = "Player Wins";
         computerHeader.textContent = "Computer Wins"
-        playerWinsBox.textContent = playerWins;
-        computerWinsBox.textContent = computerWins;
+        playerWinsBox.textContent = playerCount;
+        computerWinsBox.textContent = computerCount;
         playerWinsBox.id = "playerWinsBox";
         computerWinsBox.id = "computerWinsBox";
 
@@ -124,8 +113,6 @@ document.addEventListener("DOMContentLoaded", function () { //Wait for the DOM t
     startGameButton.addEventListener("click", game);
     let playerCount = 0;
     let computerCount = 0;
-    let playerWins = 0;
-    let computerWins = 0;
     const playerDisplay = this.querySelector("#playerDisplay");
     const computerDisplay = this.querySelector("#computerDisplay");
     const result = document.getElementById("results");
