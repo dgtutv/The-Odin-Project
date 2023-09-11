@@ -12,9 +12,6 @@ let createGrid = function(gridX, gridY){
             slot.addEventListener('mouseenter', function()  {
                 slot.style.backgroundColor = 'gray';
             });
-            slot.addEventListener('mouseleave', function() {
-                slot.style.backgroundColor = 'white';
-            });
             slot.style.height = `${750/gridX}px`;
             slot.style.width = `${750/gridY}px`;
             row.appendChild(slot);
