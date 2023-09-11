@@ -13,12 +13,16 @@ let createGrid = function(gridX, gridY){
             slot.addEventListener('mouseenter', function()  {
                 if(!slot.touched){
                     slot.touched = true;
-                    let red = Math.floor(Math.random() * 256);
-                    let green = Math.floor(Math.random() * 256);
-                    let blue = Math.floor(Math.random() * 256);
-                    slot.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                    slot.red = Math.floor(Math.random() * 256);
+                    slot.green = Math.floor(Math.random() * 256);
+                    slot.blue = Math.floor(Math.random() * 256);
+                    slot.alpha = 0.1;
+                    slot.style.backgroundColor = `rgb(${slot.red}, ${slot.green}, ${slot.blue}, ${slot.alpha})`;
                 }
-
+                else{
+                    slot.alpha = slot.alpha + 0.1;
+                    slot.style.backgroundColor = `rgb(${slot.red}, ${slot.green}, ${slot.blue}, ${slot.alpha})`;
+                }
             });
             slot.style.height = `${750/gridX}px`;
             slot.style.width = `${750/gridY}px`;
