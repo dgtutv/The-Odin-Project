@@ -15,6 +15,8 @@ let createGrid = function(gridX, gridY){
             slot.addEventListener('mouseleave', function() {
                 slot.style.backgroundColor = 'white';
             });
+            slot.style.height = `${750/gridX}px`;
+            slot.style.width = `${750/gridY}px`;
             row.appendChild(slot);
         }
     }
@@ -22,3 +24,7 @@ let createGrid = function(gridX, gridY){
 
 const container = document.querySelector(".container");
 createGrid(16, 16);
+const gridQueryButton = document.querySelector("#gridQuery");
+gridQueryButton.addEventListener('click', function() {
+    console.log("I've been pressed!");
+})

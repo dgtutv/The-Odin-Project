@@ -1,10 +1,12 @@
 .slot{
-    height: 30px;
-    width: 30px;
     border: 2px solid black;
     box-sizing: border-box;
 }
 .row{
     display: flex;
     justify-content: center;
+}
+.container{
+    height: 750px;
+    width: 750px;
 }
