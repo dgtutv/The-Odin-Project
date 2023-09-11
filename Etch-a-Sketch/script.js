@@ -10,18 +10,26 @@ let createGrid = function(gridX, gridY){
             slot.touched = false;
             counter++;
             slot.className = "slot";
+            slot.addEventListener('mousedown', function() {
+                mouseDown = true;
+            })
+            slot.addEventListener('mouseup', function(){
+                mouseDown = false;
+            })
             slot.addEventListener('mouseenter', function()  {
-                if(!slot.touched){
-                    slot.touched = true;
-                    slot.red = Math.floor(Math.random() * 256);
-                    slot.green = Math.floor(Math.random() * 256);
-                    slot.blue = Math.floor(Math.random() * 256);
-                    slot.alpha = 0.1;
-                    slot.style.backgroundColor = `rgb(${slot.red}, ${slot.green}, ${slot.blue}, ${slot.alpha})`;
-                }
-                else{
-                    slot.alpha = slot.alpha + 0.1;
-                    slot.style.backgroundColor = `rgb(${slot.red}, ${slot.green}, ${slot.blue}, ${slot.alpha})`;
+                if(mouseDown){
+                    if(!slot.touched){
+                        slot.touched = true;
+                        slot.red = Math.floor(Math.random() * 256);
+                        slot.green = Math.floor(Math.random() * 256);
+                        slot.blue = Math.floor(Math.random() * 256);
+                        slot.alpha = 0.3;
+                        slot.style.backgroundColor = `rgb(${slot.red}, ${slot.green}, ${slot.blue}, ${slot.alpha})`;
+                    }
+                    else{
+                        slot.alpha = slot.alpha + 0.1;
+                        slot.style.backgroundColor = `rgb(${slot.red}, ${slot.green}, ${slot.blue}, ${slot.alpha})`;
+                    }
                 }
             });
             slot.style.height = `${750/gridX}px`;
@@ -46,6 +54,7 @@ const body = document.querySelector("body");
 let container = document.querySelector(".container");
 createGrid(16, 16);
 const gridQueryButton = document.querySelector("#gridQuery");
+let mouseDown = false;
 gridQueryButton.addEventListener('click', function() {
     const userInput = window.prompt("What size would you linke the grid to be?", "16");
     if(userInput != null && !isNaN(userInput)){
