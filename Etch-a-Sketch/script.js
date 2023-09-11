@@ -7,10 +7,18 @@ let createGrid = function(gridX, gridY){
         container.appendChild(row);
         for(let j=0; j<gridX; j++){
             let slot = document.createElement("div");
+            slot.touched = false;
             counter++;
             slot.className = "slot";
             slot.addEventListener('mouseenter', function()  {
-                slot.style.backgroundColor = 'gray';
+                if(!slot.touched){
+                    slot.touched = true;
+                    let red = Math.floor(Math.random() * 256);
+                    let green = Math.floor(Math.random() * 256);
+                    let blue = Math.floor(Math.random() * 256);
+                    slot.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                }
+
             });
             slot.style.height = `${750/gridX}px`;
             slot.style.width = `${750/gridY}px`;
