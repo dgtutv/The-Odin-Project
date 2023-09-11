@@ -1,9 +1,10 @@
-div{
-    height: 300px;
-    width: 300px;
-    border-color: black;
-    border: 2px;
+.slot{
+    height: 30px;
+    width: 30px;
+    border: 2px solid black;
+    box-sizing: border-box;
 }
 .row{
     display: flex;
+    justify-content: center;
 }

@@ -10,7 +10,7 @@ let createGrid = function(){
             let slot = document.createElement("div");
             counter++;
             slot.id = `slot-${counter}`;
-            slot.className = slot;
+            slot.className = "slot";
             row.appendChild(slot);
         }
     }
