@@ -30,10 +30,19 @@ let createGrid = function(gridX, gridY){
         }
     }
 }
-
-const container = document.querySelector(".container");
+const body = document.querySelector("body");
+let container = document.querySelector(".container");
 createGrid(16, 16);
 const gridQueryButton = document.querySelector("#gridQuery");
 gridQueryButton.addEventListener('click', function() {
-    console.log("I've been pressed!");
+    const userInput = window.prompt("What size would you linke the grid to be?", "16");
+    if(userInput != null && !isNaN(userInput)){
+        container.remove();
+        container = document.createElement("div");
+        container.className = "container";
+        container.style.height = '750px';
+        container.style.width = '750px';
+        body.appendChild(container);
+        createGrid(userInput, userInput);
+    }
 })
