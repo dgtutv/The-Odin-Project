@@ -15,6 +15,18 @@ let createGrid = function(gridX, gridY){
             slot.style.height = `${750/gridX}px`;
             slot.style.width = `${750/gridY}px`;
             row.appendChild(slot);
+            if(j == 0){
+                slot.style.borderLeft = '4px solid black';
+            }
+            else if(j == gridX-1){
+                slot.style.borderRight = '4px solid black';
+            }
+            if(i==0){
+                slot.style.borderTop = '4px solid black';
+            }
+            else if(i == gridY-1){
+                slot.style.borderBottom = '4px solid black';
+            }
         }
     }
 }
