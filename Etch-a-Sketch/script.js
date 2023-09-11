@@ -1,11 +1,11 @@
-let createGrid = function(){
+let createGrid = function(gridX, gridY){
     /*create 16 rows which contain 16 divs each*/
     let counter = 0;
-    for(let i=0; i<16; i++){
+    for(let i=0; i<gridY; i++){
         let row = document.createElement("div");
         row.className = "row";
         container.appendChild(row);
-        for(let j=0; j<16; j++){
+        for(let j=0; j<gridX; j++){
             let slot = document.createElement("div");
             counter++;
             slot.className = "slot";
@@ -21,4 +21,4 @@ let createGrid = function(){
 }
 
 const container = document.querySelector(".container");
-createGrid();
+createGrid(16, 16);
