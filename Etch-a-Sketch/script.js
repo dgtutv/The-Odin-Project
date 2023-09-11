@@ -9,6 +9,12 @@ let createGrid = function(){
             let slot = document.createElement("div");
             counter++;
             slot.className = "slot";
+            slot.addEventListener('mouseenter', function()  {
+                slot.style.backgroundColor = 'gray';
+            });
+            slot.addEventListener('mouseleave', function() {
+                slot.style.backgroundColor = 'white';
+            });
             row.appendChild(slot);
         }
     }
