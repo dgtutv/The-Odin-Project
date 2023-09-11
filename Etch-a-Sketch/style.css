@@ -1,0 +1,9 @@
+div{
+    height: 300px;
+    width: 300px;
+    border-color: black;
+    border: 2px;
+}
+.row{
+    display: flex;
+}
