@@ -10,14 +10,24 @@ let createGrid = function(gridX, gridY){
             slot.touched = false;
             counter++;
             slot.className = "slot";
-            slot.addEventListener('mousedown', function() {
-                mouseDown = true;
+            slot.addEventListener('mousedown', (e) => {
+                if (e.button === 0){
+                    leftMouseDown = true;
+                }
+                else if (e.button === 2){
+                    rightMouseDown = true;
+                }
             })
-            slot.addEventListener('mouseup', function(){
-                mouseDown = false;
+            slot.addEventListener('mouseup', (e) => {
+                if (e.button === 0){
+                    leftMouseDown = false;
+                }
+                else if (e.button === 2){
+                    rightMouseDown = false;
+                }
             })
             slot.addEventListener('mouseenter', function()  {
-                if(mouseDown){
+                if(leftMouseDown){
                     if(!slot.touched){
                         slot.touched = true;
                         slot.red = Math.floor(Math.random() * 256);
@@ -31,7 +41,13 @@ let createGrid = function(gridX, gridY){
                         slot.style.backgroundColor = `rgb(${slot.red}, ${slot.green}, ${slot.blue}, ${slot.alpha})`;
                     }
                 }
+                else if(rightMouseDown){
+                    slot.touched = false;
+                    slot.style.backgroundColor = 'white';
+                }
             });
+            slot.addEventListener('contextmenu', (e) => {e.preventDefault();});
+
             slot.style.height = `${750/gridX}px`;
             slot.style.width = `${750/gridY}px`;
             row.appendChild(slot);
@@ -54,7 +70,8 @@ const body = document.querySelector("body");
 let container = document.querySelector(".container");
 createGrid(16, 16);
 const gridQueryButton = document.querySelector("#gridQuery");
-let mouseDown = false;
+let leftMouseDown = false;
+let rightMouseDown = false;
 gridQueryButton.addEventListener('click', function() {
     const userInput = window.prompt("What size would you linke the grid to be?", "16");
     if(userInput != null && !isNaN(userInput)){
