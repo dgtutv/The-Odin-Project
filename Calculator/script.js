@@ -29,3 +29,19 @@ const divide = function(parameters) {
     }
     return quotient;
 };
+
+const power = function(parameters) {
+    let result = parameters[0];
+    for(let i=1; i<parameters.length; i++){
+      result = result ** parameters[i];
+    }
+    return result;
+};
+  
+const factorial = function(parameter) {
+    let result=1;
+        for(let i=2; i<parameter+1; i++){
+        result = result * i;
+    }
+    return result;
+};
