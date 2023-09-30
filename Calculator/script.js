@@ -81,5 +81,6 @@ const compute = function(equation) {
             subtractionIndeces.push(i);
         }
     }
-    return(factorials);
+    //Find the first opening bracket and the last closing bracket, narrow in to the most nested bracket
+    
 }
