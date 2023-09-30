@@ -8,7 +8,12 @@ const add = function() {
 };
 
 const subtract = function() {
-	
+  let parameters = Array.from(arguments);
+  let sum = parameters[0];
+  for(let i=1; i<parameters.length; i++){
+    sum -= parameters[i];
+  }
+  return sum;
 };
 
 const sum = function() {
