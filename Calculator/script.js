@@ -49,7 +49,6 @@ const factorial = function(parameter) {
 const compute = function(equation) {
     let factorials = [];
     let openBracketIndices = [];
-    let closeBracketIndeces = [];
     let powerIndeces = [];
     let divideIndeces = [];
     let multiplyIndeces = [];
@@ -63,7 +62,16 @@ const compute = function(equation) {
             openBracketIndices.push(i);
         }
         else if(equation[i] == ')'){
-            closeBracketIndeces.push(i);
+            let openBracketIndex = openBracketIndices.pop();
+            let subEquation =  equation.slice(openBracketIndex + 1, i);
+            let subResult = compute(subEquation);
+            equation = equation.substring(0, openIndex) + subResult + equation.substring(i + 1);
+            i = openBracketIndex - 1 ;
+            for(let j = 0; j<openBracketIndices.length; j++){
+                if(openBracketIndices[j] > openIndex) {
+                    openBracketIndices[j] -= (i - openBracketIndex + 1);
+                }
+            }
         }
         else if(equation[i] == '*' && equation[i-1] == '*'){
             powerIndeces.push(i);
@@ -80,7 +88,5 @@ const compute = function(equation) {
         else if(equation[i] == '-'){
             subtractionIndeces.push(i);
         }
-    }
-    //Find the first opening bracket and the last closing bracket, narrow in to the most nested bracket
-    
+    }    
 }
