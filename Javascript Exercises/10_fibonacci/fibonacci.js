@@ -14,9 +14,8 @@ const fibonacci = function(index) {
     else{
         let prevNum=0;
         let currNum=1;
-        for(let i=2; i<index+1; i++){
+        for(let i=2; i<parseInt(index)+1; i++){
             nextNum=currNum+prevNum;
-            console.log(`prevNum: ${prevNum}\ncurrNum: ${currNum}\n nextNum: ${nextNum}`);
             prevNum=currNum;
             currNum=nextNum;
         }
