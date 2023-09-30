@@ -24,12 +24,21 @@ const sum = function(parameterArray) {
   return sum;
 };
 
-const multiply = function() {
-
+const multiply = function(parameters) {
+  let product = parameters[0];
+  for(let i=1; i<parameters.length; i++){
+    product = product * parameters[i];
+  }
+  return product;
 };
 
 const power = function() {
-	
+  let parameters = Array.from(arguments);
+	let result = parameters[0];
+  for(let i=1; i<parameters.length; i++){
+    result = result ** parameters[i];
+  }
+  return result;
 };
 
 const factorial = function() {
