@@ -16,8 +16,12 @@ const subtract = function() {
   return sum;
 };
 
-const sum = function() {
-	
+const sum = function(parameterArray) {
+  let sum=0;
+  for(let i=0; i<parameterArray.length; i++){
+    sum += parameterArray[i];
+  }
+  return sum;
 };
 
 const multiply = function() {
