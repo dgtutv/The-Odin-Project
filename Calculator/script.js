@@ -88,5 +88,10 @@ const compute = function(equation) {
         else if(equation[i] == '-'){
             subtractionIndeces.push(i);
         }
-    }    
+    }  
+    for(let i=0; i<powerIndeces.length; i++){
+        let currentPowerIndex = powerIndeces[i];
+        let base = equation[currentPowerIndex-2];
+        let exponent = equation[]
+    }  
 }
