@@ -41,8 +41,12 @@ const power = function() {
   return result;
 };
 
-const factorial = function() {
-	
+const factorial = function(parameter) {
+  let result=1;
+	for(let i=2; i<parameter+1; i++){
+    result = result * i;
+  }
+  return result;
 };
 
 // Do not edit below this line
