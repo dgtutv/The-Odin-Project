@@ -45,3 +45,41 @@ const factorial = function(parameter) {
     }
     return result;
 };
+
+const compute = function(equation) {
+    let factorials = [];
+    let openBracketIndices = [];
+    let closeBracketIndeces = [];
+    let powerIndeces = [];
+    let divideIndeces = [];
+    let multiplyIndeces = [];
+    let additionIndeces = [];
+    let subtractionIndeces = [];
+    for(let i=0; i<equation.length; i++){
+        if(equation[i] == '!'){
+            factorials.push(factorial(parseInt(equation[i-1])));
+        }
+        else if(equation[i] == '('){
+            openBracketIndices.push(i);
+        }
+        else if(equation[i] == ')'){
+            closeBracketIndeces.push(i);
+        }
+        else if(equation[i] == '*' && equation[i-1] == '*'){
+            powerIndeces.push(i);
+        }
+        else if(equation[i] == '/'){
+            divideIndeces.push(i);
+        }
+        else if(equation[i] == '*'){
+            multiplyIndeces.push(i);
+        }
+        else if(equation[i] == '+'){
+            additionIndeces.push(i);
+        }
+        else if(equation[i] == '-'){
+            subtractionIndeces.push(i);
+        }
+    }
+    return(factorials);
+}
