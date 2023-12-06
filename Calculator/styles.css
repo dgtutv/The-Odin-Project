@@ -9,8 +9,9 @@ body{
     width: 100vw;
     height: 100vh;
 }
+
 main{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(216, 216, 216);
     border-radius: 20px;
     position: fixed;
     top: 50%;
@@ -21,5 +22,41 @@ main{
     align-items: center;
     justify-content: flex-start;
     height: 80vh;
-    width: 40vw;
+    width: 30vw;
+}
+
+#display{
+    width: 60%;
+    height: 20%;
+    border: solid black 1px;
+    margin: 20%;
+    background-color: rgb(219, 219, 197);
+}
+
+#buttons{
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 5%;
+    margin-bottom: 10%;
+}
+
+button{
+    width: 18%;
+    height: 23%;
+    border: solid black 1px;
+    border-radius: 10px;
+    background-color: rgb(245, 245, 220);
+    font-size: 1.5em;
+    font-weight: bold;
+    color: rgb(95, 25, 25);
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+
+#equals{
+    width: 38%;
 }
