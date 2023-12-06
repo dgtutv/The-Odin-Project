@@ -65,6 +65,13 @@ button:active{
     width: 38%;
 }
 
+
+@media screen and (min-width: 1800px){
+    main{
+        width: 28vw;
+    }
+}
+
 @media screen and (max-width: 1600px){
     main{
         width: 31vw;
@@ -125,7 +132,12 @@ button:active{
 
 @media screen and (max-width: 520px){
     main{
-        width: 100vw;
+        width: 98vw;
+        margin: 0;
+    }
+    body{
+        padding: 0;
+        margin: 0;
     }
 }
 
