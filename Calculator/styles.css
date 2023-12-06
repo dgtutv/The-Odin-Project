@@ -64,3 +64,77 @@ button:active{
 #equals{
     width: 38%;
 }
+
+@media screen and (max-width: 1600px){
+    main{
+        width: 31vw;
+    }
+}
+
+@media screen and (max-width: 1500px){
+    main{
+        width: 35vw;
+    }
+}
+
+@media screen and (max-width: 1360px){
+    main{
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    main{
+        width: 45vw;
+    }
+}
+
+@media screen and (max-width: 1020px){
+    main{
+        width: 50vw;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    main{
+        width: 55vw;
+    }
+}
+@media screen and (max-width: 840px){
+    main{
+        width: 60vw;
+    }
+}
+
+@media screen and (max-width: 760px){
+    main{
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 670px){
+    main{
+        width: 80vw;
+    }
+}
+@media screen and (max-width: 600px){
+    main{
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 520px){
+    main{
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width: 450px){
+    main{
+        padding: 0;
+    }
+    #buttons{
+        padding: 0;
+        width: 90%;
+    }
+}
