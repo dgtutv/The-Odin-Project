@@ -72,7 +72,7 @@ document.querySelector("#pi").addEventListener('click', () => {
 });
 
 document.querySelector("#equals").addEventListener('click', () => {
-    let input = display.textContent;
+    let input = display.textContent.replace(/π/g, "Math.PI");
     try {
         output = eval(input);
         display.textContent = output;
