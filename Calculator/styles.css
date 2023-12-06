@@ -37,6 +37,7 @@ main{
     font-size: 4rem;
     overflow-x: auto;
     overflow-y: hidden;
+    padding: .5rem;
 }
 
 #buttons{
