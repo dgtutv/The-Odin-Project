@@ -1,0 +1,15 @@
+body{
+    display: flex;
+    height: 98vh;
+}
+.image{
+    flex: 1 3 33.33%;
+    max-width: 100%;
+}
+.image img{
+    width: 100%;
+    height: 98vh;
+}
+.content{
+    flex: 3 1 66.67%;
+}
