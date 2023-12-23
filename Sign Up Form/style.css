@@ -53,4 +53,24 @@ body{
     font-size: 6rem;
     font-weight: lighter;
 }
- 
+@media screen and (max-width: 800px){
+    .overlayText > h1{
+        font-size: 4rem;
+    }
+    .overlayText > img{
+        height: 60%;
+    }
+}
+@media screen and (max-width: 600px){
+    .overlayText > h1{
+        font-size: 3rem;
+    }
+    .overlayText > img{
+        height: 50%;
+    }
+}
+@media screen and (max-width: 450px){
+    .overlayText > img{
+        height: 40%;
+    }
+}
