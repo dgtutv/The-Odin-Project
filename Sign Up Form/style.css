@@ -114,3 +114,12 @@ form{
 .quoteText{
     margin-right: 25%;
 }
+
+input{
+    border: 2px solid #E5E7EB
+}
+
+#pwdNotMatch{
+    color: red;
+    margin-top: 0;
+}
