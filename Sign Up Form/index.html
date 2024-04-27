@@ -26,14 +26,20 @@
         <form action="">
             <p>Let's do this!</p><br>
             <label for="firstName">FIRST NAME</label>
-            <input type="text" name="firstName" id="firstName">
+            <input type="text" name="firstName" id="firstName" required>
             <label for="lastName">LAST NAME</label>
-            <input type="text" name="lastName" id="lastName">
+            <input type="text" name="lastName" id="lastName" required>
             <label for="email">EMAIL</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" required>
             <label for="phoneNumber">PHONE NUMBER</label>
-            input
+            <input type="tel" name="phoneNumber" id="phoneNumber" required>
+            <label for="pwd">PASSWORD</label>
+            <input type="password" name="pwd" id="pwd" required>
+            <label for="confirmPwd">CONFIRM PASSWORD</label>
+            <input type="password" name="confirmPwd" id="confirmPwd" required>   
         </form>
+        <button type="button" class>Create Account</button> 
+        <p>Already have an account? <a href="login.html">Log in</a></p>
     </div>
 </body>
 </html>
