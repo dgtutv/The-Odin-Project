@@ -19,27 +19,34 @@
     </div>
     <div class="content">
         <div class="quote">
-            <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</p><br>
-            <p>Sign up <i>now</i> to get started.</p><br><br>
-            <p>You <i>know</i> you want to.</p>
+            <p class="quoteText">This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. <br>
+            Sign up <i>now</i> to get started.</p>
+            <p class="quoteText">You <i>know</i> you want to.</p>
         </div>
-        <form action="">
+        <div class="card marginText">
             <p>Let's do this!</p><br>
-            <label for="firstName">FIRST NAME</label>
-            <input type="text" name="firstName" id="firstName" required>
-            <label for="lastName">LAST NAME</label>
-            <input type="text" name="lastName" id="lastName" required>
-            <label for="email">EMAIL</label>
-            <input type="email" name="email" id="email" required>
-            <label for="phoneNumber">PHONE NUMBER</label>
-            <input type="tel" name="phoneNumber" id="phoneNumber" required>
-            <label for="pwd">PASSWORD</label>
-            <input type="password" name="pwd" id="pwd" required>
-            <label for="confirmPwd">CONFIRM PASSWORD</label>
-            <input type="password" name="confirmPwd" id="confirmPwd" required>   
-        </form>
+            <form action="">
+                <div class="leftSide">
+                    <label for="firstName" class="formElement">FIRST NAME</label> <br>
+                    <input type="text" name="firstName" id="firstName" required class="formElement"> <br>
+                    <label for="email" class="formElement">EMAIL</label> <br>
+                    <input type="email" name="email" id="email" required class="formElement"> <br>
+                    <label for="pwd" class="formElement">PASSWORD</label> <br>
+                    <input type="password" name="pwd" id="pwd" required class="password formElement"> <br>
+                    <p id="pwdNotMatch" class="formElement">*Passwords do not match</p> <br>  
+                </div>
+                <div class="rightSide"> 
+                    <label for="lastName" class="formElement">LAST NAME</label> <br>
+                    <input type="text" name="lastName" id="lastName" required class="formElement"> <br>
+                    <label for="phoneNumber" class="formElement">PHONE NUMBER</label> <br>
+                    <input type="tel" name="phoneNumber" id="phoneNumber" required class="formElement"> <br>
+                    <label for="confirmPwd" class="formElement">CONFIRM PASSWORD</label> <br>
+                    <input type="password" name="confirmPwd" id="confirmPwd" required class="password formElement"> <br>
+                </div>     
+            </form>
+        </div>
         <button type="button" class>Create Account</button> 
-        <p>Already have an account? <a href="login.html">Log in</a></p>
+        <p class="marginText">Already have an account? <a href="login.html">Log in</a></p>
     </div>
 </body>
 </html>
