@@ -90,7 +90,7 @@ body{
 
 .password:invalid {
     border: 2px solid red;
-    border-radius: 3px;
+    margin-bottom: 3px;
 }
 
 form{
@@ -152,6 +152,13 @@ input:focus{
 
 button{
     margin-bottom: 2%;
+    background-color: #596d48;
+    border: none;
+    color: white;
+    border-radius: .75rem;
+    padding: 1rem 3rem;
+    font-size: larger;
+    font-weight: 500;
 }
 
 label.formElement{
@@ -168,4 +175,16 @@ label.formElement{
 .content a{
     text-decoration: none;
     color: #596d48;
+    font-weight: bold;
+}
+
+.footer{
+    font-weight: normal;
+}
+
+input.formElement{
+    font-size: large;
+    font-weight: normal;
+    padding: .4rem;
+    border-radius: .75rem;
 }
