@@ -131,9 +131,7 @@ input:focus{
     display: inline;
 }
 
-#pwdNotMatch .hidden{
-    color: red;
-    margin-top: 0;
+#pwdNotMatch.hidden{
     display: none;
 }
 
