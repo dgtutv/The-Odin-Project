@@ -25,6 +25,8 @@ body{
 }
 .content{
     flex: 3 1 55%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 .overlay{
     width: 100%;
@@ -129,6 +131,7 @@ input:focus{
     color: red;
     margin-top: 0;
     display: inline;
+    font-weight: normal;
 }
 
 #pwdNotMatch.hidden{
@@ -137,6 +140,7 @@ input:focus{
 
 .quote{
     padding-top: 10%;
+    font-size: larger;
 }
 
 .card{
@@ -148,4 +152,20 @@ input:focus{
 
 button{
     margin-bottom: 2%;
+}
+
+label.formElement{
+    font-weight: normal;
+    font-size: small;
+    color: #38414d;
+}
+
+#letsDoThis{
+    font-size: larger;
+    color: #38414d;
+}
+
+.content a{
+    text-decoration: none;
+    color: #596d48;
 }
