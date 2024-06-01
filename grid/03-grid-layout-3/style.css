@@ -118,3 +118,18 @@ ul{
   justify-self: end;
 }
 
+.sidebar{
+  grid-row: 2 / 4;
+  display: grid;
+  gap: 50px;
+}
+
+.photo, .side-content{
+  display: grid;
+  align-items: center;
+}
+
+.nav{
+  display: grid;
+
+}
