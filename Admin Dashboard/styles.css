@@ -70,9 +70,18 @@ header{
 
 .searchIcon{
     width: clamp(25px, 1.7vw, 40px);
-    fill: #5e5e5e;
+    fill: #4b4b4b;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 .searchIcon:hover{
     fill: black;
+}
+
+.searchBar{
+    flex: 1 1 50%;
+    background-color: rgb(221, 221, 221);
+    border-radius: 30px;
+    margin-left: 20px;
 }
