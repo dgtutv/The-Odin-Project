@@ -21,11 +21,11 @@ header{
     background-color: #047857;
     grid-column: 1;
     grid-row: 1 / -1;
+    color: white;
 }
 
 .logo{
     display: flex;
-    color: white;
     align-items: center;
     justify-content: flex-start;
     padding: 10px;
@@ -36,3 +36,24 @@ header{
 .logo svg{
     width: 6vw;
 }
+
+.navLinks{
+    list-style: none;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 18px;
+}
+
+.navLinks svg{
+    fill: white;
+    width: 2vw;
+}
+
+.navLinks li{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+} 
