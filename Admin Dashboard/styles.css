@@ -34,7 +34,7 @@ header{
 }
 
 .logo svg{
-    width: 4vw;     /*Consider changing svgs to static sizes rather than dynamic*/
+    width: clamp(50px, 4.5vw, 100px);     /*Consider changing svgs to static sizes rather than dynamic*/
 }
 
 .navLinks{
@@ -48,7 +48,7 @@ header{
 
 .navLinks svg{
     fill: white;
-    width: 2vw;
+    width: clamp(30px, 2vw, 45px);
 }
 
 .navLinks li{
