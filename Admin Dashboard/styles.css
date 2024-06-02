@@ -4,7 +4,7 @@ body{
     height: 100vh;
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr 4fr;
-    background-color: rgb(226,232,240);
+    background-color: #d1fae5;
     padding: 0;
     margin: 0;
 }
@@ -16,7 +16,14 @@ header{
 }   
 
 .sidebar{
-    background-color: rgb(25,146,212);
+    background-color: #047857;
     grid-column: 1;
     grid-row: 1 / -1;
+}
+
+.logo{
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: flex-start;
 }
