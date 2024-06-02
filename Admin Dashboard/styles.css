@@ -34,7 +34,7 @@ header{
 }
 
 .logo svg{
-    width: 4vw;
+    width: 4vw;     /*Consider changing svgs to static sizes rather than dynamic*/
 }
 
 .navLinks{
