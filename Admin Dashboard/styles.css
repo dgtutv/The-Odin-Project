@@ -64,7 +64,7 @@ header{
 
 .upperHeader{
     display: flex;
-    padding-top: 20px;
+    padding-top: 8px;
     padding-left: clamp(8px, 1.6vw, 35px);
 }
 
@@ -107,7 +107,7 @@ header{
 .lowerHeader{
     padding: 0 10px 0 clamp(8px, 1.6vw, 35px);
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr 2fr 2fr 2fr;
+    grid-template-columns: 1fr 5fr 1fr 1.6fr 1.6fr 1.6fr;
     grid-template-rows: .5fr 2fr;
     column-gap: clamp(0px, 1vw, 30px);
     padding-right: 40px;
@@ -132,7 +132,7 @@ header{
     margin-top: 8px;
 }
 
-.lowerHeader h1{
+.lowerHeader h2{
     grid-column: 2;
     grid-row: 2;
     margin-top: 0;
@@ -159,8 +159,8 @@ button{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
     border-radius: 70px;
-    width: 170px;
-    height: 65px;
+    width: 120px;
+    height: 55px;
     border: none;
     justify-self: end;
 }
