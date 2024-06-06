@@ -95,7 +95,13 @@ header{
 .accountCenter svg{
     width: clamp(25px, 1.7vw, 40px);
     align-self: center;
+    fill: #4b4b4b;
 }
+
+.accountCenter svg:hover{
+    fill: black;
+}
+
 .accountCenter img{
     width: clamp(50px, 1.5vw, 60px);
     height: clamp(50px, 1.5vw, 60px);
