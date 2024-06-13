@@ -200,3 +200,24 @@ button:hover{
 .content h4{
     margin-block-start: 0;
 }
+
+.projects{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-rows: min-content;
+    margin-right: 8px;
+}
+
+.projects .title{
+    grid-column: 1 / -1;
+}
+
+.card h4{
+    font-size: .85em;
+    margin: 0;
+}
+
+.card p{
+    font-size: .85em;
+    margin: 0;
+}
