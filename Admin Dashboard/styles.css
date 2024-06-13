@@ -178,7 +178,7 @@ button:hover{
 .content{
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: .93fr 1fr;
     padding: 10px;
 }
 
@@ -296,6 +296,13 @@ button:hover{
 
 .card .icons svg:hover{
     fill: #4b4b4b;
+}
+
+.trendingCard{
+    background-color: white;
+    border-radius: 15px;
+    padding: 16px;
+    margin-top: 8px;
 }
 /*TODO:
 -Trending section
