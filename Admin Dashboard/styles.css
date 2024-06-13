@@ -1,7 +1,7 @@
 /*Emerald color pattern from Tailwind*/
 body{
     display: grid;
-    width: 100vw;
+    width: fit-content;
     height: 100vh;
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr 4fr;
@@ -28,7 +28,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 25px 20px;
+    padding: 25px 15px 25px 8px;
     gap: 10px;
     font-size: 15px;
 }
@@ -43,7 +43,7 @@ header{
     flex-direction: column;
     gap: 5px;
     font-size: 15px;
-    padding: 30px 40px 30px 40px;
+    padding: 30px 40px 30px 20px;
 }
 
 .navLinks svg{
@@ -207,10 +207,13 @@ button:hover{
     grid-template-rows: min-content;
     margin-right: 16px;
     gap: 8px;
+    height: fit-content;
 }
 
 .projects .title{
     grid-column: 1 / -1;
+    margin-top: 16px;
+    margin-bottom: 0;
 }
 
 .card h4{
@@ -222,26 +225,27 @@ button:hover{
 }
 
 .card p{
-    font-size: .85em;
+    font-size: .75em;
     margin: 0;
     grid-row: 2;
     grid-column: 2;
     padding: 0 5px;
+    color: rgb(33, 33, 33);
 }
 
 .card{
     background-color: white;
     display: grid;
     grid-template-columns: .02fr .98fr;
-    grid-template-rows: .15fr .85fr;
+    grid-template-rows: .15fr .48fr .28fr;
     margin: 3px;
     border-radius: 15px;
-    min-height: 150px;
+    height: 150px;
 }
 
 .orange{
     background-color: orangered;
-    height: 100%;
+    height: 150px;
     grid-row: 1 / -1;
     grid-column: 1;
     overflow: hidden;
