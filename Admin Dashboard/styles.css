@@ -280,3 +280,22 @@ button:hover{
     background-color: black;
     margin-bottom: 5px;
 }
+
+
+.card svg{
+    width: clamp(25px, 1.7vw, 40px);
+}
+
+.card .icons{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    margin-right: 16px;
+}
+
+.card .icons svg:hover{
+    fill: #4b4b4b;
+}
+/*TODO:
+-Trending section
