@@ -1,3 +1,6 @@
+//Pulling our HTML elements
+let tableBody = document.querySelector("tbody");
+
 //Our book object constructor
 function Book(author, title, numPages, read){
     this.author = author;
@@ -15,3 +18,21 @@ let book0 = new Book("George Orwell", "1984", 328, true);
 let book1 = new Book("Anna Sewell", "Black Beauty", 225, false);
 let book2 = new Book("S. E. Hinton", "The Outsiders", 192, true);
 let books = [book0, book1, book2];
+
+//Add the books in our array to the table
+for(let book of books){
+    let row = tableBody.insertRow();
+    let author = row.insertCell(0);
+    let title = row.insertCell(1);
+    let pages = row.insertCell(2);
+    let read = row.insertCell(3);
+    author.innerHTML = book.author;
+    title.innerHTML = book.title;
+    pages.innerHTML = book.numPages;
+    if(book.read){
+        read.innerHTML = "Yes";
+    }
+    else{
+        read.innerHTML = "No";
+    }
+}
