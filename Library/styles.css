@@ -6,3 +6,7 @@ table{
     width: 50%;
     border-collapse: collapse;
 }
+
+.hidden{
+    display: none;
+}

@@ -1,5 +1,7 @@
 //Pulling our HTML elements
 let tableBody = document.querySelector("tbody");
+let addButton = document.querySelector("#addButton");
+let newBookForm = document.querySelector("form");
 
 //Our book object constructor
 function Book(author, title, numPages, read){
@@ -12,6 +14,13 @@ function Book(author, title, numPages, read){
 //Button brings up a form, with it's own submit button
 
 //When the submit button is pressed, form collapses, and the book is added to an array
+addButton.addEventListener("click", function(e){
+    newBookForm.classList.toggle("hidden");
+});
+
+newBookForm.addEventListener("submit", function(e){
+    newBookForm.classList.toggle("hidden");
+});
 
 //We should be displaying books based on an array of them, start with a few
 let book0 = new Book("George Orwell", "1984", 328, true);
