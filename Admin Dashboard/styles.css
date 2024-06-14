@@ -180,7 +180,9 @@ button:hover{
     grid-template-columns: 2.5fr 1fr;
     grid-template-rows: min-content min-content;
     padding: 10px;
-    margin-right: 12px;
+    margin-right: 24px;
+    margin-left: 12px;
+    gap: 12px;
 }
 
 .projects{
@@ -310,5 +312,38 @@ button:hover{
 .trending h4{
     margin-bottom: 8px;
 }
-/*TODO:
--Trending section
+
+.user{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: repeat(min-content, 2);
+    margin-bottom: 24px;
+}
+
+.userImage{
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: clamp(50px, 3.2vw, 80px);
+    height: clamp(50px, 3.2vw, 80px);
+    border-radius: 50%;
+    padding: 0 20px;
+    align-self: center;
+}
+
+.username{
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 0;
+    align-self: end;
+}
+
+.projectName{
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+    align-self: start;
+}
+
+.shadow{
+    box-shadow: 4px 4px 4px grey;
+}
