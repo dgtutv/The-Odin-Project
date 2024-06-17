@@ -7,7 +7,7 @@ let titleField = document.querySelector("#title");
 let pagesField = document.querySelector("#numPages");
 let radioYes = document.querySelector("#yes");
 let radioNo = document.querySelector("#no");
-let books = new Array;
+let books = [];
 
 //Our book object constructor
 function Book(author, title, numPages, read){
@@ -40,6 +40,7 @@ addButton.addEventListener("click", function(e){
 
 //When the submit button is pressed, form collapses, and the book is added to an array
 newBookForm.addEventListener("submit", function(e){
+    e.preventDefault();
     newBookForm.classList.toggle("hidden");
 
     //Pull data from our form fields
