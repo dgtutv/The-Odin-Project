@@ -63,6 +63,8 @@ newBookForm.addEventListener("submit", function(e){
     //Create a new book and add it to the collection
     let newBook = new Book(author, title, numPages, read);
     addBook(newBook);
+
+    newBookForm.reset();
 });
 
 //We should be displaying books based on an array of them, start with a few
