@@ -47,14 +47,10 @@ newBookForm.addEventListener("submit", function(e){
     let author = authorField.value;
     let title = titleField.value;
     let numPages = pagesField.value;
-    let read = false;
-    if(radioYes.checked){
-        read = true;
-    }
+    let read = radioYes.checked ? true : false;
 
     //Create a new book and add it to the collection
     let newBook = new Book(author, title, numPages, read);
-    console.log(newBook);
     addBook(newBook);
 });
 
