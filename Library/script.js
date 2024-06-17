@@ -8,6 +8,7 @@ let pagesField = document.querySelector("#numPages");
 let radioYes = document.querySelector("#yes");
 let radioNo = document.querySelector("#no");
 let books = [];
+let numBooks = 0;
 
 //Our book object constructor
 function Book(author, title, numPages, read){
@@ -15,6 +16,8 @@ function Book(author, title, numPages, read){
     this.title = title;
     this.numPages = numPages;
     this.read = read;
+    this.id = numBooks;
+    numBooks++;
 }
 
 //Function to add book to library
@@ -29,9 +32,17 @@ function addBook(newBook){
     title.innerHTML = newBook.title;
     pages.innerHTML = newBook.numPages;
     read.innerHTML = newBook.read ? "Yes" : "No";
+    let buttonCell = row.insertCell(4);
+    let button = document.createElement("button");
+    button.textContent = "Delete";
+    buttonCell.appendChild(button);
+    
+    //Function to remove book from library
+    button.addEventListener("click", function(e){
+        row.remove();
+    });
 }
 
-//Function to remove book from library
 
 //When the add button is clicked, we toggle the add book form
 addButton.addEventListener("click", function(e){
