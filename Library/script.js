@@ -60,7 +60,9 @@ function addBook(newBook){
     let pencilSvg = document.querySelector(`#pencil-${newBook.id}`);
     let trashSvg = document.querySelector(`#trash-${newBook.id}`);
     pencilSvg.addEventListener("click", function(e){
-        console.log(`Card#${newBook.id} edit`);
+        newBook.read = !newBook.read;
+        status = newBook.read ? "Read" : "Not Read";
+        info.innerHTML = `<b>Title:</b> ${newBook.title} <br> <b>Author:</b> ${newBook.author} <br> <b>Status:</b> `+status+`<br> <b>Pages:</b> ${newBook.numPages}`;
     });
     trashSvg.addEventListener("click", function(e){
         newCard.remove();
