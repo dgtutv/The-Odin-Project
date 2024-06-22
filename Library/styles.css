@@ -40,12 +40,11 @@ header{
     color: black;
     display: flex;
     justify-content: space-between;
-    padding: 20px 30px;
+    padding: 10px 30px;
 }
 
 header h1{
     align-self: flex-start;
-    margin-left: 30px;
     font-size: 2.3rem;
 }
 
@@ -178,4 +177,31 @@ button:hover{
 
 .shadow{
     box-shadow: 4px 4px 4px grey;
+}
+
+@media screen and (max-width: 1900px) {
+    .content{
+        grid-template-columns: repeat(auto-fill, 250px);
+        grid-template-rows: min-content;
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .card{
+        height: 150px;
+    }
+    
+    .card p{
+        font-size: 1em;
+        padding: 16px;
+    }
+    
+    .icons svg{
+        width: 30px;
+    }
+    
+    .card .icons{
+        gap: 16px;
+        margin: 0 16px 16px 0;
+    }
 }
