@@ -104,17 +104,17 @@ button:hover{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
     grid-template-rows: min-content;
-    margin-right: 12px;
     gap: 8px;
     height: 100%;
     width: 100%;
+    padding: 12px;
 }
 
 .card{
     background-color: white;
     display: grid;
-    grid-template-columns: .02fr .98fr;
-    grid-template-rows: 5fr 1fr;
+    grid-template-columns: .05fr .95fr;
+    grid-template-rows: 2fr 1fr;
     margin: 3px;
     border-radius: 15px;
     height: 200px;
@@ -123,11 +123,11 @@ button:hover{
 
 
 .card p{
-    font-size: .75em;
+    font-size: 1.2em;
     margin: 0;
     grid-column: 2;
     grid-row: 1;
-    padding: 0 5px;
+    padding: 16px;
     color: rgb(33, 33, 33);
 }
 
@@ -151,7 +151,7 @@ button:hover{
     justify-content: flex-end;
     align-items: center;
     gap: 16px;
-    margin-right: 16px;
+    margin: 16px;
 }
 
 .card .icons svg:hover{
