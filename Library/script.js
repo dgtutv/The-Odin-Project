@@ -7,6 +7,7 @@ let titleField = document.querySelector("#title");
 let pagesField = document.querySelector("#numPages");
 let radioYes = document.querySelector("#yes");
 let radioNo = document.querySelector("#no");
+let gridContent = document.querySelector("#gridContent");
 let books = [];
 let numBooks = 0;
 
@@ -73,6 +74,7 @@ function addBook(newBook){
 //When the add button is clicked, we toggle the add book form
 addButton.addEventListener("click", function(e){
     newBookForm.classList.toggle("hidden");
+    gridContent.classList.toggle("blur");
 });
 
 //When the submit button is pressed, form collapses, and the book is added to an array
@@ -91,6 +93,7 @@ newBookForm.addEventListener("submit", function(e){
     addBook(newBook);
 
     newBookForm.reset();
+    gridContent.classList.toggle("blur");
 });
 
 //We should be displaying books based on an array of them, start with a few
