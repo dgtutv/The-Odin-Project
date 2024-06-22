@@ -101,45 +101,39 @@ button:hover{
 .content{
     grid-column: 2;
     grid-row: 2;
-    background-color: beige;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
     grid-template-rows: min-content;
     margin-right: 12px;
     gap: 8px;
-    height: fit-content;
-}
-
-.card h4{
-    font-size: .85em;
-    margin: 0;
-    grid-row: 1;
-    grid-column: 2;
-    padding: 5px 0 0 5px;
-}
-
-.card p{
-    font-size: .75em;
-    margin: 0;
-    grid-row: 2;
-    grid-column: 2;
-    padding: 0 5px;
-    color: rgb(33, 33, 33);
+    height: 100%;
+    width: 100%;
 }
 
 .card{
     background-color: white;
     display: grid;
     grid-template-columns: .02fr .98fr;
-    grid-template-rows: .15fr .48fr .28fr;
+    grid-template-rows: 5fr 1fr;
     margin: 3px;
     border-radius: 15px;
-    height: 150px;
+    height: 200px;
+    width: 350px;
+}
+
+
+.card p{
+    font-size: .75em;
+    margin: 0;
+    grid-column: 2;
+    grid-row: 1;
+    padding: 0 5px;
+    color: rgb(33, 33, 33);
 }
 
 .orange{
     background-color: orangered;
-    height: 150px;
+    height: inherit;
     grid-row: 1 / -1;
     grid-column: 1;
     overflow: hidden;
@@ -151,6 +145,8 @@ button:hover{
 }
 
 .card .icons{
+    grid-column: 2;
+    grid-row: 2;
     display: flex;
     justify-content: flex-end;
     align-items: center;

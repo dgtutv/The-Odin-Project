@@ -1,5 +1,5 @@
 //Pulling our HTML elements, and other global variables
-let tableBody = document.querySelector("tbody");
+let content = document.querySelector(".content");
 let addButton = document.querySelector("#addButton");
 let newBookForm = document.querySelector("form");
 let authorField = document.querySelector("#author");
