@@ -140,8 +140,8 @@ button:hover{
     border-radius: 15px 0 0 15px;
 }
 
-.card svg{
-    width: clamp(25px, 1.7vw, 40px);
+.icons svg{
+    width: 40px;
 }
 
 .card .icons{
