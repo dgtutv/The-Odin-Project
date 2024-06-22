@@ -154,8 +154,12 @@ button:hover{
     margin: 16px;
 }
 
-.card .icons svg:hover{
-    fill: #4b4b4b;
+.edit:hover{
+    fill: blue;
+}
+
+.delete:hover{
+    fill: red;
 }
 
 .shadow{

@@ -48,9 +48,11 @@ function addBook(newBook){
     let pencil = document.createElement('div');
     pencil.innerHTML = pencilCode;
     pencil.firstChild.id = `pencil-${newBook.id}`;
+    pencil.firstChild.classList.add("edit");
     let trash = document.createElement('div');
     trash.innerHTML = trashCode;
     trash.firstChild.id=`trash-${newBook.id}`;
+    trash.firstChild.classList.add("delete");
     icons.appendChild(pencil.firstChild);
     icons.appendChild(trash.firstChild);
 
