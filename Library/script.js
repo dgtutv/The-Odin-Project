@@ -26,28 +26,41 @@ function addBook(newBook){
     let newCard = document.createElement("div");
     newCard.classList.add("card");
     newCard.classList.add("shadow");
+    newCard.id = `${newBook.id}`;
     content.appendChild(newCard);
+
     let bar = document.createElement("div");
     bar.classList.add("orange");
     newCard.appendChild(bar);
+
     let info = document.createElement("p");
     let status = newBook.read ? "Read" : "Not Read";
     info.innerHTML = `<b>Title:</b> ${newBook.title} <br> <b>Author:</b> ${newBook.author} <br> <b>Status:</b> `+status+`<br> <b>Pages:</b> ${newBook.numPages}`;
     newCard.appendChild(info);
+
     let icons = document.createElement("div");
     icons.classList.add("icons");
     newCard.appendChild(icons);
+
     const pencilCode = '<svg id="pencil" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>pencil</title><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>';
     const trashCode = '<svg id="trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>trash-can</title><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z" /></svg>';
-    icons.innerHTML = pencilCode + "<br>" + trashCode;
+    
+    let pencil = document.createElement('div');
+    pencil.innerHTML = pencilCode;
+    pencil.firstChild.id = `pencil-${newBook.id}`;
+    let trash = document.createElement('div');
+    trash.innerHTML = trashCode;
+    trash.firstChild.id=`trash-${newBook.id}`;
+    icons.appendChild(pencil.firstChild);
+    icons.appendChild(trash.firstChild);
 
     //Add functionality to the pencil and trash buttons
-    let pencil = document.querySelector("#pencil");
-    let trash = document.querySelector("#trash");
-    pencil.addEventListener("click", function(e){
+    let pencilSvg = document.querySelector(`#pencil-${newBook.id}`);
+    let trashSvg = document.querySelector(`#trash-${newBook.id}`);
+    pencilSvg.addEventListener("click", function(e){
         console.log(`Card#${newBook.id} edit`);
     });
-    trash.addEventListener("click", function(e){
+    trashSvg.addEventListener("click", function(e){
         console.log(`Card#${newBook.id} delete`);
     });
 }
