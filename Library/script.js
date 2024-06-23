@@ -8,6 +8,7 @@ let pagesField = document.querySelector("#numPages");
 let radioYes = document.querySelector("#yes");
 let radioNo = document.querySelector("#no");
 let gridContent = document.querySelector("#gridContent");
+let closeForm = document.querySelector("#closeForm");
 let books = [];
 let numBooks = 0;
 
@@ -75,6 +76,12 @@ function addBook(newBook){
 addButton.addEventListener("click", function(e){
     newBookForm.classList.toggle("hidden");
     gridContent.classList.toggle("blur");
+});
+
+closeForm.addEventListener("click", function(e){
+    newBookForm.classList.toggle("hidden");
+    gridContent.classList.toggle("blur");
+    newBookForm.reset();
 });
 
 //When the submit button is pressed, form collapses, and the book is added to an array

@@ -179,6 +179,37 @@ button:hover{
     box-shadow: 4px 4px 4px grey;
 }
 
+form{
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+form h2{
+    margin-top: 0;
+}
+
+.close{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.close svg{
+    width: 30px;
+    fill: black;
+}
+
+.close svg:hover{
+    fill: grey;
+}
+
 @media screen and (max-width: 1900px) {
     .content{
         grid-template-columns: repeat(auto-fill, 250px);
