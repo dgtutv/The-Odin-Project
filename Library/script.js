@@ -9,6 +9,7 @@ let radioYes = document.querySelector("#yes");
 let radioNo = document.querySelector("#no");
 let gridContent = document.querySelector("#gridContent");
 let closeForm = document.querySelector("#closeForm");
+let searchBar = document.querySelector("#search");
 let books = [];
 let numBooks = 0;
 
@@ -68,6 +69,7 @@ function addBook(newBook){
     });
     trashSvg.addEventListener("click", function(e){
         newCard.remove();
+        books = books.filter(book => book.id !== newBook.id);
     });
 }
 
@@ -84,6 +86,23 @@ closeForm.addEventListener("click", function(e){
     newBookForm.reset();
 });
 
+//Search bar functionality
+searchBar.addEventListener("input", function (e) {
+    let search = searchBar.value.toLowerCase();
+    let booksToRender = books.filter(book => book.title.toLowerCase().includes(search));
+    renderBooks(booksToRender);
+});
+
+function renderBooks(booksToRender){
+    content.innerHTML = "";
+    for(book of booksToRender){
+        addBook(book);
+    }
+    if(content.innerHTML == ""){
+        content.innerHTML = "Nothing to display!";
+    }
+}
+
 //When the submit button is pressed, form collapses, and the book is added to an array
 newBookForm.addEventListener("submit", function(e){
     e.preventDefault();
@@ -97,6 +116,7 @@ newBookForm.addEventListener("submit", function(e){
 
     //Create a new book and add it to the collection
     let newBook = new Book(author, title, numPages, read);
+    books.push(newBook);
     addBook(newBook);
 
     newBookForm.reset();
@@ -110,3 +130,6 @@ let book2 = new Book("S. E. Hinton", "The Outsiders", 192, true);
 addBook(book0);
 addBook(book1);
 addBook(book2);
+books.push(book0);
+books.push(book1);
+books.push(book2);
