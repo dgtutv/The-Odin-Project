@@ -87,7 +87,7 @@ body {
   padding: 32px;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: column-reverse;
   width: 70%;
 }
 
