@@ -115,7 +115,7 @@ const game = function(player1Name, player2Name){
         });
         
         let board = createBoard();
-        while(checkWinner() === "O"){
+        while(board.checkWinner() === 0){
             for(let i=0; i<2; i++){
                 console.log(`Player ${i+1}'s turn!`);
                 board.print();
@@ -151,7 +151,8 @@ const game = function(player1Name, player2Name){
             return false;
         }
     }
-
+    let player1Name = prompt("Player 1 (X), what is your name?");
+    let player2Name = prompt("Player 2 (O), what is your name?");
     let player1 = createPlayer(player1Name);
     let player2 = createPlayer(player2Name);
     const playAgain = startGame(player1, player2);
