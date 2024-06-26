@@ -135,18 +135,22 @@ const game = function(player1Name, player2Name){
         }
         
         const winner = board.checkWinner();
+        let winningPlayer;
         if(winner === 1){
             player1.increaseScore();
+            winningPlayer = player1;
         }
         else if(winner === 2){
             player2.increaseScore();
+            winningPlayer = player2;
         }
         else{
             console.log("ERROR");
             return false;
         }
 
-        let answer = prompt(`Player: ${winner.name} wins! \n Would you like to play again? (y/n)`);
+
+        let answer = prompt(`Player: ${winningPlayer.name} wins! \n Would you like to play again? (y/n)`);
         if(answer === "y"){
             return true;
         }
