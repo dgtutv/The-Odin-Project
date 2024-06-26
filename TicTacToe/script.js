@@ -10,12 +10,7 @@ const game = function(player1Name, player2Name){
     const startGame = function(player1, player2){
         //Returns board object
         const createBoard = (function(){
-            const board = new Array();
-            for(let i=0; i<3; i++){
-                for(let j=0; j<3; j++){
-                    board[i][j] = ".";
-                }
-            }
+            const board = [[".",".","."],[".",".","."],[".",".","."]];
 
             //Returns true if board is updated, false if it can't be
             const update = function(x, y, playerNum){
