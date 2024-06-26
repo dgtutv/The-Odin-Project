@@ -100,7 +100,7 @@ const game = function(player1Name, player2Name){
                 for(let y=0; y<3; y++){
                     let row = "";
                     for(let x=0; x<3; x++){
-                        row += board[y][x];
+                        row += board[x][y];
                         if (x < 2) {
                             row += " | ";
                         }
