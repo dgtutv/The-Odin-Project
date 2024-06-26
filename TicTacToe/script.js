@@ -160,15 +160,26 @@ const game = function(player1Name, player2Name){
     }
     let player1 = createPlayer(player1Name);
     let player2 = createPlayer(player2Name);
-    const playAgain = startGame(player1, player2);
+    let playAgain = startGame(player1, player2);
     while(playAgain){
         playAgain = startGame(player1, player2);
     }
-    const winner = player1.score > player2.score ? player1 : player2;
-    return(winner);
+    return([player1, player2]);
 };
 
 let player1Name = prompt("Player 1 (X), what is your name?");
 let player2Name = prompt("Player 2 (O), what is your name?");
-let winner = game(player1Name, player2Name);
-console.log(`${winner.name} won with ${winner.getScore} points!`);
+let [player1, player2] = game(player1Name, player2Name);
+if(player1.getScore() == player2.getScore()){
+    console.log("Tie!");
+}
+else{
+    if(player1.getScore() > player2.getScore()){
+        console.log(`${player1.name} won!`);
+    }
+    else{
+        console.log(`${player2.name} won!`);
+    }
+}
+console.log(`${player1.name}: ${player1.getScore()} points`);
+console.log(`${player2.name}: ${player2.getScore()} points`);
