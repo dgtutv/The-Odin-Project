@@ -96,13 +96,18 @@ const game = function(player1Name, player2Name){
                 return 0;
             }
 
-            function print(){
+            function print() {
                 for(let y=0; y<3; y++){
+                    let row = "";
                     for(let x=0; x<3; x++){
-                        console.log(`${board[x][y]} | ${board[x][y]} | ${board[x][y]}`);
-                        if(y != 2){
-                            console.log("---------");
+                        row += board[y][x];
+                        if (x < 2) {
+                            row += " | ";
                         }
+                    }
+                    console.log(row);
+                    if (y < 2) {
+                        console.log("---------");
                     }
                 }
             }
