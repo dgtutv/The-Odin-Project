@@ -128,10 +128,13 @@ const game = function(player1Name, player2Name){
                     i--;
                     continue;
                 }
+                if(board.checkWinner() != 0){
+                    break;
+                }
             }
         }
         
-        const winner = checkWinner();
+        const winner = board.checkWinner();
         if(winner === 1){
             player1.increaseScore();
         }
