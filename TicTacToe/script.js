@@ -170,4 +170,5 @@ const game = function(player1Name, player2Name){
 
 let player1Name = prompt("Player 1 (X), what is your name?");
 let player2Name = prompt("Player 2 (O), what is your name?");
-game(player1Name, player2Name);
+let winner = game(player1Name, player2Name);
+console.log(`${winner.name} won with ${winner.getScore} points!`);
