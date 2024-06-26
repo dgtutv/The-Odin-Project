@@ -20,7 +20,7 @@ const game = function(player1Name, player2Name){
                         return true;
                     }
                     else if(playerNum === 1){
-                        board[x][y] = "Y";
+                        board[x][y] = "O";
                         return true;
                     }
                     return false;
@@ -118,6 +118,7 @@ const game = function(player1Name, player2Name){
         while(board.checkWinner() === 0){
             for(let i=0; i<2; i++){
                 board.print();
+                console.log();
                 let placement = prompt(`Player ${i+1}'s turn!\nEnter coordinates (x y):`);
                 let x = parseInt(placement.charAt(0));
                 let y = parseInt(placement.charAt(2));
