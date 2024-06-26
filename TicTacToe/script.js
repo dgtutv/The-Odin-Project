@@ -1,10 +1,10 @@
 /*Game loop functionality*/
 const game = function(player1Name, player2Name){
-    const createPlayer = (function(playerName){
+    const createPlayer = (function(name){
         let score = 0;
         const increaseScore = () => score++;
         const getScore = () => score;
-        return {playerName, increaseScore, getScore};
+        return {name, increaseScore, getScore};
     });
 
     const startGame = function(player1, player2){
@@ -18,7 +18,7 @@ const game = function(player1Name, player2Name){
             }
 
             //Returns true if board is updated, false if it can't be
-            const updateBoard = function(x, y, playerNum){
+            const update = function(x, y, playerNum){
                 if(board[x][y] === "."){
                     if(playerNum === 0){
                         board[x][y] = "X";
@@ -35,12 +35,11 @@ const game = function(player1Name, player2Name){
                 }
             }
 
-            const viewBoard = () => board;
+            const view = () => board;
 
             //If player 1 wins, returns 1. If player 2 wins, returns 2
             //Upon error; returns -1. If no winner, returns 0
             function checkWinner(){
-            
                 //If three match in a column
                 for(let x=0; x<3; x++){
                     const row1 = board[x][0];
@@ -57,7 +56,6 @@ const game = function(player1Name, player2Name){
                         return -1;
                     }
                 }
-
                 //If three match in a row
                 for(let y=0; y<3; y++){
                     const col1 = board[0][y];
@@ -74,14 +72,12 @@ const game = function(player1Name, player2Name){
                         return -1;
                     }
                 }
-
                 //If three match diagonally
                 const topLeft = board[0][0];
                 const topRight = board[2][0];
                 const middle = board[1][1];
                 const bottomLeft = board[0][2];
                 const bottomRight = board[2][2];
-
                 if(middle != "."){
                     if(topLeft === middle && middle === bottomRight){
                         if(middle === "X"){
@@ -102,17 +98,58 @@ const game = function(player1Name, player2Name){
                         return -1;
                     }
                 }
-
                 return 0;
             }
 
-            return({updateBoard, viewBoard, checkWinner});
+            function print(){
+                for(let y=0; y<3; y++){
+                    for(let x=0; x<3; x++){
+                        console.log(`${board[x][y]} | ${board[x][y]} | ${board[x][y]}`);
+                        if(y != 2){
+                            console.log("---------");
+                        }
+                    }
+                }
+            }
+            return({update, view, checkWinner, print});
         });
         
         let board = createBoard();
-
+        while(checkWinner() === "O"){
+            for(let i=0; i<2; i++){
+                console.log(`Player ${i+1}'s turn!`);
+                board.print();
+                let placement = prompt("Enter coordinates (x y):");
+                let x = parseInt(placement.charAt(0));
+                let y = parseInt(placement.charAt(2));
+                let update = board.update(x, y, i);
+                if(!update){
+                    console.log("Cannot place there!");
+                    i--;
+                    continue;
+                }
+            }
+        }
         
+        const winner = checkWinner();
+        if(winner === 1){
+            player1.increaseScore();
+        }
+        else if(winner === 2){
+            player2.increaseScore();
+        }
+        else{
+            console.log("ERROR");
+            return false;
+        }
 
+        let answer = prompt(`Player: ${winner.name} wins! \n Would you like to play again? (y/n)`);
+        if(answer === "y"){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     let player1 = createPlayer(player1Name);
