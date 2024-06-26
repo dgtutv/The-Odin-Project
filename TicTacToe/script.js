@@ -117,9 +117,8 @@ const game = function(player1Name, player2Name){
         let board = createBoard();
         while(board.checkWinner() === 0){
             for(let i=0; i<2; i++){
-                console.log(`Player ${i+1}'s turn!`);
                 board.print();
-                let placement = prompt("Enter coordinates (x y):");
+                let placement = prompt(`Player ${i+1}'s turn!\nEnter coordinates (x y):`);
                 let x = parseInt(placement.charAt(0));
                 let y = parseInt(placement.charAt(2));
                 let update = board.update(x, y, i);
