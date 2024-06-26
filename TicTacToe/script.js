@@ -151,8 +151,6 @@ const game = function(player1Name, player2Name){
             return false;
         }
     }
-    let player1Name = prompt("Player 1 (X), what is your name?");
-    let player2Name = prompt("Player 2 (O), what is your name?");
     let player1 = createPlayer(player1Name);
     let player2 = createPlayer(player2Name);
     const playAgain = startGame(player1, player2);
@@ -162,3 +160,7 @@ const game = function(player1Name, player2Name){
     const winner = player1.score > player2.score ? player1 : player2;
     return(winner);
 };
+
+let player1Name = prompt("Player 1 (X), what is your name?");
+let player2Name = prompt("Player 2 (O), what is your name?");
+game(player1Name, player2Name);
