@@ -233,6 +233,7 @@ board.generateDOM();
                                     alert("message");
                                 });
                             });
+        **Wont be a problem if change to pure DOM instead of alerts
     *Add counters and player names to HTML
     *Fancy overlay for game over, play again button 
 */
