@@ -13,7 +13,7 @@ const createPlayer = (function(name){
 
 //Board factory function
 const createBoard = (function(player1, player2){
-    const board = [[".",".","."],[".",".","."],[".",".","."]];
+    let board = [[".",".","."],[".",".","."],[".",".","."]];
 
     //Returns true if board is updated, false if it can't be
     const update = function(id, playerNum){
@@ -216,6 +216,9 @@ const createBoard = (function(player1, player2){
 
     return({update, checkWinner, print, generateDOM});
 });
-
-let board = createBoard();
+let player1Name = prompt("Enter name for player 1:");
+let player2Name = prompt("Enter name for player 2");
+player1 = createPlayer(player1Name);
+player2 = createPlayer(player2Name);
+let board = createBoard(player1, player2);
 board.generateDOM();
