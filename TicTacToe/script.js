@@ -184,7 +184,7 @@ const createBoard = (function(player1, player2){
                     }
                     Xturn = !Xturn;
                     numTurns++;
-                    winningPlayer = checkWinner();
+                    let winningPlayer = checkWinner();
                     if(winningPlayer === 1){
                         player1.increaseScore();
                         gameGoing = false;
@@ -202,16 +202,20 @@ const createBoard = (function(player1, player2){
 
                     if(!gameGoing){
                         if(confirm("Would you like to play again?")) {
-                            board = createBoard();
-                            board.generateDOM();
-                            gameGoing = true;
-                            numTurns = 0;
-                            Xturn = false;
+                            restart();
                         }
                     }
                 }
             });
         }
+    }
+
+    function restart(){
+        gameGoing = true;
+        numTurns = 0;
+        Xturn = true;
+        board = [[".",".","."],[".",".","."],[".",".","."]];
+        generateDOM();
     }
 
     return({update, checkWinner, print, generateDOM});
