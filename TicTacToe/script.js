@@ -2,7 +2,6 @@
 let Xturn = false;
 let gameGoing = true;
 let numTurns = 0;
-let tie = false;
 
 /*Game loop functionality*/
 const game = function(player1Name, player2Name){
@@ -178,20 +177,32 @@ const game = function(player1Name, player2Name){
                                 update(newSlot.id, 1);
                             }
                             Xturn = !Xturn;
+                            numTurns++;
                             winningPlayer = checkWinner();
                             if(winningPlayer === 1){
                                 player1.increaseScore();
                                 gameGoing = false;
+                                alert(`${player1.name} wins!`);
                             }
                             else if(winningPlayer === 2){
                                 player2.increaseScore();
                                 gameGoing = false;
+                                alert(`${player2.name} wins!`);
                             }
                             else if(winningPlayer === 3){
                                 gameGoing = false;
-                                tie = true;
+                                alert("Tie game!");
                             }
-                            numTurns++;
+
+                            if(!gameGoing){
+                                if(confirm("Would you like to play again?")) {
+                                    board = createBoard();
+                                    board.generateDOM();
+                                    gameGoing = true;
+                                    numTurns = 0;
+                                    Xturn = false;
+                                }
+                            }
                         }
                     });
                 }
@@ -201,32 +212,12 @@ const game = function(player1Name, player2Name){
         });
         
         let board = createBoard();
-        tie = false;
         board.generateDOM();
-        while(gameGoing);   //Busy wait until game is concluded
-        let answer
-        if(tie){
-            answer = prompt(`Player: ${winningPlayer.name} wins! \n Would you like to play again? (y/n)`);
-        }
-        else{
-            answer = prompt(`Tie game! \n Would you like to play again? (y/n)`);
-        }
-         
-        if(answer === "y"){
-            return true;
-        }
-        else{
-            return false;
-        }
     }
         
     let player1 = createPlayer(player1Name);
     let player2 = createPlayer(player2Name);
-    let playAgain = startGame(player1, player2);
-    while(playAgain){
-        gameGoing = true;
-        playAgain = startGame(player1, player2);
-    }
+    startGame(player1, player2);
     return([player1, player2]);
 };
 
@@ -234,17 +225,16 @@ let player1Name = prompt("Player 1 (X), what is your name?");
 let player2Name = prompt("Player 2 (O), what is your name?");
 let [player1, player2] = game(player1Name, player2Name);
 if(player1.getScore() == player2.getScore()){
-    console.log("Tie!");
+    alert("Tie!");
 }
 else{
     if(player1.getScore() > player2.getScore()){
-        console.log(`${player1.name} won!`);
+        alert(`${player1.name} won!`);
     }
     else{
-        console.log(`${player2.name} won!`);
+        alert(`${player2.name} won!`);
     }
 }
-console.log(`${player1.name}: ${player1.getScore()} points`);
-console.log(`${player2.name}: ${player2.getScore()} points`);
+alert(`${player1.name}: ${player1.getScore()} points \n${player2.name}: ${player2.getScore()} points`);
 
 
