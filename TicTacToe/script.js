@@ -105,9 +105,9 @@ const game = function(player1Name, player2Name){
                             row += " | ";
                         }
                     }
-                    console.log(row);
+                    // console.log(row);
                     if (y < 2) {
-                        console.log("---------");
+                        // console.log("---------");
                     }
                 }
             }
@@ -118,13 +118,13 @@ const game = function(player1Name, player2Name){
         while(board.checkWinner() === 0){
             for(let i=0; i<2; i++){
                 board.print();
-                console.log();
+                // console.log();
                 let placement = prompt(`Player ${i+1}'s turn!\nEnter coordinates (x y):`);
                 let x = parseInt(placement.charAt(0));
                 let y = parseInt(placement.charAt(2));
                 let update = board.update(x, y, i);
                 if(!update){
-                    console.log("Cannot place there!");
+                    // console.log("Cannot place there!");
                     i--;
                     continue;
                 }
@@ -145,12 +145,12 @@ const game = function(player1Name, player2Name){
             winningPlayer = player2;
         }
         else{
-            console.log("ERROR");
+            // console.log("ERROR");
             return false;
         }
 
 
-        let answer = prompt(`Player: ${winningPlayer.name} wins! \n Would you like to play again? (y/n)`);
+        // let answer = prompt(`Player: ${winningPlayer.name} wins! \n Would you like to play again? (y/n)`);
         if(answer === "y"){
             return true;
         }
@@ -167,19 +167,19 @@ const game = function(player1Name, player2Name){
     return([player1, player2]);
 };
 
-let player1Name = prompt("Player 1 (X), what is your name?");
-let player2Name = prompt("Player 2 (O), what is your name?");
+// let player1Name = prompt("Player 1 (X), what is your name?");
+// let player2Name = prompt("Player 2 (O), what is your name?");
 let [player1, player2] = game(player1Name, player2Name);
 if(player1.getScore() == player2.getScore()){
-    console.log("Tie!");
+    // console.log("Tie!");
 }
 else{
     if(player1.getScore() > player2.getScore()){
-        console.log(`${player1.name} won!`);
+        // console.log(`${player1.name} won!`);
     }
     else{
-        console.log(`${player2.name} won!`);
+        // console.log(`${player2.name} won!`);
     }
 }
-console.log(`${player1.name}: ${player1.getScore()} points`);
-console.log(`${player2.name}: ${player2.getScore()} points`);
+// console.log(`${player1.name}: ${player1.getScore()} points`);
+// console.log(`${player2.name}: ${player2.getScore()} points`);
