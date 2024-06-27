@@ -1,7 +1,7 @@
 html{
     width: 100vw;
     height: 100vh;
-    background-color: rgb(54, 54, 54);
+    background-color: rgb(34, 34, 34);
 }
 
 #board{
@@ -10,10 +10,16 @@ html{
     height: 800px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    background-color: white;
+    background-color: gray;
     border-radius: 20px;
     position: fixed;
     top: 20%;
     left: 50%;
     transform: translate(-50%, -20%);
+    gap: 8px;
+    padding: 12px;
+}
+
+.slot{
+    background-color: black;
 }
