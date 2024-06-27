@@ -1,8 +1,19 @@
+html{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(54, 54, 54);
+}
+
 #board{
     display: grid;
     width: 800px;
     height: 800px;
-    grid-template-columns: 3fr 1fr 3fr 1fr 3fr;
-    grid-template-rows: 3fr 1fr 3fr 1fr 3fr;
-    background-color: black
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-color: white;
+    border-radius: 20px;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
 }
