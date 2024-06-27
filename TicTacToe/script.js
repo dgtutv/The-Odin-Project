@@ -19,34 +19,44 @@ const createBoard = (function(player1, player2){
     const update = function(id, playerNum){
         let x, y;
         switch(id){
-            case 0:
+            case "0":
                 x = 0;
                 y = 0;
-            case 1:
+                break
+            case "1":
                 x = 1;
                 y = 0;
-            case 2:
+                break
+            case "2":
                 x = 2;
                 y = 0;
-            case 3:
+                break
+            case "3":
                 x = 0;
                 y = 1;
-            case 4:
+                break
+            case "4":
                 x = 1;
                 y = 1;
-            case 5:
+                break
+            case "5":
                 x = 2;
                 y = 1;
-            case 6:
+                break
+            case "6":
                 x = 0;
                 y = 2;
-            case 7:
+                break
+            case "7":
                 x = 1;
                 y = 2;
-            case 8:
+                break
+            case "8":
                 x = 2;
                 y = 2;
+                break
         }
+        console.log(`X: ${x}, Y: ${y}`)
         if(board[x][y] === "."){
             if(playerNum === 0){
                 board[x][y] = "X";
@@ -204,7 +214,7 @@ const createBoard = (function(player1, player2){
         }
     }
 
-    return({update, view, checkWinner, print, generateDOM});
+    return({update, checkWinner, print, generateDOM});
 });
 
 let board = createBoard();
