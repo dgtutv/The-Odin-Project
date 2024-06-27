@@ -6,17 +6,3 @@
     grid-template-rows: 3fr 1fr 3fr 1fr 3fr;
     background-color: black
 }
-
-.border .vertical{
-    background-color: white;
-    grid-row: 1 / -1;
-}
-
-.border .horizontal{
-    background-color: white;
-    grid-row: 1 / -1;
-}
-
-.slot{
-    background-color: gray;
-}
