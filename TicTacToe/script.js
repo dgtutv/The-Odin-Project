@@ -1,3 +1,9 @@
+/*Global game variables*/
+let Xturn = false;
+let gameGoing = true;
+let numTurns = 0;
+let tie = false;
+
 /*Game loop functionality*/
 const game = function(player1Name, player2Name){
     const createPlayer = (function(name){
@@ -13,7 +19,37 @@ const game = function(player1Name, player2Name){
             const board = [[".",".","."],[".",".","."],[".",".","."]];
 
             //Returns true if board is updated, false if it can't be
-            const update = function(x, y, playerNum){
+            const update = function(id, playerNum){
+                let x, y;
+                switch(id){
+                    case 0:
+                        x = 0;
+                        y = 0;
+                    case 1:
+                        x = 1;
+                        y = 0;
+                    case 2:
+                        x = 2;
+                        y = 0;
+                    case 3:
+                        x = 0;
+                        y = 1;
+                    case 4:
+                        x = 1;
+                        y = 1;
+                    case 5:
+                        x = 2;
+                        y = 1;
+                    case 6:
+                        x = 0;
+                        y = 2;
+                    case 7:
+                        x = 1;
+                        y = 2;
+                    case 8:
+                        x = 2;
+                        y = 2;
+                }
                 if(board[x][y] === "."){
                     if(playerNum === 0){
                         board[x][y] = "X";
@@ -33,7 +69,7 @@ const game = function(player1Name, player2Name){
             const view = () => board;
 
             //If player 1 wins, returns 1. If player 2 wins, returns 2
-            //Upon error; returns -1. If no winner, returns 0
+            //Upon error; returns -1. If no winner, returns 0. Returns 3 upon tie
             function checkWinner(){
                 //If three match in a column
                 for(let x=0; x<3; x++){
@@ -93,6 +129,12 @@ const game = function(player1Name, player2Name){
                         return -1;
                     }
                 }
+
+                //If the number of turns is 9, the game is a tie. Return 3
+                if(numTurns === 9){
+                    numTurns = 0;
+                    return 3;
+                }
                 return 0;
             }
 
@@ -122,6 +164,36 @@ const game = function(player1Name, player2Name){
                     newSlot.style.gridColumn = `${(i % 3) + 1}`;
                     newSlot.style.gridRow = `${Math.floor(i / 3) + 1}`;
                     board.appendChild(newSlot);
+
+                    newSlot.addEventListener("click", function(e){
+                        if(newSlot.innerHTML === ""){
+                            if(Xturn){
+                                newSlot.innerHTML = "X";
+                                newSlot.classList.add("x");
+                                update(newSlot.id, 0)
+                            }
+                            else{
+                                newSlot.innerHTML = "O";
+                                newSlot.classList.add("o");
+                                update(newSlot.id, 1);
+                            }
+                            Xturn = !Xturn;
+                            winningPlayer = checkWinner();
+                            if(winningPlayer === 1){
+                                player1.increaseScore();
+                                gameGoing = false;
+                            }
+                            else if(winningPlayer === 2){
+                                player2.increaseScore();
+                                gameGoing = false;
+                            }
+                            else if(winningPlayer === 3){
+                                gameGoing = false;
+                                tie = true;
+                            }
+                            numTurns++;
+                        }
+                    });
                 }
             }
 
@@ -129,42 +201,17 @@ const game = function(player1Name, player2Name){
         });
         
         let board = createBoard();
-        while(board.checkWinner() === 0){
-            board.generateDOM();
-            for(let i=0; i<2; i++){
-                console.log();
-                let placement = prompt(`Player ${i+1}'s turn!\nEnter coordinates (x y):`);
-                let x = parseInt(placement.charAt(0));
-                let y = parseInt(placement.charAt(2));
-                let update = board.update(x, y, i);
-                if(!update){
-                    console.log("Cannot place there!");
-                    i--;
-                    continue;
-                }
-                if(board.checkWinner() != 0){
-                    break;
-                }
-            }
-        }
-        
-        const winner = board.checkWinner();
-        let winningPlayer;
-        if(winner === 1){
-            player1.increaseScore();
-            winningPlayer = player1;
-        }
-        else if(winner === 2){
-            player2.increaseScore();
-            winningPlayer = player2;
+        tie = false;
+        board.generateDOM();
+        while(gameGoing);   //Busy wait until game is concluded
+        let answer
+        if(tie){
+            answer = prompt(`Player: ${winningPlayer.name} wins! \n Would you like to play again? (y/n)`);
         }
         else{
-            console.log("ERROR");
-            return false;
+            answer = prompt(`Tie game! \n Would you like to play again? (y/n)`);
         }
-
-
-        let answer = prompt(`Player: ${winningPlayer.name} wins! \n Would you like to play again? (y/n)`);
+         
         if(answer === "y"){
             return true;
         }
@@ -172,10 +219,12 @@ const game = function(player1Name, player2Name){
             return false;
         }
     }
+        
     let player1 = createPlayer(player1Name);
     let player2 = createPlayer(player2Name);
     let playAgain = startGame(player1, player2);
     while(playAgain){
+        gameGoing = true;
         playAgain = startGame(player1, player2);
     }
     return([player1, player2]);
@@ -197,4 +246,5 @@ else{
 }
 console.log(`${player1.name}: ${player1.getScore()} points`);
 console.log(`${player2.name}: ${player2.getScore()} points`);
+
 
