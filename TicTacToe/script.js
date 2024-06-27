@@ -226,3 +226,13 @@ player1 = createPlayer(player1Name);
 player2 = createPlayer(player2Name);
 let board = createBoard(player1, player2);
 board.generateDOM();
+
+/*TODO:
+    *DOM update immediately requestAnimationFrame(()=>{
+                                requestAnimationFrame(()=>{
+                                    alert("message");
+                                });
+                            });
+    *Add counters and player names to HTML
+    *Fancy overlay for game over, play again button 
+*/
