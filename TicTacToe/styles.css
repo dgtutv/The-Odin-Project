@@ -5,17 +5,15 @@ html{
 }
 
 body{
-    display: grid;
-    grid-template-columns: 5fr 1fr;
-    grid-template-rows: 1fr 5fr;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 25px 100px;
-    width: 100vw;
     gap: 50px;
 }
 
 #board{
-    grid-row: 1 / -1; 
-    grid-column: 1;
+    align-self: center;
     display: grid;
     width: 800px;
     height: 800px;
@@ -60,15 +58,21 @@ body{
                  0 0 30px rgba(0, 191, 255, 0.4);
 }
 
+#playerScores{
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
 #player1Score{
-    grid-column: 2;
-    grid-row: 1;
-    padding-top: 30px;
     font-size: 4rem;
 }
 
 #player2Score{
-    grid-column: 2;
-    grid-row: 2;
     font-size: 4rem;
 }
+
+/*Media queries for font size of player scores
+/*Media queries for font size of X's and O'x
+/*Board width always should equal board height
