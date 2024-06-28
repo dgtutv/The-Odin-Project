@@ -221,7 +221,13 @@ const createBoard = (function(player1, player2){
     return({update, checkWinner, print, generateDOM});
 });
 let player1Name = prompt("Enter name for player 1:");
+if(player1Name === null || player1Name === ""){
+    player1Name = "Player 1";
+}
 let player2Name = prompt("Enter name for player 2");
+if(player2Name === null || player2Name === ""){
+    player2Name = "Player 2";
+}
 player1 = createPlayer(player1Name);
 player2 = createPlayer(player2Name);
 let board = createBoard(player1, player2);
