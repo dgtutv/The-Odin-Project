@@ -184,27 +184,33 @@ const createBoard = (function(player1, player2){
                     }
                     Xturn = !Xturn;
                     numTurns++;
-                    let winningPlayer = checkWinner();
-                    if(winningPlayer === 1){
-                        player1.increaseScore();
-                        gameGoing = false;
-                        alert(`${player1.name} wins!`);
-                    }
-                    else if(winningPlayer === 2){
-                        player2.increaseScore();
-                        gameGoing = false;
-                        alert(`${player2.name} wins!`);
-                    }
-                    else if(winningPlayer === 3){
-                        gameGoing = false;
-                        alert("Tie game!");
-                    }
 
-                    if(!gameGoing){
-                        if(confirm("Would you like to play again?")) {
-                            restart();
-                        }
-                    }
+                    //Await DOM updates before continuing
+                    requestAnimationFrame(()=>{
+                        requestAnimationFrame(()=>{
+                            let winningPlayer = checkWinner();
+                            if(winningPlayer === 1){
+                                player1.increaseScore();
+                                gameGoing = false;
+                                alert(`${player1.name} wins!`);
+                            }
+                            else if(winningPlayer === 2){
+                                player2.increaseScore();
+                                gameGoing = false;
+                                alert(`${player2.name} wins!`);
+                            }
+                            else if(winningPlayer === 3){
+                                gameGoing = false;
+                                alert("Tie game!");
+                            }
+
+                            if(!gameGoing){
+                                if(confirm("Would you like to play again?")) {
+                                    restart();
+                                }
+                            }
+                        })
+                    });
                 }
             });
         }
@@ -234,12 +240,6 @@ let board = createBoard(player1, player2);
 board.generateDOM();
 
 /*TODO:
-    *DOM update immediately requestAnimationFrame(()=>{
-                                requestAnimationFrame(()=>{
-                                    alert("message");
-                                });
-                            });
-        **Wont be a problem if change to pure DOM instead of alerts
     *Add counters and player names to HTML
     *Fancy overlay for game over, play again button 
 */
