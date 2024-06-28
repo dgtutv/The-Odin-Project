@@ -73,41 +73,45 @@ body{
 
 @media screen and (max-width: 1700px) {
     body{
-        padding: 25px 100px;   
+        padding: 25px 100px 25px 100px;   
     }
 }
 
 @media screen and (max-width: 1600px) {
     body{
-        padding: 25px 75px;   
+        padding: 25px 100px 25px 75px;   
     }
 }
 
 @media screen and (max-width: 1550px) {
     body{
-        padding: 25px 50px;   
+        padding: 25px 75px 25px 50px;   
     }
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1485px) {
     body{
-        padding: 25px 25px;   
+        padding: 25px 50px 25px 25px;   
     }
 
     #playerScores{
-        font-size: 3rem;
+        font-size: 3.5rem;
         padding-right: 25px;
     }
 }
 
 @media screen and (max-width: 1310px) {
+    body{
+        padding: 25px 5px 25px 25px;   
+    }
+
     #playerScores{
         font-size: 3rem;
-        padding-right: 0px;
     }
 }
 
 @media screen and (max-width: 1250px) {
+
     #playerScores{
         font-size: 2.5rem;
         padding-top: 40px;
