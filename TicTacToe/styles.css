@@ -7,7 +7,10 @@ html{
 body{
     display: grid;
     grid-template-columns: 5fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 5fr;
+    padding: 25px 100px;
+    width: 100vw;
+    gap: 50px;
 }
 
 #board{
@@ -60,11 +63,12 @@ body{
 #player1Score{
     grid-column: 2;
     grid-row: 1;
-    color: white;
+    padding-top: 30px;
+    font-size: 4rem;
 }
 
 #player2Score{
     grid-column: 2;
     grid-row: 2;
-    color: white;
+    font-size: 4rem;
 }
