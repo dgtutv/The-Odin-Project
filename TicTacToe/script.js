@@ -4,11 +4,22 @@ let gameGoing = true;
 let numTurns = 0;
 
 //Player factory function
-const createPlayer = (function(name){
+const createPlayer = (function(name, ID){
     let score = 0;
-    const increaseScore = () => score++;
+    const increaseScore = () => {
+        score++;
+        generateDOM();
+    }
     const getScore = () => score;
-    return {name, increaseScore, getScore};
+
+    //Generates DOM for player's scores
+    function generateDOM(){
+        let scoreLine = document.querySelector(`#player${ID+1}Score`);
+        scoreLine.innerHTML = `${name} points: ${score}`;
+    }
+
+    return {name, ID, increaseScore, getScore, generateDOM};
+
 });
 
 //Board factory function
@@ -234,8 +245,10 @@ let player2Name = prompt("Enter name for player 2");
 if(player2Name === null || player2Name === ""){
     player2Name = "Player 2";
 }
-player1 = createPlayer(player1Name);
-player2 = createPlayer(player2Name);
+player1 = createPlayer(player1Name, 0);
+player2 = createPlayer(player2Name, 1);
+player1.generateDOM();
+player2.generateDOM();
 let board = createBoard(player1, player2);
 board.generateDOM();
 
