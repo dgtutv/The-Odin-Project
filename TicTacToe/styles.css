@@ -74,7 +74,7 @@ body{
 @media screen and (max-height: 1300px){
     body{
         justify-content: center;
-        gap: 50px;
+        gap: 80px;
     }
 }
 
