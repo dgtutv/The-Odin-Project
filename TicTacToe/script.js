@@ -219,6 +219,9 @@ const createBoard = (function(player1, player2){
                                 if(confirm("Would you like to play again?")) {
                                     restart();
                                 }
+                                else{
+                                    location.reload();
+                                }
                             }
                         })
                     });
