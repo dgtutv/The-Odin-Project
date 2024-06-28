@@ -8,7 +8,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 32px 400px 32px 100px;
+    padding: 32px 350px 32px 100px;
     gap: 50px;
     height: 90%;
 }
@@ -17,8 +17,7 @@ body{
     flex-shrink: 1;
     align-self: center;
     display: grid;
-    width: 90vw;
-    max-width: 800px;
+    width: 90vh;
     height: auto;
     aspect-ratio: 1 / 1;
     grid-template-columns: repeat(3, 1fr);
@@ -112,7 +111,5 @@ body{
     #playerScores{
         font-size: 2.5rem;
         padding-top: 40px;
-    }
-    body{
     }
 }
