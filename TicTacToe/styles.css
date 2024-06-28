@@ -8,15 +8,16 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 25px 100px;
+    padding: 32px 400px 32px 100px;
     gap: 50px;
+    height: 90%;
 }
 
 #board{
     align-self: center;
     display: grid;
     width: 800px;
-    height: 800px;
+    aspect-ratio: 1 / 1;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     background-color: black;
@@ -63,16 +64,50 @@ body{
     display: flex;
     flex-direction: column;
     gap: 70px;
-}
-
-#player1Score{
     font-size: 4rem;
+    padding-top: 30px;
+
 }
 
-#player2Score{
-    font-size: 4rem;
+@media screen and (max-width: 1700px) {
+    body{
+        padding: 25px 100px;   
+    }
 }
 
-/*Media queries for font size of player scores
-/*Media queries for font size of X's and O'x
-/*Board width always should equal board height
+@media screen and (max-width: 1600px) {
+    body{
+        padding: 25px 75px;   
+    }
+}
+
+@media screen and (max-width: 1550px) {
+    body{
+        padding: 25px 50px;   
+    }
+}
+
+@media screen and (max-width: 1450px) {
+    body{
+        padding: 25px 25px;   
+    }
+
+    #playerScores{
+        font-size: 3rem;
+        padding-right: 25px;
+    }
+}
+
+@media screen and (max-width: 1310px) {
+    #playerScores{
+        font-size: 3rem;
+        padding-right: 0px;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    #playerScores{
+        font-size: 2.5rem;
+        padding-top: 40px;
+    }
+}
