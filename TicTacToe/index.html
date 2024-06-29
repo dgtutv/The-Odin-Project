@@ -6,7 +6,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="overlay" id="gameStartScreen">
+    <form class="overlay" id="gameStartScreen">
         <h1 id="gameIntro">Tic-Tac-Toe</h1>
         <div class="nameInput">
             <label for="player1Name" class="x">Player 1 Name:</label>
@@ -16,13 +16,13 @@
             <label for="player2Name" class="o">Player 2 Name:</label>
             <input type="text" name="Player 2 Name" id="player2Name" class="o">
         </div>
-        <button id="startGame">Start Game</button>
-    </div>
+        <button id="startGame" type="submit">Start Game</button>
+    </form>
     <div id="gameContent" class="blur">
         <div id="board"></div>
         <div id="playerScores">
-        <div id="player1Score" class="x"></div>
-        <div id="player2Score" class="o"></div>
+            <div id="player1Score" class="x"></div>
+            <div id="player2Score" class="o"></div>
         </div>
     </div> 
 </body>

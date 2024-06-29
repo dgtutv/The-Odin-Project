@@ -242,14 +242,15 @@ const createBoard = (function(player1, player2){
 });
 
 
-const startButton = document.querySelector("#startGame");
-startButton.addEventListener("click", function(e){
-    let player1Name = document.querySelector("#player1Name").value;
-    if(player1Name === null || player1Name === ""){
+const startScreen = document.querySelector("#gameStartScreen");
+startScreen.addEventListener("submit", function(e){
+    e.preventDefault();
+    let player1Name = document.querySelector("#player1Name").value.trim();
+    if(player1Name === ""){
         player1Name = "Player 1";
     }
-    let player2Name = document.querySelector("#player2Name").value;
-    if(player2Name === null || player2Name === ""){
+    let player2Name = document.querySelector("#player2Name").value.trim();
+    if(player2Name === ""){
         player2Name = "Player 2";
     }
     player1 = createPlayer(player1Name, 0);
