@@ -147,7 +147,7 @@ body{
     border: 10px rgb(0, 191, 255);
 }
 
-#startGame {
+.overlayButton {
     align-self: center;
     width: 50%;
     height: auto;
@@ -168,12 +168,18 @@ body{
     font-weight: bold;
 }
 
-#startGame:hover {
+.overlayButton:hover {
     transform: scale(1.1);
 }
 
 .hidden {
     display: none;
+}
+
+#buttons {
+    display: flex;
+    gap: 36px;
+    padding: 0 24px;
 }
 
 @media screen and (max-width: 1485px) {
