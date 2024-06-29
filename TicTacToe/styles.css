@@ -104,7 +104,7 @@ body{
     user-select: none;
 }
 
-#gameIntro{
+.overlayHeader{
     color: rgb(130, 255, 113);
     text-shadow: 0 0 10px rgba(0, 255, 0, 0.8),
                 0 0 20px rgba(0, 255, 0, 0.6),
