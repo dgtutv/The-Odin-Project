@@ -8,10 +8,14 @@
 <body>
     <div class="overlay" id="gameStartScreen">
         <h1 id="gameIntro">Tic-Tac-Toe</h1>
-        <label for="player1Name" class="x">Player 1 Name:</label>
-        <input type="text" name="Player 1 Name" id="player1Name" class="x">
-        <label for="player2Name" class="o">Player 2 Name:</label>
-        <input type="text" name="Player 2 Name" id="player2Name" class="o">
+        <div class="nameInput x">
+            <label for="player1Name" class="x">Player 1 Name:</label>
+            <input type="text" name="Player 1 Name" id="player1Name" class="x">
+        </div>
+        <div class="nameInput o">
+            <label for="player2Name" class="o">Player 2 Name:</label>
+            <input type="text" name="Player 2 Name" id="player2Name" class="o">
+        </div>
     </div>
     <div id="gameContent" class="blur">
         <div id="board"></div>

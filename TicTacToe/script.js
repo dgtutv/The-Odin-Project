@@ -259,6 +259,5 @@ board.generateDOM();
     *Fancy overlay/screen for game over, play again button 
     *Strike through to indicate where the win took place
     *Hover effect on squares
-    *Add a title to the page
     *Cool neon background?
 */
