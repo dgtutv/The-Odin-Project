@@ -12,8 +12,8 @@ body{
 #gameContent{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 32px 350px 32px 100px;
+    justify-content: center;
+    padding: 40px 16px;
     gap: 100px;
     height: 80vh;
 }
@@ -176,40 +176,19 @@ body{
     display: none;
 }
 
-@media screen and (max-height: 650px){
-    #gameContent{
-        justify-content: center;
-    }
-}
-
-@media screen and (max-width: 1700px) {
-    #gameContent{
-        padding: 25px;   
-    }
-}
-
 @media screen and (max-width: 1485px) {
-    body{
-        padding: 25px;   
-    }
-
     #playerScores{
         font-size: 3.5rem;
     }
 }
 
 @media screen and (max-width: 1310px) {
-    body{
-        padding: 25px 5px 25px 25px;   
-    }
-
     #playerScores{
         font-size: 3rem;
     }
 }
 
 @media screen and (max-width: 1250px) {
-
     #playerScores{
         font-size: 2.5rem;
         padding-top: 40px;
