@@ -108,16 +108,17 @@ body{
                 0 0 20px rgba(0, 255, 0, 0.6),
                 0 0 30px rgba(0, 255, 0, 0.4);
     align-self: center;
+    margin-bottom: 20px
 }
 
 .nameInput {
     align-self: flex-start;
     margin: 30px;
+    margin-top: 15px;
     font-weight: bold;
 }
 
 .nameInput input{
-    
     background-color: black;
     border-radius: 10px;
     border: 10px white;
@@ -130,11 +131,20 @@ body{
     font-weight: bold;
 }
 
-.nameInput .x input{
+#player1Name{
     box-shadow: 0 0 5px 2px rgba(255, 20, 147, 0.8),
             0 0 10px 4px rgba(255, 20, 147, 0.6),
             0 0 20px 6px rgba(255, 20, 147, 0.4);
+    border: 10px rgb(255, 20, 147);
 }
+
+#player2Name{
+    box-shadow: 0 0 5px 2px rgba(0, 191, 255, 0.8),
+            0 0 10px 4px rgba(0, 191, 255, 0.6),
+            0 0 20px 6px rgba(0, 191, 255, 0.4);
+    border: 10px rgb(0, 191, 255);
+}
+
 @media screen and (max-height: 650px){
     #gameContent{
         justify-content: center;
