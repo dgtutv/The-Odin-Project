@@ -14,7 +14,7 @@ body{
     justify-content: space-between;
     padding: 32px 350px 32px 100px;
     gap: 100px;
-    height: 90%;
+    height: 80vh;
 }
 
 #board{
@@ -81,20 +81,21 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 50%;
-    height: 90%;
+    height: 90vh;
     border-radius: 20px;
     padding: 12px;
     color: white;
     background-color: black;
+    z-index: 1000;
 }
 
 .blur{
-    filter: blur(20px); /* Why is this affecting the overlay */
+    filter: blur(10px);
     pointer-events: none;
     user-select: none;
 }
 
-@media screen and (max-height: 1200px){
+@media screen and (max-height: 650px){
     #gameContent{
         justify-content: center;
     }
