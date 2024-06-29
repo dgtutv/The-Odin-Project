@@ -240,20 +240,29 @@ const createBoard = (function(player1, player2){
 
     return({update, checkWinner, print, generateDOM});
 });
-let player1Name = prompt("Enter name for player 1:");
-if(player1Name === null || player1Name === ""){
-    player1Name = "Player 1";
-}
-let player2Name = prompt("Enter name for player 2");
-if(player2Name === null || player2Name === ""){
-    player2Name = "Player 2";
-}
-player1 = createPlayer(player1Name, 0);
-player2 = createPlayer(player2Name, 1);
-player1.generateDOM();
-player2.generateDOM();
-let board = createBoard(player1, player2);
-board.generateDOM();
+
+
+const startButton = document.querySelector("#startGame");
+startButton.addEventListener("click", function(e){
+    let player1Name = document.querySelector("#player1Name").value;
+    if(player1Name === null || player1Name === ""){
+        player1Name = "Player 1";
+    }
+    let player2Name = document.querySelector("#player2Name").value;
+    if(player2Name === null || player2Name === ""){
+        player2Name = "Player 2";
+    }
+    player1 = createPlayer(player1Name, 0);
+    player2 = createPlayer(player2Name, 1);
+    player1.generateDOM();
+    player2.generateDOM();
+    let board = createBoard(player1, player2);
+    board.generateDOM();
+
+    document.querySelector("#gameContent").classList.remove("blur");
+    document.querySelector("#gameStartScreen").classList.add("hidden");
+});
+
 
 /*TODO:
     *Fancy overlay/screen for game over, play again button 
