@@ -170,6 +170,44 @@ const createBoard = (function(player1, player2){
         }
     }
 
+    function endGame(winningPlayer){
+        if(winningPlayer === -1){
+            return;
+        }
+        /*Show the screen and fill in the info*/
+        let gameEndScreen = document.querySelector("#gameEndScreen");
+        let info = document.querySelector("#info");
+        gameEndScreen.classList.remove("hidden");
+        let message = document.createElement("p");
+        switch(winningPlayer){
+            case 1:
+                message.innerText(`${player1.name} wins!`);
+                break;
+            case 2:
+                message.innerText(`${player2.name} wins!`)
+                break;
+            case 3:
+                message.innerText("Tie Game!")
+                break;
+        }
+        let player1Points = document.createElement("p");
+        player1Points.innerText(`${player1.name} points: ${player1.score}`);
+        let player2Points = document.createElement("p");
+        player2Points.innerText(`${player2.name} points: ${player2.score}`);
+        info.appendChild(message);
+        info.appendChild(player1Points);
+        info.appendChild(player2Points);
+        
+        /*Add screen functionality*/
+        document.querySelector("#playAgain").addEventListener("click", function(e){
+            gameEndScreen.classList.add("hidden");
+            info.innerHTML = "";
+        });
+        document.querySelector("#resart").addEventListener("click", function(e){
+            location.reload;
+        });
+    }
+
     function generateDOM(){
         const board = document.querySelector("#board");
         board.innerHTML = "";
@@ -200,42 +238,12 @@ const createBoard = (function(player1, player2){
                     requestAnimationFrame(()=>{
                         requestAnimationFrame(()=>{
                             let winningPlayer = checkWinner();
-                            if(winningPlayer === 1){
-                                player1.increaseScore();
-                                gameGoing = false;
-                                alert(`${player1.name} wins!`);
-                            }
-                            else if(winningPlayer === 2){
-                                player2.increaseScore();
-                                gameGoing = false;
-                                alert(`${player2.name} wins!`);
-                            }
-                            else if(winningPlayer === 3){
-                                gameGoing = false;
-                                alert("Tie game!");
-                            }
-
-                            if(!gameGoing){
-                                if(confirm("Would you like to play again?")) {
-                                    restart();
-                                }
-                                else{
-                                    location.reload();
-                                }
-                            }
+                            endGame(winningPlayer);
                         })
                     });
                 }
             });
         }
-    }
-
-    function restart(){
-        gameGoing = true;
-        numTurns = 0;
-        Xturn = true;
-        board = [[".",".","."],[".",".","."],[".",".","."]];
-        generateDOM();
     }
 
     return({update, checkWinner, print, generateDOM});
