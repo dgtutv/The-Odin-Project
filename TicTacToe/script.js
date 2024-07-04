@@ -67,7 +67,6 @@ const createBoard = (function(player1, player2){
                 y = 2;
                 break
         }
-        console.log(`X: ${x}, Y: ${y}`)
         if(board[x][y] === "."){
             if(playerNum === 0){
                 board[x][y] = "X";
@@ -171,7 +170,7 @@ const createBoard = (function(player1, player2){
     }
 
     function endGame(winningPlayer){
-        if(winningPlayer === -1){
+        if(winningPlayer === 0){
             return;
         }
         /*Show the screen and fill in the info*/
@@ -181,19 +180,21 @@ const createBoard = (function(player1, player2){
         let message = document.createElement("p");
         switch(winningPlayer){
             case 1:
-                message.innerText(`${player1.name} wins!`);
+                message.innerText = `${player1.name} wins!`;
+                player1.increaseScore();
                 break;
             case 2:
-                message.innerText(`${player2.name} wins!`)
+                message.innerText =`${player2.name} wins!`;
+                player2.increaseScore();
                 break;
             case 3:
-                message.innerText("Tie Game!")
+                message.innerText = "Tie Game!";
                 break;
         }
         let player1Points = document.createElement("p");
-        player1Points.innerText(`${player1.name} points: ${player1.score}`);
+        player1Points.innerText = `${player1.name} points: ${player1.getScore()}`;
         let player2Points = document.createElement("p");
-        player2Points.innerText(`${player2.name} points: ${player2.score}`);
+        player2Points.innerText = `${player2.name} points: ${player2.getScore()}`;
         info.appendChild(message);
         info.appendChild(player1Points);
         info.appendChild(player2Points);
@@ -201,11 +202,19 @@ const createBoard = (function(player1, player2){
         /*Add screen functionality*/
         document.querySelector("#playAgain").addEventListener("click", function(e){
             gameEndScreen.classList.add("hidden");
-            info.innerHTML = "";
+            restart();
         });
-        document.querySelector("#resart").addEventListener("click", function(e){
+        document.querySelector("#restart").addEventListener("click", function(e){
             location.reload;
         });
+    }
+
+    function restart(){
+        gameGoing = true;
+        numTurns = 0;
+        Xturn = true;
+        board = [[".",".","."],[".",".","."],[".",".","."]];
+        generateDOM();
     }
 
     function generateDOM(){
