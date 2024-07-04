@@ -202,6 +202,7 @@ const createBoard = (function(player1, player2){
         /*Add screen functionality*/
         document.querySelector("#playAgain").addEventListener("click", function(e){
             gameEndScreen.classList.add("hidden");
+            info.innerHTML = "";
             restart();
         });
         document.querySelector("#restart").addEventListener("click", function(e){
