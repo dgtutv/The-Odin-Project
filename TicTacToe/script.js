@@ -206,7 +206,7 @@ const createBoard = (function(player1, player2){
             restart();
         });
         document.querySelector("#restart").addEventListener("click", function(e){
-            location.reload;
+            location.reload();
         });
     }
 
