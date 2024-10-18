@@ -1,5 +1,5 @@
 import "./styles.css";
-import loadLocations from "./locations.js";
+import loadAbout from "./about.js";
 import loadContact from "./contact.js";
 
 function loadPage(){
@@ -29,9 +29,9 @@ homeButton.addEventListener('click', function(e){
     loadPage();
 });
 
-const locationsButton = document.querySelector("#locations");
-locationsButton.addEventListener('click', function(e){
-    loadLocations();
+const aboutButton = document.querySelector("#about");
+aboutButton.addEventListener('click', function(e){
+    loadAbout();
 });
 
 const contactButton = document.querySelector("#contact");
