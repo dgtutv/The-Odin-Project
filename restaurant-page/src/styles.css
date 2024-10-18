@@ -41,6 +41,10 @@ button{
     color: white;
 }
 
+button:hover{
+    background-color: #271a16;
+}
+
 h2{
     font-size: 1.75rem;
     font-weight: normal;
@@ -60,7 +64,7 @@ h3{
     color: white;
     background-size: cover;
     background-repeat: no-repeat;
-    width: calc(100% - 60px);
+    width: calc(100%-30px);
     height: 400px;
     display: flex;
     align-items: flex-start;
@@ -69,8 +73,9 @@ h3{
     padding-top: 250px;
 }
 
-.imageBackground > h1, .imageBackground > h2{
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+.imageText > h1, .imageText > h2{
+    text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+             1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
 }
 
 #homeImage{
@@ -80,7 +85,7 @@ h3{
 
 #cheeseBurger{
     background-image: url(https://images.unsplash.com/photo-1552604617-eea98aa27234?q=80&w=2013&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-    background-position: center -100px;
+    background-position: center -20vw;
     justify-content: flex-end;
     text-align: right;
 
@@ -88,6 +93,12 @@ h3{
 
 #caesarSalad{
     background-image: url(https://tworedbowls.com/wp-content/uploads/2015/08/20484440249_1d4491d12a_c.jpg);
-    background-position: center -100px;
+    background-position: center 0;
 
+}
+
+@media screen and (max-width: 1400px) {
+    #cheeseBurger{
+        background-position: center 0;
+    }
 }
