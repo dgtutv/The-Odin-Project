@@ -4,6 +4,9 @@ function loadPage(){
     const content = document.querySelector("#content");
     content.innerHTML = `<div id="centerContainer">
             <div id="container">
+                <div class="card pageTitle">
+                    <h1>About</h1>
+                </div>
                 <div class="card">
                     <h2><b>Hours</b></h2>
                     <h3>Monday: 9:00AM - 7:30PM</h3>

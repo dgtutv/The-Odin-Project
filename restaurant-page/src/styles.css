@@ -133,6 +133,21 @@ h3{
     border-radius: 12px;
 }
 
+.pageTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: auto;
+}
+
+.pageTitle > h1{
+    font-weight: bold;
+    font-size: 2.3rem;
+    width: fit-content;
+    margin: 0 48px;
+}
+
 @media screen and (max-width: 1400px) {
     #cheeseBurger{
         background-position: center 0;
