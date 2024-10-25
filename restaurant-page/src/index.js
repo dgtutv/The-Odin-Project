@@ -39,4 +39,4 @@ contactButton.addEventListener('click', function(e){
     loadContact();
 });
 
-//loadPage();
+loadPage();
