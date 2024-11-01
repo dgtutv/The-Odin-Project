@@ -1,0 +1,29 @@
+body{
+    display: flex;
+    background-color: #121212;
+    margin: 0;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+    background-color: #282828;
+    min-width: 280px;
+    height: calc(100vh - 24px);
+    padding: 12px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+nav > button{
+    background-color: #282828;
+    border: none;
+    font-size: 1.4rem;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    padding: 10px 0;
+}
