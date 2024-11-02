@@ -1,4 +1,3 @@
-import List from "./list.js";
 export default Data;
 
 //TODO: prevent user from creating two lists with the same name, cant do in this class (use isPresent)
