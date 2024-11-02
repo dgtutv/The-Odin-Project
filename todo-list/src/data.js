@@ -1,7 +1,7 @@
 import List from "./list.js";
 
 
-//TODO: prevent 
+//TODO: prevent user from creating two lists with the same name
 class Data{
     pull(id){
         if(localStorage.getItem(id) !== null){
