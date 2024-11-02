@@ -50,3 +50,7 @@ nav > button > svg{
     fill: white;
     width: 2.2rem;
 }
+
+#content{
+    flex-grow: 1;
+}
