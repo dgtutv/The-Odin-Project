@@ -1,12 +1,16 @@
-export default Data;
+export default class Data{
+    constructor(ListClass){
+        this.ListClass = ListClass;
+    }
 
-class Data{
-    pull(id){
+    pull(id) {
         if(this.isPresent(id)){
             return JSON.parse(localStorage.getItem(id));
-        }
+        } 
         else{
-            return new List(id);
+            let newClass = new this.ListClass(id);
+            this.push(newClass);
+            return new this.ListClass(id);
         }
     }
 
@@ -15,11 +19,6 @@ class Data{
     }
 
     isPresent(id){
-        if(localStorage.getItem(id) !== null){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return localStorage.getItem(id) !== null;
     }
 }

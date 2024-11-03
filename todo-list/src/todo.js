@@ -1,6 +1,4 @@
-export default Todo;
-
-class Todo{
+export default class Todo{
     priority;
     checklist;
     description;
@@ -9,5 +7,5 @@ class Todo{
         this.title = title;
     }
     
-    remove();   //Find all lists containing this todo, and remove from each
+    //remove();   //Find all lists containing this todo, and remove from each
 }
