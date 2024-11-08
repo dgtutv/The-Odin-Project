@@ -2,6 +2,7 @@ body{
     display: flex;
     background-color: #121212;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 nav{
@@ -72,6 +73,7 @@ nav > button > svg{
 /*Inspired by: https://stackoverflow.com/questions/19206919/how-to-create-checkbox-inside-dropdown*/
 .checkedDropdown{
     display: inline-block;
+    color: white;
 }
 
 .checkedDropdown .projectAnchor{
@@ -85,8 +87,8 @@ nav > button > svg{
 .checkedDropdown .projectAnchor:after{
     position: absolute;
     content: "";
-    border-left: 2px solid black;
-    border-top: 2px solid black;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
     padding: 5px;
     right: 10px;
     top: 20%;
