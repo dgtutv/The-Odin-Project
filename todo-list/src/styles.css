@@ -119,7 +119,6 @@ nav > button > svg{
 .checkedDropdown.visible .projectAnchor{
     border: 1px solid white;
     border-radius: 12px;
-    text
 }
 
 .checkedDropdown.visible .items{
