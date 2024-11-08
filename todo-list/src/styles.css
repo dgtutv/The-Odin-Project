@@ -117,7 +117,7 @@ nav > button > svg{
 }
 
 .checkedDropdown.visible .projectAnchor{
-    color: #0094ff;
+    color: #0094ff;     /*Change to a border?*/
 }
 
 .checkedDropdown.visible .items{
