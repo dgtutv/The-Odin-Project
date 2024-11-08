@@ -59,3 +59,65 @@ nav > button > svg{
 #content{
     flex-grow: 1;
 }
+
+#newMenu{
+    width: 400px;
+    background-color: #282828; 
+}
+
+.hidden{
+    display: none;
+}
+
+/*Inspired by: https://stackoverflow.com/questions/19206919/how-to-create-checkbox-inside-dropdown*/
+.checkedDropdown{
+    display: inline-block;
+}
+
+.checkedDropdown .projectAnchor{
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 50px 5px 10px;
+    border: 1px solid #ccc;
+}
+
+.checkedDropdown .projectAnchor:after{
+    position: absolute;
+    content: "";
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    padding: 5px;
+    right: 10px;
+    top: 20%;
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+.checkedDropdown .projectAnchor:active:after {
+    right: 8px;
+    top: 21%;
+}
+
+.checkedDropdown ul.items {
+    padding: 2px;
+    display: none;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.checkedDropdown ul.items li {
+    list-style: none;
+}
+
+.checkedDropdown.visible .anchor {
+    color: #0094ff;
+}
+
+.checkedDropdown.visible .items {
+    display: block;
+}

@@ -13,7 +13,7 @@ let allTodos = dataHandler.pull("allTodos");
 //Start off in My Day section, render its contents
 let domHandler = new DOM;
 let currentList = myDay;
-domHandler.render(currentList);
+domHandler.renderContents(currentList);
 
 //TODO: prevent user from creating two lists with the same name, cant do in this class (use isPresent)
 
