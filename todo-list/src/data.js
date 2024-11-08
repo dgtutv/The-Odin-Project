@@ -8,9 +8,9 @@ export default class Data{
             return JSON.parse(localStorage.getItem(id));
         } 
         else{
-            let newClass = new this.ListClass(id);
+            let newClass = new this.ListClass(id, Data);
             this.push(newClass);
-            return new this.ListClass(id);
+            return newClass;
         }
     }
 
