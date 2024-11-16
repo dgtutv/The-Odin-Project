@@ -173,3 +173,19 @@ nav > button > svg{
 .checkedDropdown.visible .items{
     display: block;
 }
+
+.submit{
+    width: 90%;
+    padding: 10px;
+    gap: 18px;
+    background-color: rgb(0, 0, 200);
+    margin: 12px;
+    border-radius: 4px;
+    color: white;
+    font-size: 1rem;
+    border: none;
+}
+
+.submit:hover{
+    background-color: rgb(0, 0, 182);
+}
