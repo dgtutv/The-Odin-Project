@@ -8,8 +8,8 @@ export default class List {
         this.dataHandler.push(this);
     }
 
-    add(id, title, priority = "low", description = "", checklist = ""){
-        let newTodo = new Todo(id, title, priority, description, checklist);
+    add(id, title, priority = "low", description = ""){
+        let newTodo = new Todo(id, title, priority, description);
         this.todos.push(newTodo);
         this.dataHandler.push(this); // Update localstorage
     }
