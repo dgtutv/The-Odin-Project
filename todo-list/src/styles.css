@@ -74,7 +74,7 @@ nav > button > svg{
 }
 
 .hidden{
-    display: none;
+    display: none !important;
 }
 
 #nameBox{
