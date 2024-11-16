@@ -92,7 +92,29 @@ nav > button > svg{
 
 }
 
-#namebox::selection{
+#nameBox::selection{
+    border: 1px solid white;
+}
+
+#descriptionBox{
+    background-color: #393939;
+    margin: 12px;
+    border-radius: 4px;
+    padding: 4px 8px;
+    width: calc(360px - 8*2px);
+    min-height: 60px;
+    border: none;
+    color: white;
+    resize: none;
+    font-family: inherit;
+}
+
+#descriptionBox::placeholder{
+    color: rgb(182, 182, 182);
+
+}
+
+#descriptionBox::selection{
     border: 1px solid white;
 }
 
