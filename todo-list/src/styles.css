@@ -70,6 +70,7 @@ nav > button > svg{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    padding: 4px 0;
 }
 
 .hidden{
@@ -103,10 +104,12 @@ nav > button > svg{
     padding: 4px 8px;
     width: calc(360px - 8*2px);
     min-height: 60px;
+    height:max-content;
     border: none;
     color: white;
     resize: none;
     font-family: inherit;
+    flex-grow: .6;
 }
 
 #descriptionBox::placeholder{
