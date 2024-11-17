@@ -48,9 +48,9 @@ export default class DOM{
         <div id="priorityList" class="checkedDropdown">
             <span class="projectAnchor"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>format-list-bulleted-square</title><path d="M3,4H7V8H3V4M9,5V7H21V5H9M3,10H7V14H3V10M9,11V13H21V11H9M3,16H7V20H3V16M9,17V19H21V17H9" /></svg> Select Priority</span>
             <ul class="items">
-                <li><input type="checkbox" name="high">High</li>
-                <li><input type="checkbox" name="medium">Medium</li>
-                <li><input type="checkbox" name="low">Low</li>
+                <li><input type="radio" id="high" name="priority">High</li>
+                <li><input type="radio" id="medium" name="priority">Medium</li>
+                <li><input type="radio" id="low" name="priority">Low</li>
             </ul>
         </div>
 
