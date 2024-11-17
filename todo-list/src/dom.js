@@ -47,7 +47,7 @@ export default class DOM{
 
         <div id="priorityList" class="checkedDropdown">
             <span class="projectAnchor"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>format-list-bulleted-square</title><path d="M3,4H7V8H3V4M9,5V7H21V5H9M3,10H7V14H3V10M9,11V13H21V11H9M3,16H7V20H3V16M9,17V19H21V17H9" /></svg> Select Priority</span>
-            <ul class="items">
+            <ul class="items" id="priorityList">
                 <li><input type="radio" id="high" name="priority">High</li>
                 <li><input type="radio" id="medium" name="priority">Medium</li>
                 <li><input type="radio" id="low" name="priority">Low</li>
@@ -87,6 +87,15 @@ export default class DOM{
                 }
             });
             const newTaskDescription = document.querySelector("#descriptionBox").value;
+            let newTaskPriority;
+            const priorities = document.querySelectorall("#priorityList > ul");
+            priorities.forEach(priority => {
+                if(priority.checked){
+                    newTaskPriority = priority.id;
+                }
+            });
+            //Create Task
+            //Add to appropiate lists
         });
     }
 
