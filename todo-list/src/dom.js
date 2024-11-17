@@ -7,7 +7,6 @@ export default class DOM{
 
         //Upon task creation
         this.addTaskBtn.addEventListener('click', (e) => {
-            this.destructAddList();
             this.renderAddTask();
         });
     }
@@ -25,16 +24,22 @@ export default class DOM{
     }
 
     renderAddTask(){
+        if(this.newMenu.classList.contains("task")){
+            this.newMenu.classList.remove("task");
+            this.newMenu.classList.add("hidden");
+            return;
+        }
         this.newMenu.classList.remove("hidden");
+        this.newMenu.classList.add("task");
 
         this.newMenu.innerHTML = `<input type="text" id="nameBox" placeholder="Task Name"></input>
         <!--Inspired by: https://stackoverflow.com/questions/19206919/how-to-create-checkbox-inside-dropdown-->
         <div id="projectList" class="checkedDropdown">
             <span class="projectAnchor"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>format-list-bulleted-square</title><path d="M3,4H7V8H3V4M9,5V7H21V5H9M3,10H7V14H3V10M9,11V13H21V11H9M3,16H7V20H3V16M9,17V19H21V17H9" /></svg> Select Projects</span>
-            <ul class="items">
-                <li><input type="checkbox">Test Item 1</li>
-                <li><input type="checkbox">Test Item 2</li>
-                <li><input type="checkbox">Test Item 3</li>
+            <ul class="items projects">
+                <li><input type="checkbox" name="test1">Test Item 1</li>
+                <li><input type="checkbox" name="test2">Test Item 2</li>
+                <li><input type="checkbox" name="test3">Test Item 3</li>
             </ul>
         </div>
 
@@ -43,9 +48,9 @@ export default class DOM{
         <div id="priorityList" class="checkedDropdown">
             <span class="projectAnchor"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>format-list-bulleted-square</title><path d="M3,4H7V8H3V4M9,5V7H21V5H9M3,10H7V14H3V10M9,11V13H21V11H9M3,16H7V20H3V16M9,17V19H21V17H9" /></svg> Select Priority</span>
             <ul class="items">
-                <li><input type="checkbox">High</li>
-                <li><input type="checkbox">Medium</li>
-                <li><input type="checkbox">Low</li>
+                <li><input type="checkbox" name="high">High</li>
+                <li><input type="checkbox" name="medium">Medium</li>
+                <li><input type="checkbox" name="low">Low</li>
             </ul>
         </div>
 
@@ -70,19 +75,22 @@ export default class DOM{
                 priorityList.classList.add('visible');
             }              
         }
-    }
 
-    destructAddTask(){
-
+        const submitButton = document.querySelector("#submitTask");
+        submitButton.addEventListener('click', (e) =>{
+            const newTaskName = document.querySelector("#nameBox").value;
+            let newTaskProjects = [];
+            const projects = document.querySelectorAll("ul.projects li");
+            projects.forEach(project => {
+                if(project.checked){
+                    newTaskProjects.push(project.name);
+                }
+            });
+            const newTaskDescription = document.querySelector("#descriptionBox").value;
+        });
     }
 
     renderAddList(){
 
     }
-
-    destructAddList(){
-        console.log("Destruct add list called");
-    }
-
-
 }
