@@ -39,3 +39,37 @@ postalCode.addEventListener('input', (event)=>{
     }
     postalCode.reportValidity();
 });
+
+const password = document.querySelector("#password");
+password.addEventListener('input', (event) =>{
+    if(password.validity.valueMissing){
+        password.setCustomValidity("Password is required.")
+    }
+    else if(password.validity.tooShort){
+        password.setCustomValidity("Password length must be longer than 1.");
+    }
+    else if(password.validity.tooLong){
+        password.setCustomValidity("Password length must be shorter than 30.");
+    }
+    else{
+        password.setCustomValidity("");
+    }
+    password.reportValidity();
+});
+
+const confirmPassword = document.querySelector("#confirmPassword");
+confirmPassword.addEventListener('input', (event) =>{
+    if(password.value != confirmPassword.value){
+        confirmPassword.setCustomValidity("Passwords must be the same.");
+    }
+    else{
+        confirmPassword.setCustomValidity("");
+    }
+    confirmPassword.reportValidity();
+});
+
+const submitBtn = document.querySelector("button");
+submitBtn.addEventListener('click', (event) =>{
+    let isValid = true;
+    //Check all validations, if failed show message. Otherwise submit. If not work, change to form submit rather than button
+})
