@@ -8,9 +8,9 @@ export default class Data{
             return JSON.parse(localStorage.getItem(id));
         } 
         else{
-            let newClass = new this.ListClass(id, Data);
-            this.push(newClass);
-            return newClass;
+            let newList = new this.ListClass(id, Data);
+            this.push(newList);
+            return newList;
         }
     }
 
@@ -21,4 +21,7 @@ export default class Data{
     isPresent(id){
         return localStorage.getItem(id) !== null;
     }
+
+    //TODO: create some sort of method for pulling all custom lists
+    //TODO: store all lists here, dom class uses this class to access lists
 }
