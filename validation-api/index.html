@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation API</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Validation API Testing</h1>
+    <form action="" novalidate>
+        <label for="mail">Email Address:</label>
+        <input type="email" name="mail" id="mail">
+        <label for="country">Country:</label>
+        <input type="text" minlength="1" maxlength="30" id="country" name="country">
+        <label for="postalCode">Postal Code:</label>
+        <input type="text" name="postalCode" id="postalCode" pattern="/^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" minlength="1" maxlength="30">
+        <label for="confirmPassword">Confirm Password: </label>
+        <input type="password" name="confirmPassword" id="confirmPassword" minlength="1" maxlength="30">
+        <button>Submit</button>
+    </form>
+</body>
+</html>
