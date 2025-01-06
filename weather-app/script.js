@@ -15,6 +15,11 @@ async function getLocationData(city, country) {
     }
 }
 
+function searchHandler(){
+    const input = document.querySelector("#searchBar").value;
+    console.log(input);
+};
+
 getLocationData("Abbotsford", "Canada").then((result) => {
     console.log(result);
 });
