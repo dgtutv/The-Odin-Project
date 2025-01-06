@@ -22,21 +22,28 @@ async function getLocationData(city, country) {
 function searchBarValidity(){
     let isValid = true;
     const location = searchBar.value.split(",");
-    if(location.length != 2){
-        console.log("ERROR");
-        searchBar.setCustomValidity("Location must be in format \"City, Country\"");
+    if(location.length < 2){
+        searchBar.setCustomValidity("Location must include country and/or state");
+        isValid = false;
     }
     else{
         searchBar.setCustomValidity("");
     }
     searchBar.reportValidity();
+    return isValid;
 }
 
 //Event Listeners
 searchButton.addEventListener('click', (event) => {
     const location = searchBar.value.split(",");
-    searchBarValidity();
-    console.log(location);
+
+    if(!searchBarValidity()){
+        return;
+    }
+    
+    getLocationData(location).then((result) => {
+        console.log(result);
+    });
 });
 
 
