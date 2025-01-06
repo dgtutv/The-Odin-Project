@@ -35,38 +35,63 @@ function searchBarValidity(){
 
 //Generates the HTML for the API report
 function displayAPI(result){
-    const weatherReport = document.querySelector("#weatherReport");
+    const infoSection = document.querySelector("#info");
+    const descriptionSection = document.querySelector("#description");
 
-    const resolvedAddressElement = document.createElement("h2");
+    //Info section (left side)
+    const resolvedAddressElement = document.createElement("h3");
     resolvedAddressElement.innerHTML = result.resolvedAddress;
-    weatherReport.appendChild(resolvedAddressElement);
+    infoSection.appendChild(resolvedAddressElement);
 
+    const tempElement = document.createElement("h2");
+    tempElement.innerHTML = `${result.currentConditions.temp}° F`;
+    infoSection.appendChild(tempElement); 
+
+    const feelsLikeElement = document.createElement("h3");
+    feelsLikeElement.innerHTML = `${result.currentConditions.feelslike}° F`;
+    infoSection.appendChild(feelsLikeElement);
+
+    const percentRainElement = document.createElement("h5");
+    percentRainElement.innerHTML = `Precipitation: ${result.currentConditions.precipprob}%`;
+    infoSection.appendChild(percentRainElement);
+
+    const humidityElement = document.createElement("h5");
+    humidityElement.innerHTML = `Humidity: ${result.currentConditions.humidity}%`;
+    infoSection.appendChild(humidityElement);
+
+    const windElement = document.createElement("h5");
+    windElement.innerHTML = `Wind: ${result.currentConditions.windspeed} mph`;
+    infoSection.appendChild(windElement);
+
+    //Description section (right side)
     if(result.alerts.length > 0){
         const alertsContainer = document.createElement("div");
+        const alertTitle = document.createElement("h2");
+        alertTitle.innerHTML = "Alerts";
+        alertsContainer.appendChild(alertTitle);
         result.alerts.forEach(alert => {
             const alertElement = document.createElement("h2");
             alertElement.innerHTML = alert;
             alertsContainer.appendChild(alertElement);
         });
-        weatherReport.appendChild(alertsContainer);
+        descriptionSection.appendChild(alertsContainer);
     }
 
-    const descriptionElement = document.createElement("h3");
-    descriptionElement.innerHTML = result.description;
-    weatherReport.appendChild(descriptionElement);
+    const dayElement = document.createElement("h4");
+    dayElement.innerHTML = `${processEpoch(result.currentConditions.datetimeEpoch)}`;
+    descriptionSection.appendChild(dayElement);
 
-    const conditionsElement = document.createElement("h3");
-    conditionsElement.innerHTML = `Conditions: ${result.currentConditions.conditions}`;
-    weatherReport.appendChild(conditionsElement);
+    const conditionsElement = document.createElement("h4");
+    conditionsElement.innerHTML = `${result.currentConditions.conditions}`;
+    descriptionSection.appendChild(conditionsElement);
+}
 
-    const tempElement = document.createElement("h3");
-    tempElement.innerHTML = `Current Temperature: ${result.currentConditions.temp}° F`;
-    weatherReport.appendChild(tempElement); 
-
-    const feelsLikeElement = document.createElement("h3");
-    feelsLikeElement.innerHTML = `Feels Like: ${result.currentConditions.feelslike}° F`;
-    weatherReport.appendChild(feelsLikeElement);
-
+//Gets day of week from datetimeEpoch
+function processEpoch(epoch){
+    let dateObj = new Date(epoch*1000);
+    let days  = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let dayOfWeek = days[dateObj.getDay()];
+    return dayOfWeek;
 }
 
 //Event Listeners
