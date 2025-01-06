@@ -42,9 +42,10 @@ function displayAPI(result){
     const descriptionSection = document.querySelector("#description");
 
     const currentIconElement = document.querySelector("#weatherIcon");
+    const tempElement = document.querySelector("#tempElement")
     currentIconElement.src = "";
     subInfoSection.innerHTML = "";
-    tempsSection.innerHTML = "";
+    tempElement.innerHTML = "";
     descriptionSection.innerHTML = "";
     if(document.querySelector("#resolvedElement")){
         weatherReport.removeChild(document.querySelector("#resolvedElement"));
@@ -60,13 +61,7 @@ function displayAPI(result){
     resolvedAddressElement.innerHTML = result.resolvedAddress;
     weatherReport.prepend(resolvedAddressElement);
 
-    const tempElement = document.createElement("h2");
     tempElement.innerHTML = `${result.currentConditions.temp}° F`;
-    tempsSection.appendChild(tempElement); 
-
-    const feelsLikeElement = document.createElement("h3");
-    feelsLikeElement.innerHTML = `${result.currentConditions.feelslike}° F`;
-    tempsSection.appendChild(feelsLikeElement);
 
     const percentRainElement = document.createElement("h5");
     percentRainElement.innerHTML = `Precipitation: ${result.currentConditions.precipprob}%`;
