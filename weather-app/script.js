@@ -4,7 +4,7 @@ const searchBar = document.querySelector("#searchBar");
 const searchButton = document.querySelector("#searchButton");
 
 //Functions
-async function getLocationData(city, country) {
+async function getLocationData(city, country, ) {
     const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${country}?key=${apiKey}`;
     try{
         const response = await fetch(URL);
@@ -33,6 +33,42 @@ function searchBarValidity(){
     return isValid;
 }
 
+//Generates the HTML for the API report
+function displayAPI(result){
+    const weatherReport = document.querySelector("#weatherReport");
+
+    const resolvedAddressElement = document.createElement("h2");
+    resolvedAddressElement.innerHTML = result.resolvedAddress;
+    weatherReport.appendChild(resolvedAddressElement);
+
+    if(result.alerts.length > 0){
+        const alertsContainer = document.createElement("div");
+        result.alerts.forEach(alert => {
+            const alertElement = document.createElement("h2");
+            alertElement.innerHTML = alert;
+            alertsContainer.appendChild(alertElement);
+        });
+        weatherReport.appendChild(alertsContainer);
+    }
+
+    const descriptionElement = document.createElement("h3");
+    descriptionElement.innerHTML = result.description;
+    weatherReport.appendChild(descriptionElement);
+
+    const conditionsElement = document.createElement("h3");
+    conditionsElement.innerHTML = `Conditions: ${result.currentConditions.conditions}`;
+    weatherReport.appendChild(conditionsElement);
+
+    const tempElement = document.createElement("h3");
+    tempElement.innerHTML = `Current Temperature: ${result.currentConditions.temp}° F`;
+    weatherReport.appendChild(tempElement); 
+
+    const feelsLikeElement = document.createElement("h3");
+    feelsLikeElement.innerHTML = `Feels Like: ${result.currentConditions.feelslike}° F`;
+    weatherReport.appendChild(feelsLikeElement);
+
+}
+
 //Event Listeners
 searchButton.addEventListener('click', (event) => {
     const location = searchBar.value.split(",");
@@ -41,13 +77,16 @@ searchButton.addEventListener('click', (event) => {
         return;
     }
     
-    getLocationData(location).then((result) => {
+    getLocationData(location, "metric").then((result) => {
         console.log(result);
+        displayAPI(result)
     });
+
 });
 
 
 //Main
-getLocationData("Abbotsford", "Canada").then((result) => {
+getLocationData("Abbotsford", "Canada", "metric").then((result) => {
     console.log(result);
+    displayAPI(result);
 });
