@@ -3,5 +3,21 @@ body{
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    
+    padding-top: 25px;
+    gap: 20px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    width: 40vw;
+}
+
+#searchBar{
+    flex: 3;
+}
+
+#searchButton{
+    flex: 1;
 }
