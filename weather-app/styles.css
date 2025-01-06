@@ -22,3 +22,24 @@ body{
     flex: 1;
 }
 
+#weatherReport{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+}
+
+#info{
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+}
+
+#description{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#resolvedElement{
+    grid-row: 1;
+    grid-column: 1/-1;
+}

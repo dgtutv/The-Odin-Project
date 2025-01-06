@@ -35,33 +35,50 @@ function searchBarValidity(){
 
 //Generates the HTML for the API report
 function displayAPI(result){
+    const weatherReport = document.querySelector("#weatherReport");
     const infoSection = document.querySelector("#info");
+    const subInfoSection = document.querySelector("#subInfo");
+    const tempsSection = document.querySelector("#temps");
     const descriptionSection = document.querySelector("#description");
 
+    const currentIconElement = document.querySelector("#weatherIcon");
+    currentIconElement.src = "";
+    subInfoSection.innerHTML = "";
+    tempsSection.innerHTML = "";
+    descriptionSection.innerHTML = "";
+    if(document.querySelector("#resolvedElement")){
+        weatherReport.removeChild(document.querySelector("#resolvedElement"));
+    }
+
     //Info section (left side)
+    const iconsURL = "https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/1st%20Set%20-%20Color/";
+    const currentIconURL = iconsURL+`${result.currentConditions.icon}.png`;
+    currentIconElement.src = currentIconURL;
+
     const resolvedAddressElement = document.createElement("h3");
+    resolvedAddressElement.id = "resolvedElement";
     resolvedAddressElement.innerHTML = result.resolvedAddress;
-    infoSection.appendChild(resolvedAddressElement);
+    weatherReport.prepend(resolvedAddressElement);
 
     const tempElement = document.createElement("h2");
     tempElement.innerHTML = `${result.currentConditions.temp}° F`;
-    infoSection.appendChild(tempElement); 
+    tempsSection.appendChild(tempElement); 
 
     const feelsLikeElement = document.createElement("h3");
     feelsLikeElement.innerHTML = `${result.currentConditions.feelslike}° F`;
-    infoSection.appendChild(feelsLikeElement);
+    tempsSection.appendChild(feelsLikeElement);
 
     const percentRainElement = document.createElement("h5");
     percentRainElement.innerHTML = `Precipitation: ${result.currentConditions.precipprob}%`;
-    infoSection.appendChild(percentRainElement);
+    subInfoSection.appendChild(percentRainElement);
 
     const humidityElement = document.createElement("h5");
     humidityElement.innerHTML = `Humidity: ${result.currentConditions.humidity}%`;
-    infoSection.appendChild(humidityElement);
+    subInfoSection.appendChild(humidityElement);
 
     const windElement = document.createElement("h5");
     windElement.innerHTML = `Wind: ${result.currentConditions.windspeed} mph`;
-    infoSection.appendChild(windElement);
+    subInfoSection.appendChild(windElement);
 
     //Description section (right side)
     if(result.alerts.length > 0){
