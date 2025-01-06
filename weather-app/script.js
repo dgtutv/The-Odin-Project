@@ -2,16 +2,19 @@
 const apiKey = 'WDVN9BJ4YDFAK7H8BNLJX64N4';
 const searchBar = document.querySelector("#searchBar");
 const searchButton = document.querySelector("#searchButton");
+let unitGroup = "metric";
+let lastLocation;
 
 //Functions
-async function getLocationData(city, country, ) {
-    const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${country}?key=${apiKey}`;
+async function getLocationData(city, country) {
+    const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${country}/?key=${apiKey}&unitGroup=${unitGroup}`;
     try{
         const response = await fetch(URL);
         if(!response.ok){
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
+        lastResult = data;
         return data;
     } 
     catch(error){
@@ -61,7 +64,17 @@ function displayAPI(result){
     resolvedAddressElement.innerHTML = result.resolvedAddress;
     weatherReport.prepend(resolvedAddressElement);
 
-    tempElement.innerHTML = `${result.currentConditions.temp}° F`;
+    const windElement = document.createElement("h5");
+    subInfoSection.appendChild(windElement);
+
+    if(unitGroup == "us"){
+        tempElement.innerHTML = `${result.currentConditions.temp}° F`;
+        windElement.innerHTML = `Wind: ${result.currentConditions.windspeed} mph`;
+    }
+    else{
+        tempElement.innerHTML = `${result.currentConditions.temp}° C`;
+        windElement.innerHTML = `Wind: ${result.currentConditions.windspeed} km/h`;
+    }
 
     const percentRainElement = document.createElement("h5");
     percentRainElement.innerHTML = `Precipitation: ${result.currentConditions.precipprob}%`;
@@ -71,9 +84,7 @@ function displayAPI(result){
     humidityElement.innerHTML = `Humidity: ${result.currentConditions.humidity}%`;
     subInfoSection.appendChild(humidityElement);
 
-    const windElement = document.createElement("h5");
-    windElement.innerHTML = `Wind: ${result.currentConditions.windspeed} mph`;
-    subInfoSection.appendChild(windElement);
+    
 
     //Description section (right side)
     if(result.alerts.length > 0){
@@ -114,16 +125,36 @@ searchButton.addEventListener('click', (event) => {
         return;
     }
     
-    getLocationData(location, "metric").then((result) => {
+    lastLocation = location;
+    getLocationData(location).then((result) => {
         console.log(result);
         displayAPI(result)
     });
 
 });
 
+const metricButton = document.querySelector("#toggleCelcius");
+metricButton.addEventListener('click', (e) => {
+    unitGroup = "metric";
+    getLocationData(lastLocation).then((result) => {
+        console.log(result);
+        displayAPI(result)
+    });
+});
+
+const freedomButton = document.querySelector("#toggleFarenheit");
+freedomButton.addEventListener('click', (e) => {
+    unitGroup = "us";
+    getLocationData(lastLocation).then((result) => {
+        console.log(result);
+        displayAPI(result)
+    });
+})
+
 
 //Main
-getLocationData("Abbotsford", "Canada", "metric").then((result) => {
+lastLocation = ["Abbotsford", "BC", "Canada"];
+getLocationData(lastLocation).then((result) => {
     console.log(result);
     displayAPI(result);
 });
