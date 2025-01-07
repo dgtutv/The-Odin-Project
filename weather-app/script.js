@@ -42,6 +42,7 @@ function displayAPI(result){
     const subInfoSection = document.querySelector("#subInfo");
     const descriptionSection = document.querySelector("#description");
     const alertsSection = document.querySelector("#alerts");
+    const weekContainer = document.querySelector("#weekContainer");
 
     const currentIconElement = document.querySelector("#weatherIcon");
     const tempElement = document.querySelector("#tempElement")
@@ -50,6 +51,7 @@ function displayAPI(result){
     tempElement.innerHTML = "";
     descriptionSection.innerHTML = "";
     alertsSection.innerHTML = "";
+    weekContainer.innerHTML = "";
     if(document.querySelector("#resolvedElement")){
         weatherReport.removeChild(document.querySelector("#resolvedElement"));
     }
@@ -106,18 +108,44 @@ function displayAPI(result){
     descriptionSection.appendChild(weatherElement);
 
     const dayElement = document.createElement("h4");
-    dayElement.innerHTML = `${processEpoch(result.currentConditions.datetimeEpoch)}`;
+    dayElement.innerHTML = `${processEpoch(result.currentConditions.datetimeEpoch, false)}`;
     descriptionSection.appendChild(dayElement);
 
     const conditionsElement = document.createElement("h4");
     conditionsElement.innerHTML = `${result.currentConditions.conditions}`;
     descriptionSection.appendChild(conditionsElement);
+
+    //Generating report for the rest of the week
+    for(let i=0; i<7; i++){
+        const day = result.days[i];
+        const newDay = document.createElement("div");
+        newDay.className = "weekCard";
+        const currDay = processEpoch(day.datetimeEpoch, true);
+        const iconLink = iconsURL+`${day.icon}.png`;
+        let currTemp;
+        if(unitGroup == "us"){
+            currTemp = `${day.temp}° F`;
+        }
+        else{
+            currTemp = `${day.temp}° C`;
+        }
+        newDay.innerHTML = `<h4>${currDay}</h4>
+        <img class="weekIcon" src="${iconLink}" alt="">
+        <h4>${currTemp}</h4>`;
+        weekContainer.appendChild(newDay);
+    }
 }
 
 //Gets day of week from datetimeEpoch
-function processEpoch(epoch){
+function processEpoch(epoch, short){
     let dateObj = new Date(epoch*1000);
-    let days  = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let days;
+    if(short){
+        days  = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    }
+    else{
+        days  = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    }
     let dayOfWeek = days[dateObj.getDay()];
     return dayOfWeek;
 }
