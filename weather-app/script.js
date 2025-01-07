@@ -49,6 +49,7 @@ function displayAPI(result){
     subInfoSection.innerHTML = "";
     tempElement.innerHTML = "";
     descriptionSection.innerHTML = "";
+    alertsSection.innerHTML = "";
     if(document.querySelector("#resolvedElement")){
         weatherReport.removeChild(document.querySelector("#resolvedElement"));
     }
