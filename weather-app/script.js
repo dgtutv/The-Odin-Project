@@ -100,6 +100,11 @@ function displayAPI(result){
         descriptionSection.appendChild(alertsContainer);
     }
 
+    const weatherElement = document.createElement("h3");
+    weatherElement.innerHTML = "Weather";
+    weatherElement.id = "weatherElement";
+    descriptionSection.appendChild(weatherElement);
+
     const dayElement = document.createElement("h4");
     dayElement.innerHTML = `${processEpoch(result.currentConditions.datetimeEpoch)}`;
     descriptionSection.appendChild(dayElement);

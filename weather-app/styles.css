@@ -32,11 +32,20 @@ body{
     grid-column: 1;
     grid-row: 2;
     display: flex;
+    gap: 8px;
 }
 
 #description{
     grid-column: 2;
     grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+#description > h4{
+    margin-bottom: 0;
 }
 
 #resolvedElement{
@@ -51,4 +60,23 @@ body{
 
 #tempBtns{
     display: flex;
+}
+
+#tempElement{
+    margin-top: 10px
+}
+
+#subInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;    
+}
+
+#subInfo > h5{
+    margin-bottom: 0;
+}
+
+#weatherElement{
+    margin-top: 10px;
+    margin-bottom: 0;
 }
