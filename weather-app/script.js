@@ -122,8 +122,8 @@ function processEpoch(epoch){
     return dayOfWeek;
 }
 
-//Event Listeners
-searchButton.addEventListener('click', (event) => {
+//Function to search locations
+function search(){
     const location = searchBar.value.split(",");
 
     if(!searchBarValidity()){
@@ -135,7 +135,17 @@ searchButton.addEventListener('click', (event) => {
         console.log(result);
         displayAPI(result)
     });
+}
 
+//Event Listeners
+searchButton.addEventListener('click', (event) => {
+   search();
+});
+
+searchBar.addEventListener('keypress', (e) => {
+    if(e.key == "Enter"){
+        search();
+    }
 });
 
 const metricButton = document.querySelector("#toggleCelcius");
