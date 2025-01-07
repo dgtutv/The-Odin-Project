@@ -39,10 +39,9 @@ function searchBarValidity(){
 //Generates the HTML for the API report
 function displayAPI(result){
     const weatherReport = document.querySelector("#weatherReport");
-    const infoSection = document.querySelector("#info");
     const subInfoSection = document.querySelector("#subInfo");
-    const tempsSection = document.querySelector("#temps");
     const descriptionSection = document.querySelector("#description");
+    const alertsSection = document.querySelector("#alerts");
 
     const currentIconElement = document.querySelector("#weatherIcon");
     const tempElement = document.querySelector("#tempElement")
@@ -89,15 +88,15 @@ function displayAPI(result){
     //Description section (right side)
     if(result.alerts.length > 0){
         const alertsContainer = document.createElement("div");
-        const alertTitle = document.createElement("h2");
-        alertTitle.innerHTML = "Alerts";
+        const alertTitle = document.createElement("h4");
+        alertTitle.innerHTML = "Alerts:";
         alertsContainer.appendChild(alertTitle);
         result.alerts.forEach(alert => {
-            const alertElement = document.createElement("h2");
-            alertElement.innerHTML = alert;
+            const alertElement = document.createElement("h4");
+            alertElement.innerHTML = alert.headline;
             alertsContainer.appendChild(alertElement);
         });
-        descriptionSection.appendChild(alertsContainer);
+        alertsSection.appendChild(alertsContainer);
     }
 
     const weatherElement = document.createElement("h3");
