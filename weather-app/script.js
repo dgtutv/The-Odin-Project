@@ -4,6 +4,7 @@ const searchBar = document.querySelector("#searchBar");
 const searchButton = document.querySelector("#searchButton");
 let unitGroup = "metric";
 let lastLocation;
+let lastResult;
 
 //Functions
 async function getLocationData(city, country) {
@@ -11,7 +12,9 @@ async function getLocationData(city, country) {
     try{
         const response = await fetch(URL);
         if(!response.ok){
-            throw new Error(`HTTP error! status: ${response.status}`);
+            searchBar.setCustomValidity("Location does not exist, must include country and/or state");
+            searchBar.reportValidity();
+            return lastResult;
         }
         const data = await response.json();
         lastResult = data;
