@@ -7,8 +7,8 @@ let lastLocation;
 let lastResult;
 
 //Functions
-async function getLocationData(city, country) {
-    const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${country}/?key=${apiKey}&unitGroup=${unitGroup}`;
+async function getLocationData(location) {
+    const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/?key=${apiKey}&unitGroup=${unitGroup}`;
     try{
         const response = await fetch(URL);
         if(!response.ok){
