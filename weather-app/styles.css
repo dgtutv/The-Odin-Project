@@ -25,7 +25,9 @@ body{
 #weatherReport{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: .5fr 1fr 1fr 1fr
+    grid-template-rows: .5fr 1fr 1fr 1fr;
+    margin: 24px;
+    margin-top: 0;
 }
 
 #info{
@@ -91,9 +93,9 @@ body{
     grid-row: 3;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     overflow-x: auto;
-    gap: 12px;
+    gap: 20px;
 }
 
 .weekCard{
@@ -138,4 +140,7 @@ body{
         grid-column: 1;
         grid-row: 5;
     }
+    body{
+        gap: 0;
+    };
 }
