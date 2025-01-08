@@ -92,6 +92,8 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow-x: auto;
+    gap: 12px;
 }
 
 .weekCard{
@@ -99,4 +101,41 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .form-group{
+        width: 90vw;
+    }
+    #weatherReport{
+        grid-template-columns: 1fr;
+        grid-template-rows: .5fr 1fr 1fr 1.2fr 1fr;
+        justify-content: start;
+        align-items: center;
+    }
+    #resolvedElement{
+        grid-column: 1;
+        grid-row: 1;
+        text-align: center;
+    }
+    #info{
+        grid-column: 1;
+        grid-row: 3;
+        justify-content: center;
+        align-items: center;
+    }
+    #description{
+        grid-column: 1;
+        grid-row: 2;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    #weekContainer{
+        grid-column: 1;
+        grid-row: 4;
+    }
+    #alerts{
+        grid-column: 1;
+        grid-row: 5;
+    }
 }
