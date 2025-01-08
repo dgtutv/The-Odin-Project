@@ -109,13 +109,13 @@ body{
     }
     #weatherReport{
         grid-template-columns: 1fr;
-        grid-template-rows: .5fr 1fr 1fr 1.2fr 1fr;
+        grid-template-rows: 1fr .5fr 1fr 1.2fr 1fr;
         justify-content: start;
         align-items: center;
     }
     #resolvedElement{
         grid-column: 1;
-        grid-row: 1;
+        grid-row: 2;
         text-align: center;
     }
     #info{
@@ -126,7 +126,7 @@ body{
     }
     #description{
         grid-column: 1;
-        grid-row: 2;
+        grid-row: 1;
         justify-content: flex-start;
         align-items: center;
     }
