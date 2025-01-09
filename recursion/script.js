@@ -17,3 +17,20 @@ function fibs(length){
     }
 }
 
+function fibsRecur(length){
+    if(length <= 0){
+        return [];
+    }    
+    if(length == 1){
+        return [0];
+    }
+    if(length == 2){
+        return [0, 1];
+    }
+    else{
+        priorArr = fibsRecur(length-1);
+        priorArr.push(priorArr[length-2] + priorArr[length-3]);
+        return priorArr;
+    }
+}
+
