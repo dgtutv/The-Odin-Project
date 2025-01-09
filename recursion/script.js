@@ -34,3 +34,49 @@ function fibsRecur(length){
     }
 }
 
+function mergeSort(arr){
+    if(arr.length == 1){
+        return arr;
+    }
+    if(arr.length == 2){
+        if(arr[0] > arr[1]){
+            let temp = arr[1];
+            arr[1] = arr[0];
+            arr[0] = temp;
+        }
+        return arr;
+    }
+    else{
+        let mid = Math.floor(arr.length / 2);
+        let left = mergeSort(arr.slice(0, mid));
+        let right = mergeSort(arr.slice(mid, arr.length));
+        console.log(`Left: ${left}, Right: ${right}`);
+        for(let arrIt=0; arrIt<arr.length; arrIt++){
+            if(left.length == 0){
+                for(let i=0; i<right.length; i++){
+                    arr[arrIt] = (right[i]);
+                    arrIt++;
+                }
+                break;
+            }
+            else if(right.length == 0){
+                for(let i=0; i<left.length; i++){
+                    arr[arrIt] = (left[i]);
+                    arrIt++;
+                }
+                break;
+            }
+            else if(left[0] < right[0]){
+                arr[arrIt] = left[0];
+                left.shift();
+            }
+            else{
+                arr[arrIt] = right[0];
+                right.shift();
+            }
+        }
+        return arr;
+    }
+}
+
+mergeSort([3, 2, 1, 13, 8, 5, 0, 1])
