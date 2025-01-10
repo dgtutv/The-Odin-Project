@@ -72,6 +72,18 @@ class LinkedList{
         console.log(currentNode);
         return currentNode;
     }
+
+    pop(){
+        if(this.root.nextNode == null){
+            this.root = null;
+            return;
+        }
+        let currentNode = this.root;
+        while(currentNode.nextNode != null && currentNode.nextNode.nextNode != null){
+            currentNode = currentNode.nextNode;
+        }
+        currentNode.nextNode = null;
+    }
 }
 
 let list = new LinkedList;
@@ -95,3 +107,9 @@ list.at(0);
 list.at(1);
 list.at(2);
 list.at(3);
+list.pop();
+list.toString();
+list.pop();
+list.toString();
+list.pop();
+list.toString();
