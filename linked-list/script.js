@@ -62,10 +62,6 @@ class LinkedList{
     }
 
     at(index){
-        if(index <= 0){
-            console.log(this.root);
-            return this.root;
-        }
         let currentNode = this.root;
         for(let i=0; i<index; i++){
             if(currentNode == null){
