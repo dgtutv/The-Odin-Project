@@ -84,6 +84,17 @@ class LinkedList{
         }
         currentNode.nextNode = null;
     }
+
+    contains(value){
+        let currentNode = this.root;
+        while(currentNode != null){
+            if(currentNode.value == value){
+                return true;
+            }
+            currentNode = currentNode.nextNode;
+        }
+        return false;
+    }
 }
 
 let list = new LinkedList;
@@ -107,9 +118,13 @@ list.at(0);
 list.at(1);
 list.at(2);
 list.at(3);
+console.log(list.contains(7));
 list.pop();
+console.log(list.contains(7));
 list.toString();
 list.pop();
 list.toString();
+console.log(list.contains(2));
 list.pop();
 list.toString();
+console.log(list.contains(2));
