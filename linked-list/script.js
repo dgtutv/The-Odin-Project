@@ -95,6 +95,19 @@ class LinkedList{
         }
         return false;
     }
+
+    find(value){
+        let index = 0;
+        let currentNode = this.root;
+        while(currentNode != null){
+            if(currentNode.value == value){
+                return index;
+            }
+            currentNode = currentNode.nextNode;
+            index++;
+        }
+        return -1;
+    }
 }
 
 let list = new LinkedList;
@@ -119,12 +132,18 @@ list.at(1);
 list.at(2);
 list.at(3);
 console.log(list.contains(7));
+console.log(list.find(7));
+console.log(list.find(4));
+console.log(list.find(2));
 list.pop();
 console.log(list.contains(7));
+console.log(list.find(7));
 list.toString();
 list.pop();
 list.toString();
 console.log(list.contains(2));
+console.log(list.find(2));
 list.pop();
 list.toString();
 console.log(list.contains(2));
+console.log(list.find(2));
