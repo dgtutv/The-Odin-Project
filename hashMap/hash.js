@@ -113,11 +113,16 @@ class LinkedList{
 
     remove(key){
         if(this.root != null){
+            if(this.root.key == key){
+                this.root = null;
+                return;
+            }
             let currentNode = this.root;
             while(currentNode.nextNode != null){
                 if(currentNode.nextNode.key == key){
                     currentNode.nextNode = currentNode.nextNode.nextNode;
                 }
+                currentNode = currentNode.nextNode;
             }
         }
     }
@@ -179,65 +184,62 @@ class HashMap{
         return returnString;
     }
 
-    hash(key){
+    hash(key, capacity){
         let hashCode = 0;
         for(let i=0; i<key.length; i++){
-            hashCode = (hashCode + key.charCodeAt(i)) % this.capacity;
+            hashCode = (hashCode + key.charCodeAt(i)) % capacity;
         }
         return hashCode;
     }
 
     set(key, value){
         //Generate a hash index
-        let index = this.hash(key);
+        let index = this.hash(key, this.capacity);
+
+        //Find the correct bucket
+        let bucket = this.buckets[index];
+
+        //If there is a collision
+        if(bucket.root != null){
+            let currentNode = bucket.root;
+
+            //If the key is present, update the value
+            let tail;
+            while(currentNode != null){
+                if(currentNode.key == key){
+                    currentNode.value = value;
+                    return;
+                }
+                if(currentNode.nextNode == null){
+                    tail = currentNode;
+                }
+                currentNode = currentNode.nextNode;
+            }
+
+            //If the key is not present, create a new Node, and add to the end of the bucket
+            let newNode = new Node(key, value);
+            tail.nextNode = newNode;
+            this.numNodes++;
+        }
+
+        //If there is no collision, insert the new Node as the root of the corresponding bucket 
+        else{
+            let newNode = new Node(key, value);
+            bucket.root = newNode;
+            this.numNodes++;
+        }
 
         //If the new entry grows the numNodes over growNum, double buckets, and update growNum
-        if(this.numNodes + 1 > this.growNum){
+        if(this.numNodes > this.growNum){
             this.capacity *= 2;
             this.growNum = this.loadFactor * this.capacity;
             this.populate();
             this.organize();
-            index = this.hash(key);
-        }
-
-        //Else, find the correct bucket
-        else{
-            let bucket = this.buckets[index];
-
-            //If there is a collision
-            if(bucket.root != null){
-                let currentNode = bucket.root;
-
-                //If the key is present, update the value
-                let tail;
-                while(currentNode != null){
-                    if(currentNode.key == key){
-                        currentNode.value = value;
-                        return;
-                    }
-                    if(currentNode.nextNode == null){
-                        tail = currentNode;
-                    }
-                    currentNode = currentNode.nextNode;
-                }
-
-                //If the key is not present, create a new Node, and add to the end of the bucket
-                let newNode = new Node(key, value);
-                tail.nextNode = newNode;
-                this.numNodes++;
-            }
-
-            //If there is no collision, insert the new Node as the root of the corresponding bucket 
-            else{
-                let newNode = new Node(key, value);
-                bucket.root = newNode;
-                this.numNodes++;
-            }
-        }   
+        } 
     }
 
     remove(key){
-        let index = this.hash(key);
+        let index = this.hash(key, this.capacity/2);
         let bucket = this.buckets[index];
         bucket.remove(key);
         this.numNodes--;
@@ -257,8 +259,15 @@ test.set('ice cream', 'white');
 test.set('jacket', 'blue');
 test.set('kite', 'pink');
 test.set('lion', 'golden');
-console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
 test.toString();
+console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
+
 test.set('ice cream', 'blue');
-console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
 test.toString();
+console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
+console.log(`ice cream: `)//Get function needed
+
+test.set('cat', 'orange');
+test.toString();
+console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
+
