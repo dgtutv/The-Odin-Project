@@ -109,3 +109,30 @@ class LinkedList{
         return -1;
     }
 }
+
+class HashMap{
+    constructor(loadFactor, capacity){
+        this.buckets = new Array<LinkedList>[capacity];
+        this.growNum = loadFactor * capacity;
+        this.capacity = capacity;
+        this.loadFactor = loadFactor;
+    }
+
+    hash(key){
+        let hashCode = 0;
+        for(let i = 0; i < key.length; i++){
+            hashCode = (hashCode + key.charCodeAt(i)) % this.buckets;
+        }
+        return hashCode;
+    }
+
+    set(key, value){
+        //Generate a hash index
+        //If the new entry grows the capacity over growNum, double buckets, and update growNum
+        //Else, find the correct bucket
+            //If the key is present, update the value
+            //Else, create a new Node
+                //If there is a collision, add to the end of the corresponding bucket
+                //Else, insert the new Node as the head of the corresponding bucket
+    }
+}
