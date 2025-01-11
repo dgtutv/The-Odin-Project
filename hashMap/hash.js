@@ -13,7 +13,7 @@ class LinkedList{
         let returnString = "";
         let currentNode = this.root;
         while(currentNode != null){
-            returnString += (`( ${currentNode.value} ) -> `);
+            returnString += (`( ${currentNode.key}, ${currentNode.value} ) -> `);
             currentNode = currentNode.nextNode;
         }
         returnString += ("null");
@@ -279,6 +279,21 @@ class HashMap{
         this.populate();
         this.numNodes = 0;
     }
+
+    keys(){
+        let keys = new Array;
+        for(let i=0; i<this.capacity; i++){
+            let currentBucket =  this.buckets[i];
+            if(currentBucket.root != null){
+                let currentNode = currentBucket.root;
+                while(currentNode != null){
+                    keys.push(currentNode.key);
+                    currentNode = currentNode.nextNode;
+                }
+            }
+        }
+        return keys;
+    }
 }
 
 const test = new HashMap(0.75, 16);
@@ -308,6 +323,7 @@ test.set('cat', 'orange');
 console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
 test.toString();
 console.log(`cat: ${test.has("cat")}`);
+console.log(`Keys: ${test.keys()}`);
 
 console.log("Clear list");
 test.clear();
