@@ -1,7 +1,9 @@
 class Node{
-    key = null;
-    value = null;
-    nextNode = null;
+    constructor(key, value){
+        this.key = key;
+        this.value = value;
+        this.nextNode = null;
+    }
 }
 
 class LinkedList{
@@ -50,7 +52,7 @@ class LinkedList{
         return counter;
     }
 
-    head(){
+    root(){
         return this.root;
     }
 
@@ -113,18 +115,19 @@ class LinkedList{
 
 class HashMap{
     constructor(loadFactor, capacity){
-        this.buckets = new Array<LinkedList>[capacity];
+        this.buckets = new Array;
         this.growNum = loadFactor * capacity;
         this.capacity = capacity;
         this.loadFactor = loadFactor;
         this.populate();
+        this.numNodes = 0;
     }
 
     //Helper function to populate buckets with empty linked lists
     populate(){
         for(let i=0; i<this.capacity; i++){
-            if(this.buckets[i] === null){
-                this.buckets[i] = new LinkedList;
+            if(this.buckets[i] == null){
+                this.buckets[i] = new LinkedList();
             }
         }
     }
@@ -133,13 +136,19 @@ class HashMap{
     organize(){
         for(let i=0; i<this.capacity/2; i++){
             let currentBucket = this.buckets[i];
-            if(currentBucket.head != null){
-                let currentNode = currentBucket.head;
+            if(currentBucket.root != null){
+                let currentNode = currentBucket.root;
                 while(currentNode != null){
-                    let newIndex = hash(currentNode.key);
+                    let newIndex = this.hash(currentNode.key);
+
+                    //If the hash has changed
                     if(newIndex != i){
+                        //Decrement the Node count
+                        //Remove the node
+                        //Re-Insert the node into the new bucket
                         this.set(currentNode.key, currentNode.value);
                     }
+
                     currentNode = currentNode.nextNode;
                 }
             }
@@ -151,7 +160,7 @@ class HashMap{
         let returnString = "";
         for(let i=0; i<this.capacity; i++){
             let currentBucket = this.buckets[i];
-            if(currentBucket.head != null){
+            if(currentBucket.root != null){
                 returnString +=`\n ${i}: ${currentBucket.toString()}`;
             }
         }
@@ -169,14 +178,15 @@ class HashMap{
 
     set(key, value){
         //Generate a hash index
-        const index = hash(key);
+        let index = this.hash(key);
 
-        //If the new entry grows the capacity over growNum, double buckets, and update growNum
-        if(this.capacity + 1 >= this.growNum){
+        //If the new entry grows the numNodes over growNum, double buckets, and update growNum
+        if(this.numNodes + 1 > this.growNum){
             this.capacity *= 2;
             this.growNum = this.loadFactor * this.capacity;
             this.populate();
             this.organize();
+            index = this.hash(key);
         }
 
         //Else, find the correct bucket
@@ -184,14 +194,15 @@ class HashMap{
             let bucket = this.buckets[index];
 
             //If there is a collision
-            if(bucket.head != null){
-                let currentNode = bucket.head;
+            if(bucket.root != null){
+                let currentNode = bucket.root;
 
                 //If the key is present, update the value
                 let tail;
                 while(currentNode != null){
                     if(currentNode.key == key){
                         currentNode.value = value;
+                        return;
                     }
                     if(currentNode.nextNode == null){
                         tail = currentNode;
@@ -202,14 +213,30 @@ class HashMap{
                 //If the key is not present, create a new Node, and add to the end of the bucket
                 let newNode = new Node(key, value);
                 tail.nextNode = newNode;
+                this.numNodes++;
             }
 
-            //If there is no collision, insert the new Node as the head of the corresponding bucket 
+            //If there is no collision, insert the new Node as the root of the corresponding bucket 
             else{
                 let newNode = new Node(key, value);
-                bucket.head = newNode;
+                bucket.root = newNode;
+                this.numNodes++;
             }
-
         }   
     }
 }
+
+const test = new HashMap(0.75, 16);
+test.set('apple', 'red');
+test.set('banana', 'yellow');
+test.set('carrot', 'orange');
+test.set('dog', 'brown');
+test.set('elephant', 'gray');
+test.set('frog', 'green');
+test.set('grape', 'purple');
+test.set('hat', 'black');
+test.set('ice cream', 'white');
+test.set('jacket', 'blue');
+test.set('kite', 'pink');
+test.set('lion', 'golden');
+test.toString();
