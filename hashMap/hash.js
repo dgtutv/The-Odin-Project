@@ -177,7 +177,7 @@ class HashMap{
         for(let i=0; i<this.capacity; i++){
             let currentBucket = this.buckets[i];
             if(currentBucket.root != null){
-                returnString +=`\n ${i}: ${currentBucket.toString()}`;
+                returnString +=`${i}: ${currentBucket.toString()} \n`;
             }
         }
         console.log(returnString);
@@ -244,6 +244,21 @@ class HashMap{
         bucket.remove(key);
         this.numNodes--;
     }
+
+    get(key){
+        let index = this.hash(key, this.capacity);
+        let bucket = this.buckets[index];
+        if(bucket.root != null){
+            let currentNode = bucket.root;
+            while(currentNode != null){
+                if(currentNode.key == key){
+                    return currentNode.value;
+                }
+                currentNode = currentNode.nextNode;
+            }   
+        }
+        return "";
+    }
 }
 
 const test = new HashMap(0.75, 16);
@@ -262,12 +277,13 @@ test.set('lion', 'golden');
 test.toString();
 console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
 
+console.log(`ice cream: ${test.get("ice cream")}`)//Get function needed
 test.set('ice cream', 'blue');
 test.toString();
+console.log(`ice cream: ${test.get("ice cream")}`)//Get function needed
 console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
-console.log(`ice cream: `)//Get function needed
 
 test.set('cat', 'orange');
-test.toString();
 console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
+test.toString();
 
