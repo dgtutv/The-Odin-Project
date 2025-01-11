@@ -294,6 +294,21 @@ class HashMap{
         }
         return keys;
     }
+
+    values(){
+        let values = new Array;
+        for(let i=0; i<this.capacity; i++){
+            let currentBucket =  this.buckets[i];
+            if(currentBucket.root != null){
+                let currentNode = currentBucket.root;
+                while(currentNode != null){
+                    values.push(currentNode.value);
+                    currentNode = currentNode.nextNode;
+                }
+            }
+        }
+        return values;
+    }
 }
 
 const test = new HashMap(0.75, 16);
@@ -324,6 +339,7 @@ console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
 test.toString();
 console.log(`cat: ${test.has("cat")}`);
 console.log(`Keys: ${test.keys()}`);
+console.log(`Values: ${test.values()}`);
 
 console.log("Clear list");
 test.clear();
