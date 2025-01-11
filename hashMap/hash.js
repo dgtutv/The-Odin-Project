@@ -17,7 +17,6 @@ class LinkedList{
             currentNode = currentNode.nextNode;
         }
         returnString += ("null");
-        console.log(returnString);
         return returnString;
     }
 
@@ -111,6 +110,17 @@ class LinkedList{
         }
         return -1;
     }
+
+    remove(key){
+        if(this.root != null){
+            let currentNode = this.root;
+            while(currentNode.nextNode != null){
+                if(currentNode.nextNode.key == key){
+                    currentNode.nextNode = currentNode.nextNode.nextNode;
+                }
+            }
+        }
+    }
 }
 
 class HashMap{
@@ -143,8 +153,9 @@ class HashMap{
 
                     //If the hash has changed
                     if(newIndex != i){
-                        //Decrement the Node count
                         //Remove the node
+                        this.remove(currentNode.key);
+
                         //Re-Insert the node into the new bucket
                         this.set(currentNode.key, currentNode.value);
                     }
@@ -224,6 +235,13 @@ class HashMap{
             }
         }   
     }
+
+    remove(key){
+        let index = this.hash(key);
+        let bucket = this.buckets[index];
+        bucket.remove(key);
+        this.numNodes--;
+    }
 }
 
 const test = new HashMap(0.75, 16);
@@ -239,4 +257,8 @@ test.set('ice cream', 'white');
 test.set('jacket', 'blue');
 test.set('kite', 'pink');
 test.set('lion', 'golden');
+console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
+test.toString();
+test.set('ice cream', 'blue');
+console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
 test.toString();
