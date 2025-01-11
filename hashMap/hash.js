@@ -259,6 +259,13 @@ class HashMap{
         }
         return "";
     }
+
+    has(key){
+        if(this.get(key) !== ""){
+            return true;
+        }
+        return false;
+    }
 }
 
 const test = new HashMap(0.75, 16);
@@ -283,7 +290,9 @@ test.toString();
 console.log(`ice cream: ${test.get("ice cream")}`)//Get function needed
 console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
 
+console.log(`cat: ${test.has("cat")}`);
 test.set('cat', 'orange');
 console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
 test.toString();
+console.log(`cat: ${test.has("cat")}`);
 
