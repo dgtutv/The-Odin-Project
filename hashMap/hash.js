@@ -136,6 +136,7 @@ class HashMap{
         this.loadFactor = loadFactor;
         this.populate();
         this.numNodes = 0;
+        this.originalCapacity = capacity;
     }
 
     //Helper function to populate buckets with empty linked lists
@@ -266,6 +267,18 @@ class HashMap{
         }
         return false;
     }
+
+    length(){
+        return this.numNodes;
+    }
+
+    clear(){
+        this.buckets = new Array;
+        this.growNum = this.loadFactor * this.originalCapacity;
+        this.capacity = this.originalCapacity;
+        this.populate();
+        this.numNodes = 0;
+    }
 }
 
 const test = new HashMap(0.75, 16);
@@ -296,3 +309,7 @@ console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
 test.toString();
 console.log(`cat: ${test.has("cat")}`);
 
+console.log("Clear list");
+test.clear();
+test.toString();
+console.log(`Num nodes: ${test.numNodes}, Capacity: ${test.capacity}`);
