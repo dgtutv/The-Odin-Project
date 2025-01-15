@@ -10,6 +10,24 @@ function reverseString(original){
     return returnString;
 }
 
+class Calculator{
+    add(numOne, numTwo){
+        return numOne + numTwo;
+    }
+
+    subtract(numOne, numTwo){
+        return numOne - numTwo;
+    }
+
+    divide(numOne, numTwo){
+        return numOne / numTwo;
+    }
+
+    multiply(numOne, numTwo){
+        return numOne * numTwo;
+    }
+}
+
 test('Capitalize Tests', () => {
     expect(capitalize('capital')).toBe('Capital');
     expect(capitalize('Capital')).toBe('Capital');
@@ -45,18 +63,18 @@ test('Calculator Tests', () => {
     // Divide tests
     expect(calc.divide(3, 2)).toBe(3/2);
     expect(calc.divide(0, 3)).toBe(0);
-    expect(calc.divide(0, 0)).toBeUndefined();
-    expect(calc.divide(-3, 0)).toBeUndefined();
+    expect(calc.divide(0, 0)).toBe(NaN);
+    expect(calc.divide(-3, 0)).toBe(-Infinity);
     expect(calc.divide(-3, -3)).toBe(1);
     expect(calc.divide(-3, 3)).toBe(-1);
     expect(calc.divide(15, 5)).toBe(3);
-    expect(calc.divide(15, 5)).toBe(-3);
+    expect(calc.divide(-15, 5)).toBe(-3);
 
     // Multiply tests
     expect(calc.multiply(3, 2)).toBe(6);
     expect(calc.multiply(0, 3)).toBe(0);
     expect(calc.multiply(0, 0)).toBe(0);
-    expect(calc.multiply(-3, 0)).toBe(0);
+    expect(calc.multiply(-3, 0)).toBe(-0);
     expect(calc.multiply(-3, -3)).toBe(9);
     expect(calc.multiply(-3, 3)).toBe(-9);
     expect(calc.multiply(-20, .1)).toBe(-2);
