@@ -14,5 +14,8 @@
   "description": "",
   "dependencies": {
     "jest": "^29.7.0"
+  },
+  "jest": {
+    "testMatch": ["**/index.js", "**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"]
   }
 }

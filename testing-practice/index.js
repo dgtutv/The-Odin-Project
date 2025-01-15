@@ -1,3 +1,8 @@
+function capitalize(original){
+    return(original.charAt(0).toUpperCase().concat(original.slice(1)));
+}
+
+
 test('Capitalize Tests', () => {
     expect(capitalize('capital')).toBe('Capital');
     expect(capitalize('Capital')).toBe('Capital');
