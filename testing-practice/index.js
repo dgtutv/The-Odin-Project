@@ -28,6 +28,26 @@ class Calculator{
     }
 }
 
+function caesarCipher(original, iterator){
+    let returnString = "";
+    for(let i=0; i<original.length; i++){
+        let origCode = original.charCodeAt(i);
+        let newCode;
+        if(origCode > 64 && origCode < 91){
+            newCode = ((origCode + iterator - 65) % 26) + 65;
+        }
+        else if (origCode > 96 && origCode < 123){
+            newCode = ((origCode + iterator - 97) % 26) + 97;
+        }
+        else{
+            newCode = origCode;
+        }
+        returnString = returnString.concat(String.fromCharCode(newCode));
+    }
+
+    return returnString;
+}
+
 test('Capitalize Tests', () => {
     expect(capitalize('capital')).toBe('Capital');
     expect(capitalize('Capital')).toBe('Capital');
@@ -83,8 +103,8 @@ test('Calculator Tests', () => {
 
 test('Caesar Cipher Tests', () => {
     expect(caesarCipher('xyz', 3)).toBe('abc');
-    expect(caesarCipher('HeLLo', 3)).toBe('khOOr');
-    expect(caesarCipher('Hello, World!', 3)).toBe('Khoor, Zroug!');
+    expect(caesarCipher('HeLLo', 3)).toBe('KhOOr');
+    expect(caesarCipher('Hello, World!', 3)).toBe('Khoor, Zruog!');
 });
 
 test("Analyze Array Tests", () => {
