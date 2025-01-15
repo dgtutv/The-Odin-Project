@@ -48,6 +48,29 @@ function caesarCipher(original, iterator){
     return returnString;
 }
 
+function analyzeArray(original){
+    if(original.length == 0){
+        return({average: 0, min: 0, max: 0, length: 0});
+    }
+    let min = original[0];
+    let max = original[0];
+    let length = original.length;
+    let sum = 0;
+    for(let i=0; i<original.length; i++){
+        let curr = original[i];
+        if(curr < min){
+            min = curr;
+        }
+        if(curr > max){
+            max = curr;
+        }
+        sum += curr;
+    }
+    let average = sum / original.length;
+    
+    return({average: average, min: min, max: max, length: length});
+}
+
 test('Capitalize Tests', () => {
     expect(capitalize('capital')).toBe('Capital');
     expect(capitalize('Capital')).toBe('Capital');
@@ -109,5 +132,5 @@ test('Caesar Cipher Tests', () => {
 
 test("Analyze Array Tests", () => {
     expect(analyzeArray([1, 8, 3, 4, 2, 6])).toEqual({average: 4, min: 1, max: 8, length: 6});
-    expect(analyzeArray([])).toBeNull();
+    expect(analyzeArray([])).toEqual({"average": 0, "length": 0, "max": 0, "min": 0});
 });
