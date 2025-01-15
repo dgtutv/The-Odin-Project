@@ -2,6 +2,13 @@ function capitalize(original){
     return(original.charAt(0).toUpperCase().concat(original.slice(1)));
 }
 
+function reverseString(original){
+    let returnString = "";
+    for(let i=original.length-1; i>-1; i--){
+        returnString = returnString.concat(original.charAt(i));
+    }
+    return returnString;
+}
 
 test('Capitalize Tests', () => {
     expect(capitalize('capital')).toBe('Capital');
