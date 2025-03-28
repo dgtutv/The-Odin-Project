@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, TextField, Typography } from '@mui/material';
 
-function SectionInput({ type = "details" }) {
+function InputSection({ type = "details" }) {
     const [fullName, setFullName] = useState("John Smith");
     const [email, setEmail] = useState("johnsmith@gmail.ca");
     const [phone, setPhone] = useState("(604)-123-4567");
@@ -20,9 +20,9 @@ function SectionInput({ type = "details" }) {
             label={label}
             value={value}
             onChange={onChange}
-            variant="outlined"
+            variant="standard"
             fullWidth
-            margin="normal"
+            margin="small"
         />
     );
 
@@ -59,4 +59,4 @@ function SectionInput({ type = "details" }) {
     }
 }
 
-export default SectionInput;
+export default InputSection;
