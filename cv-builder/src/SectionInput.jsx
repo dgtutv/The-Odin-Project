@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, TextField, Typography } from '@mui/material';
 
-function InputSection({ type = "details" }) {
+function SectionInput({ type = "details" }) {
     const [fullName, setFullName] = useState("John Smith");
     const [email, setEmail] = useState("johnsmith@gmail.ca");
     const [phone, setPhone] = useState("(604)-123-4567");
@@ -15,7 +15,7 @@ function InputSection({ type = "details" }) {
     const [company, setCompany] = useState("ViRA360");
     const [yearsWorked, setYearsWorked] = useState("2");
 
-    const renderTextField = (label, value, onChange) => (
+    const renderTextField = (label, value, onChange) =>(
         <TextField
             label={label}
             value={value}
