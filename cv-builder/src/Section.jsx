@@ -45,7 +45,7 @@ function Section({
                 {type === "details" && <PersonIcon />}
                 {type === "education" && <SchoolIcon />}
                 {type === "experience" && <WorkHistoryIcon />}
-                <Typography variant="h6">{type.charAt(0).toUpperCase() + type.slice(1)}</Typography>
+                <Typography variant="h5">{type.charAt(0).toUpperCase() + type.slice(1)}</Typography>
                 <ArrowDropDownIcon />
             </Box>
         );
@@ -53,7 +53,7 @@ function Section({
     else {
         return (
             <Box sx={activeStyle}>
-                <Typography variant="h6">{type.charAt(0).toUpperCase() + type.slice(1)}</Typography>
+                <Typography variant="h5">{type.charAt(0).toUpperCase() + type.slice(1)}</Typography>
                 <InputSection type={type} {...inputProps} />
             </Box>
         );

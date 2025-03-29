@@ -1,4 +1,4 @@
-import { TextField, Typography } from "@mui/material";
+import { TextField, Typography, Box } from "@mui/material";
 
 function InputSection({
     type = "details",
@@ -6,12 +6,8 @@ function InputSection({
     email, setEmail,
     phone, setPhone,
     address, setAddress,
-    school, setSchool,
-    degree, setDegree,
-    graduationYear, setGraduationYear,
-    jobTitle, setJobTitle,
-    company, setCompany,
-    yearsWorked, setYearsWorked
+    education, setEducation,
+    experience, setExperience
 }) {
     const renderTextField = (label, value, onChange) => (
         <TextField
@@ -23,6 +19,41 @@ function InputSection({
             margin="medium"
         />
     );
+
+    const updateEducation = (index, field, value) => {
+        const updatedEducation = [...education];
+        updatedEducation[index][field] = value;
+        setEducation(updatedEducation);
+    };
+
+    const addEducation = () => {
+        setEducation([...education, { school: "", degree: "", graduationYear: "" }]);
+    };
+
+    const updateExperience = (index, field, value) => {
+        const updatedExperience = [...experience];
+        updatedExperience[index][field] = value;
+        setExperience(updatedExperience);
+    };
+
+    const addExperience = () => {
+        setExperience([...experience, { jobTitle: "", company: "", yearsWorked: "" }]);
+    };
+
+    const boxStyle = {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        borderRadius: "8px",
+        backgroundColor: "white",
+        padding: "10px",
+        width: "380px",
+        gap: "12px",
+        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+        outline: "1px solid gray",
+
+    }
 
     if (type === "details") {
         return (
@@ -37,18 +68,30 @@ function InputSection({
     else if (type === "education") {
         return (
             <>
-                {renderTextField("School", school, (e) => setSchool(e.target.value))}
-                {renderTextField("Degree", degree, (e) => setDegree(e.target.value))}
-                {renderTextField("Graduation Year", graduationYear, (e) => setGraduationYear(e.target.value))}
+                {education.map((edu, index) =>(
+                    <Box key={index} sx={boxStyle}>
+                        <Typography variant="h6">Education {index}:</Typography>
+                        {renderTextField("School", edu.school, (e) => updateEducation(index, "school", e.target.value))}
+                        {renderTextField("Degree", edu.degree, (e) => updateEducation(index, "degree", e.target.value))}
+                        {renderTextField("Graduation Year", edu.graduationYear, (e) => updateEducation(index, "degree", e.target.value))}
+                    </Box>
+                ))}
+                
             </>
         );
     } 
     else if (type === "experience") {
         return (
             <>
-                {renderTextField("Job Title", jobTitle, (e) => setJobTitle(e.target.value))}
-                {renderTextField("Company", company, (e) => setCompany(e.target.value))}
-                {renderTextField("Years Worked", yearsWorked, (e) => setYearsWorked(e.target.value))}
+                {experience.map((exp, index) => (
+                    <Box key={index} sx={boxStyle}>
+                        <Typography variant="h6">Experience {index}:</Typography>
+                        {renderTextField("Job Title", exp.jobTitle, (e) => updateExperience(index, "jobTitle", e.target.value))}
+                        {renderTextField("Company", exp.company, (e) => updateExperience(index, "company", e.target.value))}
+                        {renderTextField("Years Worked", exp.yearsWorked, (e) => updateExperience(index, "yearsWorked", e.target.value))}
+                    </Box>
+                ))}
+                
             </>
         );
     } 
