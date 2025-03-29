@@ -26,6 +26,10 @@ function App() {
     minHeight: '100vh',
   }
 
+  function onclick(event){
+    
+  }
+
   return (
     <Box sx={globalStyle}>
       <Box sx={inputStyle}>
