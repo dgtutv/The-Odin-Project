@@ -5,7 +5,12 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import WorkHistoryIcon from "@mui/icons-material/WorkHistory";
 import PersonIcon from "@mui/icons-material/Person";
 
-function Section({ type = "details", isActive = false, onClick }) {
+function Section({ 
+    type = "details", 
+    isActive = false, 
+    onClick, 
+    ...inputProps
+}) {
     const inactiveStyle = {
         display: "flex",
         alignItems: "center",
@@ -34,21 +39,20 @@ function Section({ type = "details", isActive = false, onClick }) {
 
     if (!isActive) {
         return (
-            <Box sx={inactiveStyle} onClick={onClick}> 
+            <Box sx={inactiveStyle} onClick={onClick}>
                 {type === "details" && <PersonIcon />}
                 {type === "education" && <SchoolIcon />}
                 {type === "experience" && <WorkHistoryIcon />}
-                <Typography variant="h6">
-                    {type.charAt(0).toUpperCase() + type.slice(1)}
-                </Typography>
+                <Typography variant="h6">{type.charAt(0).toUpperCase() + type.slice(1)}</Typography>
                 <ArrowDropDownIcon />
             </Box>
         );
-    } else {
+    } 
+    else {
         return (
             <Box sx={activeStyle}>
                 <Typography variant="h6">{type.charAt(0).toUpperCase() + type.slice(1)}</Typography>
-                <InputSection type={type} />
+                <InputSection type={type} {...inputProps} />
             </Box>
         );
     }
