@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Section from "./Section";
 import { Box } from "@mui/material";
+import Resume from "./Resume";
 
 function App() {
     const [activeSection, setActiveSection] = useState(0);
@@ -10,13 +11,17 @@ function App() {
     const [phone, setPhone] = useState("(604)-123-4567");
     const [address, setAddress] = useState("123 ABC Street, Vancouver, BC, Canada");
 
-    const [school, setSchool] = useState("Simon Fraser University");
-    const [degree, setDegree] = useState("Computer Science");
-    const [graduationYear, setGraduationYear] = useState("2026");
+    const [education, setEduction] = useState([{
+        school: "Simon Fraser University",
+        degree: "Computer Science",
+        graduationYear: "2026"
+    }]);
 
-    const [jobTitle, setJobTitle] = useState("Full Stack Developer");
-    const [company, setCompany] = useState("ViRA360");
-    const [yearsWorked, setYearsWorked] = useState("2");
+    const [experience, setExperience] = useState([{
+        jobTitle: "Full Stack Developer",
+        company: "ViRA360",
+        yearsWorked: "2",
+    }]);
 
     const inputStyle = {
         padding: "24px",
@@ -37,6 +42,9 @@ function App() {
         alignItems: "center",
         gap: "12px",
         minHeight: "100vh",
+        "@media (max-width: 1200px)": {
+            flexDirection: "column",
+        },
     };
 
     const resumeStyle = {
@@ -66,21 +74,19 @@ function App() {
                     type="education" 
                     isActive={activeSection === 1} 
                     onClick={() => expandShrink(1)}
-                    school={school} setSchool={setSchool}
-                    degree={degree} setDegree={setDegree}
-                    graduationYear={graduationYear} setGraduationYear={setGraduationYear}
+                    education = {education} 
+                    setEduction = {setEduction}
                 />
                 <Section 
                     type="experience" 
                     isActive={activeSection === 2} 
                     onClick={() => expandShrink(2)}
-                    jobTitle={jobTitle} setJobTitle={setJobTitle}
-                    company={company} setCompany={setCompany}
-                    yearsWorked={yearsWorked} setYearsWorked={setYearsWorked}
+                    experience = {experience}
+                    setExperience = {setExperience}
                 />
             </Box>
             <Box sx={resumeStyle}>
-
+                <Resume fullName={fullName} email={email} phone={phone} address={address} education={education} experience={experience}/>
             </Box>
         </Box>
     );
