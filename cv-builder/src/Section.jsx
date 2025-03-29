@@ -5,7 +5,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import WorkHistoryIcon from "@mui/icons-material/WorkHistory";
 import PersonIcon from "@mui/icons-material/Person";
 
-function Section({ type = "details", isActive = false }) {
+function Section({ type = "details", isActive = false, onClick }) {
     const inactiveStyle = {
         display: "flex",
         alignItems: "center",
@@ -14,6 +14,7 @@ function Section({ type = "details", isActive = false }) {
         borderRadius: "8px",
         padding: "12px",
         minWidth: "100%",
+        cursor: "pointer",
         "&:hover": {
             outline: "2px solid black",
         },
@@ -31,65 +32,25 @@ function Section({ type = "details", isActive = false }) {
         gap: "12px",
     };
 
-    if (type === "details") {
-        if (!isActive) {
-            return (
-                <Box sx={inactiveStyle}>
-                    <PersonIcon />
-                    <Typography variant="h6">
-                        {type.charAt(0).toUpperCase() + type.slice(1)}
-                    </Typography>
-                    <ArrowDropDownIcon />
-                </Box>
-            );
-        } else {
-            return (
-                <Box sx={activeStyle}>
-                    <Typography variant="h6">Details</Typography>
-                    <InputSection type="details" />
-                </Box>
-            );
-        }
-    } else if (type === "education") {
-        if (!isActive) {
-            return (
-                <Box sx={inactiveStyle}>
-                    <SchoolIcon />
-                    <Typography variant="h6">
-                        {type.charAt(0).toUpperCase() + type.slice(1)}
-                    </Typography>
-                    <ArrowDropDownIcon />
-                </Box>
-            );
-        } else {
-            return (
-                <Box sx={activeStyle}>
-                    <Typography variant="h6">Education</Typography>
-                    <InputSection type="education" />
-                </Box>
-            );
-        }
-    } else if (type === "experience") {
-        if (!isActive) {
-            return (
-                <Box sx={inactiveStyle}>
-                    <WorkHistoryIcon />
-                    <Typography variant="h6">
-                        {type.charAt(0).toUpperCase() + type.slice(1)}
-                    </Typography>
-                    <ArrowDropDownIcon />
-                </Box>
-            );
-        } else {
-            return (
-                <Box sx={activeStyle}>
-                    <Typography variant="h6">Experience</Typography>
-                    <InputSection type="experience" />
-                </Box>
-            );
-        }
+    if (!isActive) {
+        return (
+            <Box sx={inactiveStyle} onClick={onClick}> 
+                {type === "details" && <PersonIcon />}
+                {type === "education" && <SchoolIcon />}
+                {type === "experience" && <WorkHistoryIcon />}
+                <Typography variant="h6">
+                    {type.charAt(0).toUpperCase() + type.slice(1)}
+                </Typography>
+                <ArrowDropDownIcon />
+            </Box>
+        );
     } else {
-        return <Typography variant="h6">Invalid or missing type</Typography>;
+        return (
+            <Box sx={activeStyle}>
+                <Typography variant="h6">{type.charAt(0).toUpperCase() + type.slice(1)}</Typography>
+                <InputSection type={type} />
+            </Box>
+        );
     }
 }
 

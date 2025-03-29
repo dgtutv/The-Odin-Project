@@ -26,14 +26,16 @@ function App() {
         minHeight: "100vh",
     };
 
-    function onclick(event) {}
+    function expandShrink(sectionIndex) {
+		setActiveSection(sectionIndex);
+    }
 
     return (
         <Box sx={globalStyle}>
             <Box sx={inputStyle}>
-                <Section type="details" isActive />
-                <Section type="education" />
-                <Section type="experience" />
+                <Section type="details" isActive={activeSection === 0} onClick={() => {expandShrink(0)}} />
+                <Section type="education" isActive={activeSection === 1} onClick={() => {expandShrink(1)}} />
+                <Section type="experience" isActive={activeSection === 2} onClick={() => {expandShrink(2)}} />
             </Box>
         </Box>
     );
