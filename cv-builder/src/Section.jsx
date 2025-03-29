@@ -1,16 +1,22 @@
 import { Box, Typography } from '@mui/material';
 import InputSection from './InputSection';
 import SchoolIcon from '@mui/icons-material/School';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
+import PersonIcon from '@mui/icons-material/Person';
 
 function Section ({type = "details", isActive = false}) {
     const inactiveStyle = {
         display: "flex", 
         alignItems: "center", 
-        justifyContent: "flex-start", 
+        justifyContent: "space-between", 
         backgroundColor: "white", 
         borderRadius: "8px",
         padding: '12px',
         minWidth: "100%",
+        '&:hover': {
+            outline: "2px solid black"
+        }
     }
 
     const activeStyle = {
@@ -29,7 +35,9 @@ function Section ({type = "details", isActive = false}) {
         if(!isActive){
             return (
                 <Box sx={inactiveStyle}>
+                    <PersonIcon/>
                     <Typography variant='h6'>{type.charAt(0).toUpperCase() + type.slice(1)}</Typography>
+                    <ArrowDropDownIcon/>
                 </Box>
             )
         }
@@ -49,6 +57,7 @@ function Section ({type = "details", isActive = false}) {
                 <Box sx={inactiveStyle}>
                     <SchoolIcon/>
                     <Typography variant='h6'>{type.charAt(0).toUpperCase() + type.slice(1)}</Typography>
+                    <ArrowDropDownIcon/>
                 </Box>
             )
         }
@@ -66,7 +75,9 @@ function Section ({type = "details", isActive = false}) {
         if(!isActive){
             return (
                 <Box sx={inactiveStyle}>
+                    <WorkHistoryIcon/>
                     <Typography variant='h6'>{type.charAt(0).toUpperCase() + type.slice(1)}</Typography>
+                    <ArrowDropDownIcon/>
                 </Box>
             )
         }
