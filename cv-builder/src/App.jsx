@@ -33,11 +33,18 @@ function App() {
         height: "100%",
         display: "flex",
         flexDirection: "row",
-        justifyContent: "flex-start",
+        justifyContent: "center",
         alignItems: "center",
         gap: "12px",
         minHeight: "100vh",
     };
+
+    const resumeStyle = {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+    }
 
     function expandShrink(sectionIndex) {
         setActiveSection(sectionIndex);
@@ -45,7 +52,7 @@ function App() {
 
     return (
         <Box sx={globalStyle}>
-            <Box sx={inputStyle}>
+            <Box sx={inputStyle}>	//Edit resume section
                 <Section 
                     type="details" 
                     isActive={activeSection === 0} 
@@ -71,6 +78,9 @@ function App() {
                     company={company} setCompany={setCompany}
                     yearsWorked={yearsWorked} setYearsWorked={setYearsWorked}
                 />
+            </Box>
+            <Box sx={resumeStyle}>
+                
             </Box>
         </Box>
     );

@@ -18,11 +18,14 @@ function Section({
         backgroundColor: "white",
         borderRadius: "8px",
         padding: "12px",
-        minWidth: "100%",
+        width: "35vw",
+        minWidth: "141px",
+        maxWidth: "390px",
         cursor: "pointer",
         "&:hover": {
             outline: "2px solid black",
         },
+        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
     };
 
     const activeStyle = {
@@ -33,8 +36,11 @@ function Section({
         borderRadius: "8px",
         backgroundColor: "white",
         padding: "12px",
-        minWidth: "100%",
+        width: "35vw",
+        minWidth: "141px",
+        maxWidth: "390px",
         gap: "12px",
+        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
     };
 
     if (!isActive) {
