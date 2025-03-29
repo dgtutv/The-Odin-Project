@@ -52,7 +52,7 @@ function App() {
 
     return (
         <Box sx={globalStyle}>
-            <Box sx={inputStyle}>	//Edit resume section
+            <Box sx={inputStyle}>
                 <Section 
                     type="details" 
                     isActive={activeSection === 0} 
@@ -80,7 +80,7 @@ function App() {
                 />
             </Box>
             <Box sx={resumeStyle}>
-                
+
             </Box>
         </Box>
     );
