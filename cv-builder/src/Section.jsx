@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import SectionInput from './SectionInput';
+import InputSection from './InputSection';
 import SchoolIcon from '@mui/icons-material/School';
 
 function Section ({type = "details", isActive = false}) {
@@ -9,6 +9,8 @@ function Section ({type = "details", isActive = false}) {
         justifyContent: "flex-start", 
         backgroundColor: "white", 
         borderRadius: "8px",
+        padding: '12px',
+        minWidth: "100%",
     }
 
     const activeStyle = {
@@ -18,7 +20,9 @@ function Section ({type = "details", isActive = false}) {
         alignItems: 'flex-start',
         borderRadius: "8px",
         backgroundColor: "white", 
-
+        padding: '12px',
+        minWidth: "100%",
+        gap: "12px",
     }
 
     if (type === "details"){
@@ -33,7 +37,7 @@ function Section ({type = "details", isActive = false}) {
             return (
                 <Box sx={activeStyle}>
                     <Typography variant = "h6">Details</Typography>
-                    <SectionInput type = "details"/>
+                    <InputSection type = "details"/>
                 </Box>
             )
         }
@@ -52,7 +56,7 @@ function Section ({type = "details", isActive = false}) {
             return (
                 <Box sx={activeStyle}>
                     <Typography variant = "h6">Education</Typography>
-                    <SectionInput  type = "education"/>
+                    <InputSection  type = "education"/>
                 </Box>
             )
         }
@@ -70,7 +74,7 @@ function Section ({type = "details", isActive = false}) {
             return (
                 <Box sx={activeStyle}>
                     <Typography variant = "h6">Experience</Typography>
-                    <SectionInput type = "experience"/>
+                    <InputSection type = "experience"/>
                 </Box>
             )
         }

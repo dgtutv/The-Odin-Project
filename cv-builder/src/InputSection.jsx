@@ -20,38 +20,38 @@ function InputSection({ type = "details" }) {
             label={label}
             value={value}
             onChange={onChange}
-            variant="standard"
+            variant="outlined"
             fullWidth
-            margin="small"
+            margin="medium"
         />
     );
 
     if(type === "details"){
         return(
-            <Box>
+            <>
                 {renderTextField("Full Name", fullName, (event) => setFullName(event.target.value))}
                 {renderTextField("Email", email, (event) => setEmail(event.target.value))}
                 {renderTextField("Phone Number", phone, (event) => setPhone(event.target.value))}
                 {renderTextField("Address", address, (event) => setAddress(event.target.value))}
-            </Box>
+            </>
         );
     }
     else if(type === "education"){
         return (
-            <Box>
+            <>
                 {renderTextField("School", school, (event) => setSchool(event.target.value))}
                 {renderTextField("Degree", degree, (event) => setDegree(event.target.value))}
                 {renderTextField("Graduation Year", graduationYear, (event) => setGraduationYear(event.target.value))}
-            </Box>
+            </>
         );
     }
     else if(type === "experience"){
         return (
-            <Box>
+            <>
                 {renderTextField("Job Title", jobTitle, (event) => setJobTitle(event.target.value))}
                 {renderTextField("Company", company, (event) => setCompany(event.target.value))}
                 {renderTextField("Years Worked", yearsWorked, (event) => setYearsWorked(event.target.value))}
-            </Box>
+            </>
         );
     }
     else{
