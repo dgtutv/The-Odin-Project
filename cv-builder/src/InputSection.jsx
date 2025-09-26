@@ -42,11 +42,13 @@ function InputSection({
         borderRadius: "8px",
         backgroundColor: "white",
         padding: "10px",
-        width: "380px",
         gap: "12px",
+        width: "100%",
+        maxWidth: "100%",
+        minWidth: 0,
+        boxSizing: "border-box",
         boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
         outline: "1px solid gray",
-
     }
 
     const removeEducation = (index) => {
