@@ -9,7 +9,7 @@ function Resume({
     experience,
 }) {
     return (
-        <Box sx={{ backgroundColor: "white", p: 3, width: "600px", height: "min",  mx: "auto", boxShadow: 3, aspectRatio: "1.3 / 1" }}>
+        <Box sx={{ backgroundColor: "white", p: 3, width: "600px", minHeight: "780px", maxHeight: "100%",  mx: "auto", boxShadow: 3, aspectRatio: "1.3 / 1" }}>
             <Box sx={{ backgroundColor: "#0d3552", color: "white", p: 2, textAlign: "center" }}>
                 <Typography variant="h4" fontWeight="bold">{fullName}</Typography>
                 <Typography variant="body1">{email} | {phone} | {address}</Typography>
