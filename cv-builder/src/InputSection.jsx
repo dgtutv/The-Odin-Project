@@ -103,10 +103,9 @@ function InputSection({
         return (
             <>
                 {experience.map((exp, index) => (
-                    <Box key={index} sx={boxStyle}>
-                        <Typography variant="h6">Experience {index+1}:</Typography>
+                    <Box key={index} sx={boxStyle}>     
                         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
-                            <Typography variant="h6">Education {index+1}:</Typography>
+                            <Typography variant="h6">Experience {index+1}:</Typography>
                             <Button
                                 variant="contained"
                                 size="small"
