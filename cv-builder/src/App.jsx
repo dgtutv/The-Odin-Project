@@ -39,7 +39,7 @@ function App() {
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "flex-start",
         gap: "12px",
         minHeight: "100vh",
         "@media (max-width: 1200px)": {
