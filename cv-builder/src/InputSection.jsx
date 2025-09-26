@@ -1,4 +1,4 @@
-import { TextField, Typography, Box } from "@mui/material";
+import { TextField, Typography, Box, Button } from "@mui/material";
 
 function InputSection({
     type = "details",
@@ -49,6 +49,18 @@ function InputSection({
 
     }
 
+    const removeEducation = (index) => {
+        const updatedEducation = [...education];
+        updatedEducation.splice(index, 1);
+        setEducation(updatedEducation);
+    }
+
+    const removeExperience = (index) => {
+        const updatedExperience = [...experience];
+        updatedExperience.splice(index, 1);
+        setExperience(updatedExperience);
+    }
+
     if (type === "details") {
         return (
             <>
@@ -64,7 +76,17 @@ function InputSection({
             <>
                 {education.map((edu, index) =>(
                     <Box key={index} sx={boxStyle}>
-                        <Typography variant="h6">Education {index+1}:</Typography>
+                        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+                            <Typography variant="h6">Education {index+1}:</Typography>
+                            <Button
+                                variant="contained"
+                                size="small"
+                                onClick={() => removeEducation(index)}
+                                sx={{ backgroundColor: "#d21919ff", "&:hover": { backgroundColor: "#c01515ff" } }}
+                            >
+                                Remove
+                            </Button>
+                        </Box>
                         {renderTextField("School", edu.school, (e) => updateEducation(index, "school", e.target.value))}
                         {renderTextField("Degree", edu.degree, (e) => updateEducation(index, "degree", e.target.value))}
                         {renderTextField("Graduation Year", edu.graduationYear, (e) => updateEducation(index, "graduationYear", e.target.value))}
@@ -80,6 +102,17 @@ function InputSection({
                 {experience.map((exp, index) => (
                     <Box key={index} sx={boxStyle}>
                         <Typography variant="h6">Experience {index+1}:</Typography>
+                        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+                            <Typography variant="h6">Education {index+1}:</Typography>
+                            <Button
+                                variant="contained"
+                                size="small"
+                                onClick={() => removeExperience(index)}
+                                sx={{ backgroundColor: "#d21919ff", "&:hover": { backgroundColor: "#c01515ff" } }}
+                            >
+                                Remove
+                            </Button>
+                        </Box>
                         {renderTextField("Job Title", exp.jobTitle, (e) => updateExperience(index, "jobTitle", e.target.value))}
                         {renderTextField("Company", exp.company, (e) => updateExperience(index, "company", e.target.value))}
                         {renderTextField("Years Worked", exp.yearsWorked, (e) => updateExperience(index, "yearsWorked", e.target.value))}
