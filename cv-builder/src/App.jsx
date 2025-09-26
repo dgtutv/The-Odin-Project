@@ -11,17 +11,38 @@ function App() {
     const [phone, setPhone] = useState("(604)-123-4567");
     const [address, setAddress] = useState("123 ABC Street, Vancouver, BC, Canada");
 
-    const [education, setEducation] = useState([{
+    const [education, setEducation] = useState([
+        {
         school: "Simon Fraser University",
         degree: "Computer Science",
-        graduationYear: "2026"
-    }]);
+        startYear: "2021",
+        endYear: "2027"
+        },
+        {
+        school: "Walnut Grove Secondary School",
+        degree: "High School Diploma",
+        startYear: "2016",
+        endYear: "2020"
+        },
+    ]);
 
-    const [experience, setExperience] = useState([{
+    const [experience, setExperience] = useState([
+        {
         jobTitle: "Full Stack Developer",
         company: "ViRA360",
-        yearsWorked: "2",
-    }]);
+        startYear: "2024",
+        endYear: "2025",
+        description: "Developed an AI assessment tool\nUses chatGPT API to generate unique questionarre\nStack: Next.js backend, mySQL database, React frontend"
+        },
+        {
+            jobTitle: "Cook",
+            company: "The Hard Bean Brunch Company",
+            startYear: "2021",
+            endYear: "2023",
+            description: "Developed skills to work under pressure\nLearned how to stay productive for extended periods"
+        }
+    ]);
+
 
     const inputStyle = {
         padding: "24px",
