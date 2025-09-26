@@ -64,7 +64,7 @@ function App() {
     }
 
     function addExperience() {
-        setExperience([...experience, { jobTitle: "", company: "", location: "", startYear: "", endYear: "" }]);
+        setExperience([...experience, { jobTitle: "", company: "", location: "", startYear: "", endYear: "", description: "" }]);
     }
 
     return (

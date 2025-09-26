@@ -35,7 +35,20 @@ function Resume({
                     <Box key={index} sx={{ my: 1 }}>
                         <Typography fontWeight="bold">{exp.company} - {exp.jobTitle}</Typography>
                         <Typography>{exp.location} | {exp.startYear} - {exp.endYear} </Typography>
-                        <Typography variant="body2">{exp.description}</Typography>
+                        {exp.description && (
+                            <Box component="ul" sx={{ mt: 1, mb: 0, pl: 2 }}>
+                                {exp.description.split('\n').filter(line => line.trim()).map((line, lineIndex) => (
+                                    <Typography 
+                                        component="li" 
+                                        variant="body2" 
+                                        key={lineIndex}
+                                        sx={{ mb: 0.5, listStyleType: 'disc' }}
+                                    >
+                                        {line.trim()}
+                                    </Typography>
+                                ))}
+                            </Box>
+                        )}
                     </Box>
                 ))}
             </Box>

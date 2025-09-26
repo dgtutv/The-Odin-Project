@@ -20,6 +20,18 @@ function InputSection({
         />
     );
 
+    const renderParagraphField = (label, value, onChange) => (
+        <TextField
+            label={label}
+            value={value}
+            onChange={onChange}
+            variant="outlined"
+            fullWidth
+            margin="medium"
+            multiline
+        />
+    );
+
     const updateEducation = (index, field, value) => {
         const updatedEducation = [...education];
         updatedEducation[index][field] = value;
@@ -120,6 +132,7 @@ function InputSection({
                         {renderTextField("Location", exp.location, (e) => updateExperience(index, "location", e.target.value))}
                         {renderTextField("Start Year", exp.startYear, (e) => updateExperience(index, "startYear", e.target.value))}
                         {renderTextField("End Year", exp.endYear, (e) => updateExperience(index, "endYear", e.target.value))}
+                        {renderParagraphField("Description", exp.description, (e) => updateExperience(index, "description", e.target.value))}
                     </Box>
                 ))}
                 
