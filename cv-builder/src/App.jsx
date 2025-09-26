@@ -48,6 +48,7 @@ function App() {
     };
 
     const resumeStyle = {
+        padding: "24px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
