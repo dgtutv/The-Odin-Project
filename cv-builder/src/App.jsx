@@ -59,11 +59,11 @@ function App() {
     }
 
     function addEducation() {
-        setEducation([...education, { school: "", degree: "", graduationYear: "" }]);
+        setEducation([...education, { school: "", degree: "", startYear: "", endYear: "" }]);
     }
 
     function addExperience() {
-        setExperience([...experience, { jobTitle: "", company: "", yearsWorked: "" }]);
+        setExperience([...experience, { jobTitle: "", company: "", location: "", startYear: "", endYear: "" }]);
     }
 
     return (

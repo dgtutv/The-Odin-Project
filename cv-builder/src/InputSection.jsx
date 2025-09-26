@@ -89,7 +89,8 @@ function InputSection({
                         </Box>
                         {renderTextField("School", edu.school, (e) => updateEducation(index, "school", e.target.value))}
                         {renderTextField("Degree", edu.degree, (e) => updateEducation(index, "degree", e.target.value))}
-                        {renderTextField("Graduation Year", edu.graduationYear, (e) => updateEducation(index, "graduationYear", e.target.value))}
+                        {renderTextField("Start Year", edu.startYear, (e) => updateEducation(index, "startYear", e.target.value))}
+                        {renderTextField("End Year", edu.endYear, (e) => updateEducation(index, "endYear", e.target.value))}
                     </Box>
                 ))}
                 
@@ -115,7 +116,9 @@ function InputSection({
                         </Box>
                         {renderTextField("Job Title", exp.jobTitle, (e) => updateExperience(index, "jobTitle", e.target.value))}
                         {renderTextField("Company", exp.company, (e) => updateExperience(index, "company", e.target.value))}
-                        {renderTextField("Years Worked", exp.yearsWorked, (e) => updateExperience(index, "yearsWorked", e.target.value))}
+                        {renderTextField("Location", exp.location, (e) => updateExperience(index, "location", e.target.value))}
+                        {renderTextField("Start Year", exp.startYear, (e) => updateExperience(index, "startYear", e.target.value))}
+                        {renderTextField("End Year", exp.endYear, (e) => updateExperience(index, "endYear", e.target.value))}
                     </Box>
                 ))}
                 

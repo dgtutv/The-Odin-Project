@@ -22,7 +22,7 @@ function Resume({
                 {education.map((edu, index) => (
                     <Box key={index} sx={{ my: 1 }}>
                         <Typography fontWeight="bold">{edu.school}</Typography>
-                        <Typography>{edu.degree} ({edu.years})</Typography>
+                        <Typography>{edu.degree} ({edu.startYear} - {edu.endYear})</Typography>
                     </Box>
                 ))}
             </Box>
@@ -34,7 +34,7 @@ function Resume({
                 {experience.map((exp, index) => (
                     <Box key={index} sx={{ my: 1 }}>
                         <Typography fontWeight="bold">{exp.company} - {exp.jobTitle}</Typography>
-                        <Typography>{exp.location} | {exp.years}</Typography>
+                        <Typography>{exp.location} | {exp.startYear} - {exp.endYear} </Typography>
                         <Typography variant="body2">{exp.description}</Typography>
                     </Box>
                 ))}
