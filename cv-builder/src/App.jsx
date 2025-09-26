@@ -11,7 +11,7 @@ function App() {
     const [phone, setPhone] = useState("(604)-123-4567");
     const [address, setAddress] = useState("123 ABC Street, Vancouver, BC, Canada");
 
-    const [education, setEduction] = useState([{
+    const [education, setEducation] = useState([{
         school: "Simon Fraser University",
         degree: "Computer Science",
         graduationYear: "2026"
@@ -58,6 +58,14 @@ function App() {
         setActiveSection(sectionIndex);
     }
 
+    function addEducation() {
+        setEducation([...education, { school: "", degree: "", graduationYear: "" }]);
+    }
+
+    function addExperience() {
+        setExperience([...experience, { jobTitle: "", company: "", yearsWorked: "" }]);
+    }
+
     return (
         <Box sx={globalStyle}>
             <Box sx={inputStyle}>
@@ -75,7 +83,8 @@ function App() {
                     isActive={activeSection === 1} 
                     onClick={() => expandShrink(1)}
                     education = {education} 
-                    setEduction = {setEduction}
+                    setEducation = {setEducation}
+                    addEducation = {addEducation}
                 />
                 <Section 
                     type="experience" 
@@ -83,6 +92,7 @@ function App() {
                     onClick={() => expandShrink(2)}
                     experience = {experience}
                     setExperience = {setExperience}
+                    addExperience = {addExperience}
                 />
             </Box>
             <Box sx={resumeStyle}>

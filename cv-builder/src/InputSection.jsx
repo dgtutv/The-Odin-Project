@@ -73,7 +73,7 @@ function InputSection({
                         <Typography variant="h6">Education {index}:</Typography>
                         {renderTextField("School", edu.school, (e) => updateEducation(index, "school", e.target.value))}
                         {renderTextField("Degree", edu.degree, (e) => updateEducation(index, "degree", e.target.value))}
-                        {renderTextField("Graduation Year", edu.graduationYear, (e) => updateEducation(index, "degree", e.target.value))}
+                        {renderTextField("Graduation Year", edu.graduationYear, (e) => updateEducation(index, "graduationYear", e.target.value))}
                     </Box>
                 ))}
                 

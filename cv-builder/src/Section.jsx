@@ -1,14 +1,17 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import InputSection from "./InputSection";
 import SchoolIcon from "@mui/icons-material/School";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import WorkHistoryIcon from "@mui/icons-material/WorkHistory";
 import PersonIcon from "@mui/icons-material/Person";
+import AddIcon from "@mui/icons-material/Add";
 
 function Section({ 
     type = "details", 
     isActive = false, 
     onClick, 
+    addEducation,
+    addExperience,
     ...inputProps
 }) {
     const inactiveStyle = {
@@ -53,7 +56,31 @@ function Section({
     else {
         return (
             <Box sx={activeStyle}>
-                <Typography variant="h5">{type.charAt(0).toUpperCase() + type.slice(1)}</Typography>
+                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+                    <Typography variant="h5">{type.charAt(0).toUpperCase() + type.slice(1)}</Typography>
+                    {type === "education" && (
+                        <Button
+                            variant="contained"
+                            size="small"
+                            startIcon={<AddIcon />}
+                            onClick={addEducation}
+                            sx={{ backgroundColor: "#1976d2", "&:hover": { backgroundColor: "#1565c0" } }}
+                        >
+                            Add Education
+                        </Button>
+                    )}
+                    {type === "experience" && (
+                        <Button
+                            variant="contained"
+                            size="small"
+                            startIcon={<AddIcon />}
+                            onClick={addExperience}
+                            sx={{ backgroundColor: "#1976d2", "&:hover": { backgroundColor: "#1565c0" } }}
+                        >
+                            Add Experience
+                        </Button>
+                    )}
+                </Box>
                 <InputSection type={type} {...inputProps} />
             </Box>
         );
